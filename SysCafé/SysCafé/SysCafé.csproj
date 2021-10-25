@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=4834897b48fcce04, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.StrongName.5.15.3.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\..\Downloads\_Getintopc.com_Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
@@ -71,6 +74,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -10,3 +10,4 @@ C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.exe
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.pdb
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\Guna.UI2.dll
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.CopyComplete
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\FontAwesome.Sharp.dll
