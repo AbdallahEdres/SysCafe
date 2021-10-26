@@ -14,3 +14,5 @@ C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.mane
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.supplier_cont.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.AssemblyReference.cache
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.add_supplier_form.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.supllier_edit_form.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.new_supp_controler.resources

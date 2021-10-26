@@ -31,15 +31,15 @@ namespace SysCafé
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(maneger_form));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.refresh_but = new Guna.UI2.WinForms.Guna2CircleButton();
             this.select_table_but = new Guna.UI2.WinForms.Guna2Button();
             this.search_but = new Guna.UI2.WinForms.Guna2CircleButton();
             this.search_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.refresh_but = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.materials_but = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.main_panel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,6 +64,23 @@ namespace SysCafé
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1904, 82);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // refresh_but
+            // 
+            this.refresh_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refresh_but.CheckedState.Parent = this.refresh_but;
+            this.refresh_but.CustomImages.Parent = this.refresh_but;
+            this.refresh_but.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.refresh_but.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.refresh_but.ForeColor = System.Drawing.Color.White;
+            this.refresh_but.HoverState.Parent = this.refresh_but;
+            this.refresh_but.Image = ((System.Drawing.Image)(resources.GetObject("refresh_but.Image")));
+            this.refresh_but.Location = new System.Drawing.Point(1615, 18);
+            this.refresh_but.Name = "refresh_but";
+            this.refresh_but.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.refresh_but.ShadowDecoration.Parent = this.refresh_but;
+            this.refresh_but.Size = new System.Drawing.Size(54, 47);
+            this.refresh_but.TabIndex = 4;
             // 
             // select_table_but
             // 
@@ -142,7 +159,7 @@ namespace SysCafé
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
             this.guna2Panel2.BorderRadius = 49;
             this.guna2Panel2.Controls.Add(this.guna2Button3);
-            this.guna2Panel2.Controls.Add(this.guna2Button2);
+            this.guna2Panel2.Controls.Add(this.materials_but);
             this.guna2Panel2.Controls.Add(this.guna2Button1);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(-1, 79);
@@ -150,61 +167,6 @@ namespace SysCafé
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
             this.guna2Panel2.Size = new System.Drawing.Size(100, 960);
             this.guna2Panel2.TabIndex = 3;
-            // 
-            // refresh_but
-            // 
-            this.refresh_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refresh_but.CheckedState.Parent = this.refresh_but;
-            this.refresh_but.CustomImages.Parent = this.refresh_but;
-            this.refresh_but.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.refresh_but.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.refresh_but.ForeColor = System.Drawing.Color.White;
-            this.refresh_but.HoverState.Parent = this.refresh_but;
-            this.refresh_but.Image = ((System.Drawing.Image)(resources.GetObject("refresh_but.Image")));
-            this.refresh_but.Location = new System.Drawing.Point(1615, 18);
-            this.refresh_but.Name = "refresh_but";
-            this.refresh_but.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.refresh_but.ShadowDecoration.Parent = this.refresh_but;
-            this.refresh_but.Size = new System.Drawing.Size(54, 47);
-            this.refresh_but.TabIndex = 4;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Inter Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(13, -10);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button1.Location = new System.Drawing.Point(3, 34);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(94, 72);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Home";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(-10, 20);
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Inter Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.ImageOffset = new System.Drawing.Point(13, -10);
-            this.guna2Button2.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button2.Location = new System.Drawing.Point(0, 292);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(94, 72);
-            this.guna2Button2.TabIndex = 1;
-            this.guna2Button2.Text = "Home";
-            this.guna2Button2.TextOffset = new System.Drawing.Point(-10, 20);
             // 
             // guna2Button3
             // 
@@ -226,6 +188,46 @@ namespace SysCafé
             this.guna2Button3.Text = "Suppliers";
             this.guna2Button3.TextOffset = new System.Drawing.Point(-10, 20);
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
+            // materials_but
+            // 
+            this.materials_but.BorderRadius = 10;
+            this.materials_but.CheckedState.Parent = this.materials_but;
+            this.materials_but.CustomImages.Parent = this.materials_but;
+            this.materials_but.FillColor = System.Drawing.Color.Transparent;
+            this.materials_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materials_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.materials_but.HoverState.Parent = this.materials_but;
+            this.materials_but.Image = ((System.Drawing.Image)(resources.GetObject("materials_but.Image")));
+            this.materials_but.ImageOffset = new System.Drawing.Point(23, -12);
+            this.materials_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.materials_but.Location = new System.Drawing.Point(3, 292);
+            this.materials_but.Name = "materials_but";
+            this.materials_but.ShadowDecoration.Parent = this.materials_but;
+            this.materials_but.Size = new System.Drawing.Size(94, 72);
+            this.materials_but.TabIndex = 1;
+            this.materials_but.Text = "New supplies";
+            this.materials_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.materials_but.Click += new System.EventHandler(this.materials_but_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Inter Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(13, -10);
+            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2Button1.Location = new System.Drawing.Point(3, 34);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(94, 72);
+            this.guna2Button1.TabIndex = 0;
+            this.guna2Button1.Text = "Home";
+            this.guna2Button1.TextOffset = new System.Drawing.Point(-10, 20);
             // 
             // main_panel
             // 
@@ -268,7 +270,7 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2Button select_table_but;
         private Guna.UI2.WinForms.Guna2CircleButton refresh_but;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button materials_but;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel main_panel;
     }

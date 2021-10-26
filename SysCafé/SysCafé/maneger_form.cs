@@ -32,5 +32,14 @@ namespace SysCafé
             main_panel.Controls.Add(c);
             
         }
+
+        private void materials_but_Click(object sender, EventArgs e)
+        {
+            button_select(materials_but);
+            new_supp_controler new_Supp_Controler = new new_supp_controler();
+            main_panel.Controls.Add(new_Supp_Controler);
+            new_Supp_Controler.BringToFront();
+
+        }
     }
 }
