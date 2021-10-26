@@ -1,7 +1,6 @@
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\SysCafé.exe.config
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\SysCafé.exe
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\SysCafé.pdb
-C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.AssemblyReference.cache
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.Form1.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.Properties.Resources.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.GenerateResource.cache
@@ -11,3 +10,7 @@ C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.pdb
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\Guna.UI2.dll
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.CopyComplete
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.maneger_form.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.supplier_cont.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.AssemblyReference.cache
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.add_supplier_form.resources

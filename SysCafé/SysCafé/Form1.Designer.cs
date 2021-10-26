@@ -136,6 +136,7 @@ namespace SysCafé
             this.login_but.Size = new System.Drawing.Size(304, 64);
             this.login_but.TabIndex = 7;
             this.login_but.Text = "Login";
+            this.login_but.Click += new System.EventHandler(this.login_but_Click);
             // 
             // exit_but
             // 
@@ -164,7 +165,6 @@ namespace SysCafé
             this.Login_labl.Size = new System.Drawing.Size(142, 54);
             this.Login_labl.TabIndex = 1;
             this.Login_labl.Text = "Login";
-            this.Login_labl.Click += new System.EventHandler(this.Login_labl_Click);
             // 
             // mid_panel
             // 
@@ -187,7 +187,6 @@ namespace SysCafé
             this.mid_panel.ShadowShift = 0;
             this.mid_panel.Size = new System.Drawing.Size(1600, 900);
             this.mid_panel.TabIndex = 0;
-            this.mid_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.mid_panel_Paint);
             // 
             // pictureBox1
             // 
@@ -211,7 +210,6 @@ namespace SysCafé
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.mid_panel.ResumeLayout(false);
             this.mid_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

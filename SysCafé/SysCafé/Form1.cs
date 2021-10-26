@@ -22,24 +22,12 @@ namespace SysCafé
             Environment.Exit(0);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        
+        private void login_but_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void mid_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Login_labl_Click(object sender, EventArgs e)
-        {
-
+            maneger_form m = new maneger_form();
+            m.Show();
+            this.Hide();
         }
     }
 }
