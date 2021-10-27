@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SysCafé
 {
-    public partial class stock_cont : UserControl
+    public partial class stock_cont2 : UserControl
     {
-        public stock_cont()
+        public stock_cont2()
         {
             InitializeComponent();
         }

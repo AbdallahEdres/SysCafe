@@ -1,7 +1,7 @@
 ﻿
 namespace SysCafé
 {
-    partial class stock_cont
+    partial class stock_cont2
     {
         /// <summary> 
         /// Required designer variable.
@@ -36,13 +36,13 @@ namespace SysCafé
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.send_kitchen_but = new Guna.UI2.WinForms.Guna2Button();
             this.inventory_label = new System.Windows.Forms.Label();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.kitchen_label = new System.Windows.Forms.Label();
-            this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.send_kitchen_but = new Guna.UI2.WinForms.Guna2Button();
             this.send_inven_but = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.kitchen_label = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.guna2ShadowPanel3.SuspendLayout();
@@ -64,11 +64,27 @@ namespace SysCafé
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(880, 940);
             this.guna2ShadowPanel2.TabIndex = 1;
             // 
+            // send_kitchen_but
+            // 
+            this.send_kitchen_but.BorderRadius = 10;
+            this.send_kitchen_but.CheckedState.Parent = this.send_kitchen_but;
+            this.send_kitchen_but.CustomImages.Parent = this.send_kitchen_but;
+            this.send_kitchen_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.send_kitchen_but.Font = new System.Drawing.Font("Inter Semi Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.send_kitchen_but.ForeColor = System.Drawing.Color.White;
+            this.send_kitchen_but.HoverState.Parent = this.send_kitchen_but;
+            this.send_kitchen_but.Location = new System.Drawing.Point(297, 819);
+            this.send_kitchen_but.Name = "send_kitchen_but";
+            this.send_kitchen_but.ShadowDecoration.Parent = this.send_kitchen_but;
+            this.send_kitchen_but.Size = new System.Drawing.Size(287, 75);
+            this.send_kitchen_but.TabIndex = 2;
+            this.send_kitchen_but.Text = "Send To Kitchen";
+            // 
             // inventory_label
             // 
             this.inventory_label.AutoSize = true;
             this.inventory_label.Font = new System.Drawing.Font("Inter Extra Bold", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventory_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.inventory_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(3)))));
             this.inventory_label.Location = new System.Drawing.Point(297, 42);
             this.inventory_label.Name = "inventory_label";
             this.inventory_label.Size = new System.Drawing.Size(239, 54);
@@ -147,16 +163,21 @@ namespace SysCafé
             this.guna2ShadowPanel3.Size = new System.Drawing.Size(880, 940);
             this.guna2ShadowPanel3.TabIndex = 1;
             // 
-            // kitchen_label
+            // send_inven_but
             // 
-            this.kitchen_label.AutoSize = true;
-            this.kitchen_label.Font = new System.Drawing.Font("Inter Extra Bold", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kitchen_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.kitchen_label.Location = new System.Drawing.Point(354, 42);
-            this.kitchen_label.Name = "kitchen_label";
-            this.kitchen_label.Size = new System.Drawing.Size(200, 54);
-            this.kitchen_label.TabIndex = 2;
-            this.kitchen_label.Text = "Kitchen";
+            this.send_inven_but.BorderRadius = 10;
+            this.send_inven_but.CheckedState.Parent = this.send_inven_but;
+            this.send_inven_but.CustomImages.Parent = this.send_inven_but;
+            this.send_inven_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.send_inven_but.Font = new System.Drawing.Font("Inter Semi Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.send_inven_but.ForeColor = System.Drawing.Color.White;
+            this.send_inven_but.HoverState.Parent = this.send_inven_but;
+            this.send_inven_but.Location = new System.Drawing.Point(297, 819);
+            this.send_inven_but.Name = "send_inven_but";
+            this.send_inven_but.ShadowDecoration.Parent = this.send_inven_but;
+            this.send_inven_but.Size = new System.Drawing.Size(287, 75);
+            this.send_inven_but.TabIndex = 4;
+            this.send_inven_but.Text = "Send To Inventory";
             // 
             // guna2DataGridView2
             // 
@@ -215,37 +236,16 @@ namespace SysCafé
             this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // send_kitchen_but
+            // kitchen_label
             // 
-            this.send_kitchen_but.BorderRadius = 10;
-            this.send_kitchen_but.CheckedState.Parent = this.send_kitchen_but;
-            this.send_kitchen_but.CustomImages.Parent = this.send_kitchen_but;
-            this.send_kitchen_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.send_kitchen_but.Font = new System.Drawing.Font("Inter Semi Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.send_kitchen_but.ForeColor = System.Drawing.Color.White;
-            this.send_kitchen_but.HoverState.Parent = this.send_kitchen_but;
-            this.send_kitchen_but.Location = new System.Drawing.Point(297, 819);
-            this.send_kitchen_but.Name = "send_kitchen_but";
-            this.send_kitchen_but.ShadowDecoration.Parent = this.send_kitchen_but;
-            this.send_kitchen_but.Size = new System.Drawing.Size(287, 75);
-            this.send_kitchen_but.TabIndex = 2;
-            this.send_kitchen_but.Text = "Send To Kitchen";
-            // 
-            // send_inven_but
-            // 
-            this.send_inven_but.BorderRadius = 10;
-            this.send_inven_but.CheckedState.Parent = this.send_inven_but;
-            this.send_inven_but.CustomImages.Parent = this.send_inven_but;
-            this.send_inven_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
-            this.send_inven_but.Font = new System.Drawing.Font("Inter Semi Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.send_inven_but.ForeColor = System.Drawing.Color.White;
-            this.send_inven_but.HoverState.Parent = this.send_inven_but;
-            this.send_inven_but.Location = new System.Drawing.Point(297, 819);
-            this.send_inven_but.Name = "send_inven_but";
-            this.send_inven_but.ShadowDecoration.Parent = this.send_inven_but;
-            this.send_inven_but.Size = new System.Drawing.Size(287, 75);
-            this.send_inven_but.TabIndex = 4;
-            this.send_inven_but.Text = "Send To Inventory";
+            this.kitchen_label.AutoSize = true;
+            this.kitchen_label.Font = new System.Drawing.Font("Inter Extra Bold", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kitchen_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.kitchen_label.Location = new System.Drawing.Point(354, 42);
+            this.kitchen_label.Name = "kitchen_label";
+            this.kitchen_label.Size = new System.Drawing.Size(200, 54);
+            this.kitchen_label.TabIndex = 2;
+            this.kitchen_label.Text = "Kitchen";
             // 
             // stock_cont
             // 

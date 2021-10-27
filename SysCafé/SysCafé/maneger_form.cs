@@ -12,10 +12,14 @@ namespace SysCafé
 {
     public partial class maneger_form : Form
     {
+        
+
         private void hide_cont()
         {
-            supplier_cont1.Visible = false;
-            new_supp_controler1.Visible = false;
+            supplier_cont1.Hide();
+            new_supp_controler1.Hide();
+            stock_cont21.Hide();
+            orders_cont1.Hide();
         }
         private void button_reset(Guna.UI2.WinForms.Guna2Button b)
         {
@@ -33,6 +37,8 @@ namespace SysCafé
         public maneger_form()
         {
             InitializeComponent();
+            button_select(Home_button);
+
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -40,8 +46,10 @@ namespace SysCafé
             button_select(suppliers_but);
             button_reset(stock_but);
             button_reset(materials_but);
+            button_reset(orders_but);
+            button_reset(Home_button);
             hide_cont();
-            supplier_cont1.Visible = true;
+            supplier_cont1.Show();
         }
 
         private void materials_but_Click(object sender, EventArgs e)
@@ -49,8 +57,11 @@ namespace SysCafé
             button_select(materials_but);
             button_reset(stock_but);
             button_reset(suppliers_but);
+            button_reset(orders_but);
+            button_reset(Home_button);
+
             hide_cont();
-            new_supp_controler1.Visible = true;
+            new_supp_controler1.Show();
 
 
         }
@@ -60,9 +71,47 @@ namespace SysCafé
             button_select(stock_but);
             button_reset(suppliers_but);
             button_reset(materials_but);
+            button_reset(orders_but);
+            button_reset(Home_button);
+            hide_cont();
+            stock_cont21.Show();
+           
+        }
+
+        private void orders_but_Click(object sender, EventArgs e)
+        {
+            button_select(orders_but);
+            button_reset(suppliers_but);
+            button_reset(materials_but);
+            button_reset(stock_but);
+            button_reset(Home_button);
+            hide_cont();
+            orders_cont1.Show();
+
 
         }
 
-       
+        private void maneger_form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            Application.OpenForms[0].Show();
+        }
+
+        private void logout_but_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.OpenForms[0].Show();
+        }
+
+        private void Home_button_Click(object sender, EventArgs e)
+        {
+            hide_cont();
+            button_select(Home_button);
+            button_reset(suppliers_but);
+            button_reset(materials_but);
+            button_reset(stock_but);
+            button_reset(orders_but);
+            hide_cont();
+        }
     }
 }

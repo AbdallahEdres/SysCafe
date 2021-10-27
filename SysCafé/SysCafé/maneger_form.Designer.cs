@@ -37,13 +37,17 @@ namespace SysCafé
             this.search_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nav_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.orders_but = new Guna.UI2.WinForms.Guna2Button();
+            this.stock_but = new Guna.UI2.WinForms.Guna2Button();
             this.suppliers_but = new Guna.UI2.WinForms.Guna2Button();
             this.materials_but = new Guna.UI2.WinForms.Guna2Button();
             this.Home_button = new Guna.UI2.WinForms.Guna2Button();
             this.main_panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.stock_but = new Guna.UI2.WinForms.Guna2Button();
-            this.new_supp_controler1 = new SysCafé.new_supp_controler();
+            this.orders_cont1 = new SysCafé.orders_cont();
+            this.stock_cont21 = new SysCafé.stock_cont2();
             this.supplier_cont1 = new SysCafé.supplier_cont();
+            this.new_supp_controler1 = new SysCafé.new_supp_controler();
+            this.logout_but = new Guna.UI2.WinForms.Guna2Button();
             this.top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.nav_panel.SuspendLayout();
@@ -162,6 +166,8 @@ namespace SysCafé
             this.nav_panel.AutoRoundedCorners = true;
             this.nav_panel.BackColor = System.Drawing.Color.White;
             this.nav_panel.BorderRadius = 49;
+            this.nav_panel.Controls.Add(this.logout_but);
+            this.nav_panel.Controls.Add(this.orders_but);
             this.nav_panel.Controls.Add(this.stock_but);
             this.nav_panel.Controls.Add(this.suppliers_but);
             this.nav_panel.Controls.Add(this.materials_but);
@@ -172,6 +178,48 @@ namespace SysCafé
             this.nav_panel.ShadowDecoration.Parent = this.nav_panel;
             this.nav_panel.Size = new System.Drawing.Size(100, 960);
             this.nav_panel.TabIndex = 3;
+            // 
+            // orders_but
+            // 
+            this.orders_but.BorderRadius = 10;
+            this.orders_but.CheckedState.Parent = this.orders_but;
+            this.orders_but.CustomImages.Parent = this.orders_but;
+            this.orders_but.FillColor = System.Drawing.Color.Transparent;
+            this.orders_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orders_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.orders_but.HoverState.Parent = this.orders_but;
+            this.orders_but.Image = ((System.Drawing.Image)(resources.GetObject("orders_but.Image")));
+            this.orders_but.ImageOffset = new System.Drawing.Point(12, -12);
+            this.orders_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.orders_but.Location = new System.Drawing.Point(1, 518);
+            this.orders_but.Name = "orders_but";
+            this.orders_but.ShadowDecoration.Parent = this.orders_but;
+            this.orders_but.Size = new System.Drawing.Size(94, 72);
+            this.orders_but.TabIndex = 4;
+            this.orders_but.Text = "Orders";
+            this.orders_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.orders_but.Click += new System.EventHandler(this.orders_but_Click);
+            // 
+            // stock_but
+            // 
+            this.stock_but.BorderRadius = 10;
+            this.stock_but.CheckedState.Parent = this.stock_but;
+            this.stock_but.CustomImages.Parent = this.stock_but;
+            this.stock_but.FillColor = System.Drawing.Color.Transparent;
+            this.stock_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stock_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.stock_but.HoverState.Parent = this.stock_but;
+            this.stock_but.Image = ((System.Drawing.Image)(resources.GetObject("stock_but.Image")));
+            this.stock_but.ImageOffset = new System.Drawing.Point(12, -12);
+            this.stock_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.stock_but.Location = new System.Drawing.Point(-1, 397);
+            this.stock_but.Name = "stock_but";
+            this.stock_but.ShadowDecoration.Parent = this.stock_but;
+            this.stock_but.Size = new System.Drawing.Size(94, 72);
+            this.stock_but.TabIndex = 3;
+            this.stock_but.Text = "Stock";
+            this.stock_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.stock_but.Click += new System.EventHandler(this.stock_but_Click);
             // 
             // suppliers_but
             // 
@@ -185,7 +233,7 @@ namespace SysCafé
             this.suppliers_but.Image = ((System.Drawing.Image)(resources.GetObject("suppliers_but.Image")));
             this.suppliers_but.ImageOffset = new System.Drawing.Point(20, -10);
             this.suppliers_but.ImageSize = new System.Drawing.Size(40, 40);
-            this.suppliers_but.Location = new System.Drawing.Point(3, 179);
+            this.suppliers_but.Location = new System.Drawing.Point(3, 155);
             this.suppliers_but.Name = "suppliers_but";
             this.suppliers_but.ShadowDecoration.Parent = this.suppliers_but;
             this.suppliers_but.Size = new System.Drawing.Size(94, 72);
@@ -206,7 +254,7 @@ namespace SysCafé
             this.materials_but.Image = ((System.Drawing.Image)(resources.GetObject("materials_but.Image")));
             this.materials_but.ImageOffset = new System.Drawing.Point(23, -12);
             this.materials_but.ImageSize = new System.Drawing.Size(40, 40);
-            this.materials_but.Location = new System.Drawing.Point(3, 292);
+            this.materials_but.Location = new System.Drawing.Point(3, 276);
             this.materials_but.Name = "materials_but";
             this.materials_but.ShadowDecoration.Parent = this.materials_but;
             this.materials_but.Size = new System.Drawing.Size(94, 72);
@@ -217,6 +265,7 @@ namespace SysCafé
             // 
             // Home_button
             // 
+            this.Home_button.BorderRadius = 10;
             this.Home_button.CheckedState.Parent = this.Home_button;
             this.Home_button.CustomImages.Parent = this.Home_button;
             this.Home_button.FillColor = System.Drawing.Color.Transparent;
@@ -233,13 +282,16 @@ namespace SysCafé
             this.Home_button.TabIndex = 0;
             this.Home_button.Text = "Home";
             this.Home_button.TextOffset = new System.Drawing.Point(-10, 20);
+            this.Home_button.Click += new System.EventHandler(this.Home_button_Click);
             // 
             // main_panel
             // 
             this.main_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_panel.BackColor = System.Drawing.Color.Maroon;
+            this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.Controls.Add(this.orders_cont1);
+            this.main_panel.Controls.Add(this.stock_cont21);
             this.main_panel.Controls.Add(this.supplier_cont1);
             this.main_panel.Controls.Add(this.new_supp_controler1);
             this.main_panel.Location = new System.Drawing.Point(99, 82);
@@ -248,26 +300,32 @@ namespace SysCafé
             this.main_panel.Size = new System.Drawing.Size(1800, 960);
             this.main_panel.TabIndex = 5;
             // 
-            // stock_but
+            // orders_cont1
             // 
-            this.stock_but.BorderRadius = 10;
-            this.stock_but.CheckedState.Parent = this.stock_but;
-            this.stock_but.CustomImages.Parent = this.stock_but;
-            this.stock_but.FillColor = System.Drawing.Color.Transparent;
-            this.stock_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stock_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
-            this.stock_but.HoverState.Parent = this.stock_but;
-            this.stock_but.Image = ((System.Drawing.Image)(resources.GetObject("stock_but.Image")));
-            this.stock_but.ImageOffset = new System.Drawing.Point(12, -12);
-            this.stock_but.ImageSize = new System.Drawing.Size(40, 40);
-            this.stock_but.Location = new System.Drawing.Point(-1, 411);
-            this.stock_but.Name = "stock_but";
-            this.stock_but.ShadowDecoration.Parent = this.stock_but;
-            this.stock_but.Size = new System.Drawing.Size(94, 72);
-            this.stock_but.TabIndex = 3;
-            this.stock_but.Text = "Stock";
-            this.stock_but.TextOffset = new System.Drawing.Point(-10, 20);
-            this.stock_but.Click += new System.EventHandler(this.stock_but_Click);
+            this.orders_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.orders_cont1.Location = new System.Drawing.Point(0, 0);
+            this.orders_cont1.Name = "orders_cont1";
+            this.orders_cont1.Size = new System.Drawing.Size(1800, 960);
+            this.orders_cont1.TabIndex = 3;
+            this.orders_cont1.Visible = false;
+            // 
+            // stock_cont21
+            // 
+            this.stock_cont21.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.stock_cont21.Location = new System.Drawing.Point(0, 0);
+            this.stock_cont21.Name = "stock_cont21";
+            this.stock_cont21.Size = new System.Drawing.Size(1800, 960);
+            this.stock_cont21.TabIndex = 2;
+            this.stock_cont21.Visible = false;
+            // 
+            // supplier_cont1
+            // 
+            this.supplier_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.supplier_cont1.Location = new System.Drawing.Point(0, 0);
+            this.supplier_cont1.Name = "supplier_cont1";
+            this.supplier_cont1.Size = new System.Drawing.Size(1800, 960);
+            this.supplier_cont1.TabIndex = 1;
+            this.supplier_cont1.Visible = false;
             // 
             // new_supp_controler1
             // 
@@ -278,14 +336,26 @@ namespace SysCafé
             this.new_supp_controler1.TabIndex = 0;
             this.new_supp_controler1.Visible = false;
             // 
-            // supplier_cont1
+            // logout_but
             // 
-            this.supplier_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.supplier_cont1.Location = new System.Drawing.Point(0, 0);
-            this.supplier_cont1.Name = "supplier_cont1";
-            this.supplier_cont1.Size = new System.Drawing.Size(1800, 960);
-            this.supplier_cont1.TabIndex = 1;
-            this.supplier_cont1.Visible = false;
+            this.logout_but.BorderRadius = 10;
+            this.logout_but.CheckedState.Parent = this.logout_but;
+            this.logout_but.CustomImages.Parent = this.logout_but;
+            this.logout_but.FillColor = System.Drawing.Color.Transparent;
+            this.logout_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.logout_but.HoverState.Parent = this.logout_but;
+            this.logout_but.Image = ((System.Drawing.Image)(resources.GetObject("logout_but.Image")));
+            this.logout_but.ImageOffset = new System.Drawing.Point(12, -12);
+            this.logout_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.logout_but.Location = new System.Drawing.Point(-1, 885);
+            this.logout_but.Name = "logout_but";
+            this.logout_but.ShadowDecoration.Parent = this.logout_but;
+            this.logout_but.Size = new System.Drawing.Size(94, 72);
+            this.logout_but.TabIndex = 5;
+            this.logout_but.Text = "Logout";
+            this.logout_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.logout_but.Click += new System.EventHandler(this.logout_but_Click);
             // 
             // maneger_form
             // 
@@ -299,6 +369,7 @@ namespace SysCafé
             this.MinimumSize = new System.Drawing.Size(1918, 1078);
             this.Name = "maneger_form";
             this.Text = "maneger_form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.maneger_form_FormClosed);
             this.top_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.nav_panel.ResumeLayout(false);
@@ -323,5 +394,9 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2Button stock_but;
         private supplier_cont supplier_cont1;
         private new_supp_controler new_supp_controler1;
+        private stock_cont2 stock_cont21;
+        private Guna.UI2.WinForms.Guna2Button orders_but;
+        private orders_cont orders_cont1;
+        private Guna.UI2.WinForms.Guna2Button logout_but;
     }
 }

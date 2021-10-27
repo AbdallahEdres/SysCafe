@@ -12,7 +12,9 @@ C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.cspr
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.maneger_form.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.supplier_cont.resources
-C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.AssemblyReference.cache
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.add_supplier_form.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.supllier_edit_form.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.new_supp_controler.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.AssemblyReference.cache
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.stock_cont2.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.orders_cont.resources
