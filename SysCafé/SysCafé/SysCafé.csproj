@@ -80,6 +80,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="stock_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="stock_cont.Designer.cs">
+      <DependentUpon>stock_cont.cs</DependentUpon>
+    </Compile>
     <Compile Include="supllier_edit_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="stock_cont.resx">
+      <DependentUpon>stock_cont.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="supllier_edit_form.resx">
       <DependentUpon>supllier_edit_form.cs</DependentUpon>
     </EmbeddedResource>

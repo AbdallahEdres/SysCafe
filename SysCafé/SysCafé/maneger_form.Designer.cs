@@ -30,40 +30,44 @@ namespace SysCafé
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(maneger_form));
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.top_panel = new Guna.UI2.WinForms.Guna2Panel();
             this.refresh_but = new Guna.UI2.WinForms.Guna2CircleButton();
             this.select_table_but = new Guna.UI2.WinForms.Guna2Button();
             this.search_but = new Guna.UI2.WinForms.Guna2CircleButton();
             this.search_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.nav_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.suppliers_but = new Guna.UI2.WinForms.Guna2Button();
             this.materials_but = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.Home_button = new Guna.UI2.WinForms.Guna2Button();
             this.main_panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel1.SuspendLayout();
+            this.stock_but = new Guna.UI2.WinForms.Guna2Button();
+            this.new_supp_controler1 = new SysCafé.new_supp_controler();
+            this.supplier_cont1 = new SysCafé.supplier_cont();
+            this.top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.guna2Panel2.SuspendLayout();
+            this.nav_panel.SuspendLayout();
+            this.main_panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // guna2Panel1
+            // top_panel
             // 
-            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.top_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Panel1.AutoRoundedCorners = true;
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderRadius = 40;
-            this.guna2Panel1.Controls.Add(this.refresh_but);
-            this.guna2Panel1.Controls.Add(this.select_table_but);
-            this.guna2Panel1.Controls.Add(this.search_but);
-            this.guna2Panel1.Controls.Add(this.search_txt);
-            this.guna2Panel1.Controls.Add(this.pictureBox1);
-            this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(1904, 82);
-            this.guna2Panel1.TabIndex = 2;
+            this.top_panel.AutoRoundedCorners = true;
+            this.top_panel.BackColor = System.Drawing.Color.White;
+            this.top_panel.BorderRadius = 40;
+            this.top_panel.Controls.Add(this.refresh_but);
+            this.top_panel.Controls.Add(this.select_table_but);
+            this.top_panel.Controls.Add(this.search_but);
+            this.top_panel.Controls.Add(this.search_txt);
+            this.top_panel.Controls.Add(this.pictureBox1);
+            this.top_panel.FillColor = System.Drawing.Color.White;
+            this.top_panel.Location = new System.Drawing.Point(0, 0);
+            this.top_panel.Name = "top_panel";
+            this.top_panel.ShadowDecoration.Parent = this.top_panel;
+            this.top_panel.Size = new System.Drawing.Size(1904, 82);
+            this.top_panel.TabIndex = 2;
             // 
             // refresh_but
             // 
@@ -151,43 +155,44 @@ namespace SysCafé
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // guna2Panel2
+            // nav_panel
             // 
-            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.nav_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2Panel2.AutoRoundedCorners = true;
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderRadius = 49;
-            this.guna2Panel2.Controls.Add(this.guna2Button3);
-            this.guna2Panel2.Controls.Add(this.materials_but);
-            this.guna2Panel2.Controls.Add(this.guna2Button1);
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(-1, 79);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(100, 960);
-            this.guna2Panel2.TabIndex = 3;
+            this.nav_panel.AutoRoundedCorners = true;
+            this.nav_panel.BackColor = System.Drawing.Color.White;
+            this.nav_panel.BorderRadius = 49;
+            this.nav_panel.Controls.Add(this.stock_but);
+            this.nav_panel.Controls.Add(this.suppliers_but);
+            this.nav_panel.Controls.Add(this.materials_but);
+            this.nav_panel.Controls.Add(this.Home_button);
+            this.nav_panel.FillColor = System.Drawing.Color.White;
+            this.nav_panel.Location = new System.Drawing.Point(-1, 79);
+            this.nav_panel.Name = "nav_panel";
+            this.nav_panel.ShadowDecoration.Parent = this.nav_panel;
+            this.nav_panel.Size = new System.Drawing.Size(100, 960);
+            this.nav_panel.TabIndex = 3;
             // 
-            // guna2Button3
+            // suppliers_but
             // 
-            this.guna2Button3.BorderRadius = 10;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Inter Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.ImageOffset = new System.Drawing.Point(20, -10);
-            this.guna2Button3.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button3.Location = new System.Drawing.Point(3, 179);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(94, 72);
-            this.guna2Button3.TabIndex = 2;
-            this.guna2Button3.Text = "Suppliers";
-            this.guna2Button3.TextOffset = new System.Drawing.Point(-10, 20);
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.suppliers_but.BorderRadius = 10;
+            this.suppliers_but.CheckedState.Parent = this.suppliers_but;
+            this.suppliers_but.CustomImages.Parent = this.suppliers_but;
+            this.suppliers_but.FillColor = System.Drawing.Color.Transparent;
+            this.suppliers_but.Font = new System.Drawing.Font("Inter Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suppliers_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.suppliers_but.HoverState.Parent = this.suppliers_but;
+            this.suppliers_but.Image = ((System.Drawing.Image)(resources.GetObject("suppliers_but.Image")));
+            this.suppliers_but.ImageOffset = new System.Drawing.Point(20, -10);
+            this.suppliers_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.suppliers_but.Location = new System.Drawing.Point(3, 179);
+            this.suppliers_but.Name = "suppliers_but";
+            this.suppliers_but.ShadowDecoration.Parent = this.suppliers_but;
+            this.suppliers_but.Size = new System.Drawing.Size(94, 72);
+            this.suppliers_but.TabIndex = 2;
+            this.suppliers_but.Text = "Suppliers";
+            this.suppliers_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.suppliers_but.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // materials_but
             // 
@@ -210,24 +215,24 @@ namespace SysCafé
             this.materials_but.TextOffset = new System.Drawing.Point(-10, 20);
             this.materials_but.Click += new System.EventHandler(this.materials_but_Click);
             // 
-            // guna2Button1
+            // Home_button
             // 
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Inter Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(13, -10);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button1.Location = new System.Drawing.Point(3, 34);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(94, 72);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "Home";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(-10, 20);
+            this.Home_button.CheckedState.Parent = this.Home_button;
+            this.Home_button.CustomImages.Parent = this.Home_button;
+            this.Home_button.FillColor = System.Drawing.Color.Transparent;
+            this.Home_button.Font = new System.Drawing.Font("Inter Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Home_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.Home_button.HoverState.Parent = this.Home_button;
+            this.Home_button.Image = ((System.Drawing.Image)(resources.GetObject("Home_button.Image")));
+            this.Home_button.ImageOffset = new System.Drawing.Point(13, -10);
+            this.Home_button.ImageSize = new System.Drawing.Size(40, 40);
+            this.Home_button.Location = new System.Drawing.Point(3, 34);
+            this.Home_button.Name = "Home_button";
+            this.Home_button.ShadowDecoration.Parent = this.Home_button;
+            this.Home_button.Size = new System.Drawing.Size(94, 72);
+            this.Home_button.TabIndex = 0;
+            this.Home_button.Text = "Home";
+            this.Home_button.TextOffset = new System.Drawing.Point(-10, 20);
             // 
             // main_panel
             // 
@@ -235,11 +240,52 @@ namespace SysCafé
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.main_panel.BackColor = System.Drawing.Color.Maroon;
+            this.main_panel.Controls.Add(this.supplier_cont1);
+            this.main_panel.Controls.Add(this.new_supp_controler1);
             this.main_panel.Location = new System.Drawing.Point(99, 82);
             this.main_panel.Name = "main_panel";
             this.main_panel.ShadowDecoration.Parent = this.main_panel;
             this.main_panel.Size = new System.Drawing.Size(1800, 960);
             this.main_panel.TabIndex = 5;
+            // 
+            // stock_but
+            // 
+            this.stock_but.BorderRadius = 10;
+            this.stock_but.CheckedState.Parent = this.stock_but;
+            this.stock_but.CustomImages.Parent = this.stock_but;
+            this.stock_but.FillColor = System.Drawing.Color.Transparent;
+            this.stock_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stock_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.stock_but.HoverState.Parent = this.stock_but;
+            this.stock_but.Image = ((System.Drawing.Image)(resources.GetObject("stock_but.Image")));
+            this.stock_but.ImageOffset = new System.Drawing.Point(12, -12);
+            this.stock_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.stock_but.Location = new System.Drawing.Point(-1, 411);
+            this.stock_but.Name = "stock_but";
+            this.stock_but.ShadowDecoration.Parent = this.stock_but;
+            this.stock_but.Size = new System.Drawing.Size(94, 72);
+            this.stock_but.TabIndex = 3;
+            this.stock_but.Text = "Stock";
+            this.stock_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.stock_but.Click += new System.EventHandler(this.stock_but_Click);
+            // 
+            // new_supp_controler1
+            // 
+            this.new_supp_controler1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.new_supp_controler1.Location = new System.Drawing.Point(0, 0);
+            this.new_supp_controler1.Name = "new_supp_controler1";
+            this.new_supp_controler1.Size = new System.Drawing.Size(1800, 960);
+            this.new_supp_controler1.TabIndex = 0;
+            this.new_supp_controler1.Visible = false;
+            // 
+            // supplier_cont1
+            // 
+            this.supplier_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.supplier_cont1.Location = new System.Drawing.Point(0, 0);
+            this.supplier_cont1.Name = "supplier_cont1";
+            this.supplier_cont1.Size = new System.Drawing.Size(1800, 960);
+            this.supplier_cont1.TabIndex = 1;
+            this.supplier_cont1.Visible = false;
             // 
             // maneger_form
             // 
@@ -248,30 +294,34 @@ namespace SysCafé
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1902, 1039);
             this.Controls.Add(this.main_panel);
-            this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.nav_panel);
+            this.Controls.Add(this.top_panel);
             this.MinimumSize = new System.Drawing.Size(1918, 1078);
             this.Name = "maneger_form";
             this.Text = "maneger_form";
-            this.guna2Panel1.ResumeLayout(false);
+            this.top_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.guna2Panel2.ResumeLayout(false);
+            this.nav_panel.ResumeLayout(false);
+            this.main_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel top_panel;
+        private Guna.UI2.WinForms.Guna2Panel nav_panel;
         private Guna.UI2.WinForms.Guna2TextBox search_txt;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2CircleButton search_but;
         private Guna.UI2.WinForms.Guna2Button select_table_but;
         private Guna.UI2.WinForms.Guna2CircleButton refresh_but;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button suppliers_but;
         private Guna.UI2.WinForms.Guna2Button materials_but;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button Home_button;
         private Guna.UI2.WinForms.Guna2Panel main_panel;
+        private Guna.UI2.WinForms.Guna2Button stock_but;
+        private supplier_cont supplier_cont1;
+        private new_supp_controler new_supp_controler1;
     }
 }
