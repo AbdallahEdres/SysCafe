@@ -38,6 +38,10 @@ namespace SysCafé
             this.sup_name_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.sup_phone_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.sup_adress2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sup_phonne2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // close_but
@@ -78,12 +82,13 @@ namespace SysCafé
             this.done_but.Size = new System.Drawing.Size(232, 70);
             this.done_but.TabIndex = 16;
             this.done_but.Text = "Done";
+            this.done_but.Click += new System.EventHandler(this.done_but_Click);
             // 
             // phone_label
             // 
             this.phone_label.AutoSize = true;
             this.phone_label.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_label.Location = new System.Drawing.Point(124, 293);
+            this.phone_label.Location = new System.Drawing.Point(143, 243);
             this.phone_label.Name = "phone_label";
             this.phone_label.Size = new System.Drawing.Size(143, 23);
             this.phone_label.TabIndex = 15;
@@ -93,7 +98,7 @@ namespace SysCafé
             // 
             this.adress_label.AutoSize = true;
             this.adress_label.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adress_label.Location = new System.Drawing.Point(124, 429);
+            this.adress_label.Location = new System.Drawing.Point(139, 395);
             this.adress_label.Name = "adress_label";
             this.adress_label.Size = new System.Drawing.Size(147, 23);
             this.adress_label.TabIndex = 14;
@@ -103,7 +108,7 @@ namespace SysCafé
             // 
             this.name_label.AutoSize = true;
             this.name_label.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_label.Location = new System.Drawing.Point(124, 165);
+            this.name_label.Location = new System.Drawing.Point(148, 167);
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(138, 23);
             this.name_label.TabIndex = 13;
@@ -124,7 +129,7 @@ namespace SysCafé
             this.sup_address_txt.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sup_address_txt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.sup_address_txt.HoverState.Parent = this.sup_address_txt;
-            this.sup_address_txt.Location = new System.Drawing.Point(354, 418);
+            this.sup_address_txt.Location = new System.Drawing.Point(354, 381);
             this.sup_address_txt.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.sup_address_txt.Name = "sup_address_txt";
             this.sup_address_txt.PasswordChar = '\0';
@@ -174,7 +179,7 @@ namespace SysCafé
             this.sup_phone_txt.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sup_phone_txt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.sup_phone_txt.HoverState.Parent = this.sup_phone_txt;
-            this.sup_phone_txt.Location = new System.Drawing.Point(354, 283);
+            this.sup_phone_txt.Location = new System.Drawing.Point(354, 231);
             this.sup_phone_txt.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.sup_phone_txt.Name = "sup_phone_txt";
             this.sup_phone_txt.PasswordChar = '\0';
@@ -194,12 +199,86 @@ namespace SysCafé
             this.label1.TabIndex = 9;
             this.label1.Text = "Edit Supplier";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(124, 471);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(162, 23);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Supplier Adress 2 :";
+            // 
+            // sup_adress2
+            // 
+            this.sup_adress2.BorderRadius = 10;
+            this.sup_adress2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.sup_adress2.DefaultText = "";
+            this.sup_adress2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.sup_adress2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.sup_adress2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.sup_adress2.DisabledState.Parent = this.sup_adress2;
+            this.sup_adress2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.sup_adress2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sup_adress2.FocusedState.Parent = this.sup_adress2;
+            this.sup_adress2.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sup_adress2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sup_adress2.HoverState.Parent = this.sup_adress2;
+            this.sup_adress2.Location = new System.Drawing.Point(354, 458);
+            this.sup_adress2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.sup_adress2.Name = "sup_adress2";
+            this.sup_adress2.PasswordChar = '\0';
+            this.sup_adress2.PlaceholderText = "";
+            this.sup_adress2.SelectedText = "";
+            this.sup_adress2.ShadowDecoration.Parent = this.sup_adress2;
+            this.sup_adress2.Size = new System.Drawing.Size(367, 45);
+            this.sup_adress2.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(128, 319);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 23);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Supplier Phone 2 :";
+            // 
+            // sup_phonne2
+            // 
+            this.sup_phonne2.BorderRadius = 10;
+            this.sup_phonne2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.sup_phonne2.DefaultText = "";
+            this.sup_phonne2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.sup_phonne2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.sup_phonne2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.sup_phonne2.DisabledState.Parent = this.sup_phonne2;
+            this.sup_phonne2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.sup_phonne2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sup_phonne2.FocusedState.Parent = this.sup_phonne2;
+            this.sup_phonne2.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sup_phonne2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sup_phonne2.HoverState.Parent = this.sup_phonne2;
+            this.sup_phonne2.Location = new System.Drawing.Point(354, 306);
+            this.sup_phonne2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.sup_phonne2.Name = "sup_phonne2";
+            this.sup_phonne2.PasswordChar = '\0';
+            this.sup_phonne2.PlaceholderText = "";
+            this.sup_phonne2.SelectedText = "";
+            this.sup_phonne2.ShadowDecoration.Parent = this.sup_phonne2;
+            this.sup_phonne2.Size = new System.Drawing.Size(367, 43);
+            this.sup_phonne2.TabIndex = 18;
+            // 
             // supllier_edit_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
             this.ClientSize = new System.Drawing.Size(905, 672);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.sup_adress2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.sup_phonne2);
             this.Controls.Add(this.close_but);
             this.Controls.Add(this.done_but);
             this.Controls.Add(this.phone_label);
@@ -230,5 +309,9 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2TextBox sup_name_txt;
         private Guna.UI2.WinForms.Guna2TextBox sup_phone_txt;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox sup_adress2;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox sup_phonne2;
     }
 }

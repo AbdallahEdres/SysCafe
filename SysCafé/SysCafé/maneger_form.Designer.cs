@@ -37,17 +37,17 @@ namespace SysCafé
             this.search_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nav_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.logout_but = new Guna.UI2.WinForms.Guna2Button();
             this.orders_but = new Guna.UI2.WinForms.Guna2Button();
             this.stock_but = new Guna.UI2.WinForms.Guna2Button();
             this.suppliers_but = new Guna.UI2.WinForms.Guna2Button();
             this.materials_but = new Guna.UI2.WinForms.Guna2Button();
             this.Home_button = new Guna.UI2.WinForms.Guna2Button();
             this.main_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.supplier_cont1 = new SysCafé.supplier_cont();
             this.orders_cont1 = new SysCafé.orders_cont();
             this.stock_cont21 = new SysCafé.stock_cont2();
-            this.supplier_cont1 = new SysCafé.supplier_cont();
             this.new_supp_controler1 = new SysCafé.new_supp_controler();
-            this.logout_but = new Guna.UI2.WinForms.Guna2Button();
             this.top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.nav_panel.SuspendLayout();
@@ -179,6 +179,27 @@ namespace SysCafé
             this.nav_panel.Size = new System.Drawing.Size(100, 960);
             this.nav_panel.TabIndex = 3;
             // 
+            // logout_but
+            // 
+            this.logout_but.BorderRadius = 10;
+            this.logout_but.CheckedState.Parent = this.logout_but;
+            this.logout_but.CustomImages.Parent = this.logout_but;
+            this.logout_but.FillColor = System.Drawing.Color.Transparent;
+            this.logout_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.logout_but.HoverState.Parent = this.logout_but;
+            this.logout_but.Image = ((System.Drawing.Image)(resources.GetObject("logout_but.Image")));
+            this.logout_but.ImageOffset = new System.Drawing.Point(12, -12);
+            this.logout_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.logout_but.Location = new System.Drawing.Point(-1, 885);
+            this.logout_but.Name = "logout_but";
+            this.logout_but.ShadowDecoration.Parent = this.logout_but;
+            this.logout_but.Size = new System.Drawing.Size(94, 72);
+            this.logout_but.TabIndex = 5;
+            this.logout_but.Text = "Logout";
+            this.logout_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.logout_but.Click += new System.EventHandler(this.logout_but_Click);
+            // 
             // orders_but
             // 
             this.orders_but.BorderRadius = 10;
@@ -290,15 +311,24 @@ namespace SysCafé
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.Controls.Add(this.supplier_cont1);
             this.main_panel.Controls.Add(this.orders_cont1);
             this.main_panel.Controls.Add(this.stock_cont21);
-            this.main_panel.Controls.Add(this.supplier_cont1);
             this.main_panel.Controls.Add(this.new_supp_controler1);
             this.main_panel.Location = new System.Drawing.Point(99, 82);
             this.main_panel.Name = "main_panel";
             this.main_panel.ShadowDecoration.Parent = this.main_panel;
             this.main_panel.Size = new System.Drawing.Size(1800, 960);
             this.main_panel.TabIndex = 5;
+            // 
+            // supplier_cont1
+            // 
+            this.supplier_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.supplier_cont1.Location = new System.Drawing.Point(0, 1);
+            this.supplier_cont1.Name = "supplier_cont1";
+            this.supplier_cont1.Size = new System.Drawing.Size(1800, 960);
+            this.supplier_cont1.TabIndex = 4;
+            this.supplier_cont1.Visible = false;
             // 
             // orders_cont1
             // 
@@ -318,15 +348,6 @@ namespace SysCafé
             this.stock_cont21.TabIndex = 2;
             this.stock_cont21.Visible = false;
             // 
-            // supplier_cont1
-            // 
-            this.supplier_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.supplier_cont1.Location = new System.Drawing.Point(0, 0);
-            this.supplier_cont1.Name = "supplier_cont1";
-            this.supplier_cont1.Size = new System.Drawing.Size(1800, 960);
-            this.supplier_cont1.TabIndex = 1;
-            this.supplier_cont1.Visible = false;
-            // 
             // new_supp_controler1
             // 
             this.new_supp_controler1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -335,27 +356,6 @@ namespace SysCafé
             this.new_supp_controler1.Size = new System.Drawing.Size(1800, 960);
             this.new_supp_controler1.TabIndex = 0;
             this.new_supp_controler1.Visible = false;
-            // 
-            // logout_but
-            // 
-            this.logout_but.BorderRadius = 10;
-            this.logout_but.CheckedState.Parent = this.logout_but;
-            this.logout_but.CustomImages.Parent = this.logout_but;
-            this.logout_but.FillColor = System.Drawing.Color.Transparent;
-            this.logout_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logout_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
-            this.logout_but.HoverState.Parent = this.logout_but;
-            this.logout_but.Image = ((System.Drawing.Image)(resources.GetObject("logout_but.Image")));
-            this.logout_but.ImageOffset = new System.Drawing.Point(12, -12);
-            this.logout_but.ImageSize = new System.Drawing.Size(40, 40);
-            this.logout_but.Location = new System.Drawing.Point(-1, 885);
-            this.logout_but.Name = "logout_but";
-            this.logout_but.ShadowDecoration.Parent = this.logout_but;
-            this.logout_but.Size = new System.Drawing.Size(94, 72);
-            this.logout_but.TabIndex = 5;
-            this.logout_but.Text = "Logout";
-            this.logout_but.TextOffset = new System.Drawing.Point(-10, 20);
-            this.logout_but.Click += new System.EventHandler(this.logout_but_Click);
             // 
             // maneger_form
             // 
@@ -392,11 +392,11 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2Button Home_button;
         private Guna.UI2.WinForms.Guna2Panel main_panel;
         private Guna.UI2.WinForms.Guna2Button stock_but;
-        private supplier_cont supplier_cont1;
         private new_supp_controler new_supp_controler1;
         private stock_cont2 stock_cont21;
         private Guna.UI2.WinForms.Guna2Button orders_but;
         private orders_cont orders_cont1;
         private Guna.UI2.WinForms.Guna2Button logout_but;
+        private supplier_cont supplier_cont1;
     }
 }

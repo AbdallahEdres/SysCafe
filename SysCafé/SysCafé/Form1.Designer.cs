@@ -69,6 +69,7 @@ namespace SysCafé
             this.username_txt.ShadowDecoration.Parent = this.username_txt;
             this.username_txt.Size = new System.Drawing.Size(418, 51);
             this.username_txt.TabIndex = 2;
+            this.username_txt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.username_txt_KeyDown);
             // 
             // Pasword_txt
             // 
@@ -90,12 +91,13 @@ namespace SysCafé
             this.Pasword_txt.Location = new System.Drawing.Point(591, 572);
             this.Pasword_txt.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.Pasword_txt.Name = "Pasword_txt";
-            this.Pasword_txt.PasswordChar = '\0';
+            this.Pasword_txt.PasswordChar = '*';
             this.Pasword_txt.PlaceholderText = "";
             this.Pasword_txt.SelectedText = "";
             this.Pasword_txt.ShadowDecoration.Parent = this.Pasword_txt;
             this.Pasword_txt.Size = new System.Drawing.Size(418, 52);
             this.Pasword_txt.TabIndex = 3;
+            this.Pasword_txt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pasword_txt_KeyDown);
             // 
             // username_lable
             // 

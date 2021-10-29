@@ -25,9 +25,37 @@ namespace SysCafé
         
         private void login_but_Click(object sender, EventArgs e)
         {
-            maneger_form m = new maneger_form();
-            m.Show();
-            this.Hide();
+           string status= manager_model.login(username_txt.Text, Pasword_txt.Text);
+            if (status == "manager")
+            {
+                maneger_form m = new maneger_form();
+                m.Show();
+                this.Hide();
+                username_txt.Text = "";
+                Pasword_txt.Text = "";
+            }else if (status == "wrong")
+            {
+                MessageBox.Show("wrong");
+            }
+           
+        }
+
+        private void Pasword_txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login_but.PerformClick();
+
+            }
+        }
+
+        private void username_txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Pasword_txt.Focus();
+
+            }
         }
     }
 }
