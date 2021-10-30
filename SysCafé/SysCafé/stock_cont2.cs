@@ -33,9 +33,12 @@ namespace SysCafé
 
         private void ineventory_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            inventory_count.Maximum = Convert.ToDecimal(ineventory_grid.Rows[e.RowIndex].Cells[1].Value);
-            inventory_count.Value = Convert.ToDecimal(ineventory_grid.Rows[e.RowIndex].Cells[1].Value);
-            name = ineventory_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+            if (e.RowIndex!=-1)
+            {
+                inventory_count.Maximum = Convert.ToDecimal(ineventory_grid.Rows[e.RowIndex].Cells[1].Value);
+                inventory_count.Value = Convert.ToDecimal(ineventory_grid.Rows[e.RowIndex].Cells[1].Value);
+                name = ineventory_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
 
         }
 
@@ -55,9 +58,14 @@ namespace SysCafé
 
         private void kitchen_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            kitchen_count.Maximum = Convert.ToDecimal(kitchen_grid.Rows[e.RowIndex].Cells[1].Value);
-            kitchen_count.Value = Convert.ToDecimal(kitchen_grid.Rows[e.RowIndex].Cells[1].Value);
-            name = kitchen_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+            if (e.RowIndex!=-1)
+            {
+                kitchen_count.Maximum = Convert.ToDecimal(kitchen_grid.Rows[e.RowIndex].Cells[1].Value);
+                kitchen_count.Value = Convert.ToDecimal(kitchen_grid.Rows[e.RowIndex].Cells[1].Value);
+                name = kitchen_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            }
+           
         }
 
         private void refresh_but_Click(object sender, EventArgs e)

@@ -110,7 +110,7 @@ namespace SysCafé
             this.guna2ShadowPanel2.Radius = 5;
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel2.ShadowShift = 10;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(1005, 622);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(1046, 622);
             this.guna2ShadowPanel2.TabIndex = 1;
             // 
             // orders_grid
@@ -154,7 +154,7 @@ namespace SysCafé
             this.orders_grid.RowHeadersVisible = false;
             this.orders_grid.RowTemplate.Height = 20;
             this.orders_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orders_grid.Size = new System.Drawing.Size(912, 555);
+            this.orders_grid.Size = new System.Drawing.Size(953, 555);
             this.orders_grid.TabIndex = 5;
             this.orders_grid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.orders_grid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
@@ -208,12 +208,12 @@ namespace SysCafé
             this.guna2ShadowPanel3.Controls.Add(this.details_grid);
             this.guna2ShadowPanel3.Controls.Add(this.label2);
             this.guna2ShadowPanel3.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ShadowPanel3.Location = new System.Drawing.Point(1138, 338);
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(1102, 338);
             this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
             this.guna2ShadowPanel3.Radius = 5;
             this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel3.ShadowShift = 10;
-            this.guna2ShadowPanel3.Size = new System.Drawing.Size(659, 622);
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(695, 622);
             this.guna2ShadowPanel3.TabIndex = 3;
             // 
             // details_grid
@@ -251,13 +251,13 @@ namespace SysCafé
             this.details_grid.DefaultCellStyle = dataGridViewCellStyle6;
             this.details_grid.EnableHeadersVisualStyles = false;
             this.details_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.details_grid.Location = new System.Drawing.Point(38, 61);
+            this.details_grid.Location = new System.Drawing.Point(19, 61);
             this.details_grid.Name = "details_grid";
             this.details_grid.ReadOnly = true;
             this.details_grid.RowHeadersVisible = false;
             this.details_grid.RowTemplate.Height = 20;
             this.details_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.details_grid.Size = new System.Drawing.Size(588, 537);
+            this.details_grid.Size = new System.Drawing.Size(655, 537);
             this.details_grid.TabIndex = 6;
             this.details_grid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.details_grid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));

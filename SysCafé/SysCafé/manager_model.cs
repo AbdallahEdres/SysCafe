@@ -171,7 +171,7 @@ namespace SysCafé
         public static void fill_content_grid(ref DataSet ds,int id)
         {
             cn.Open();
-            cmd = new SqlCommand("SELECT  material_list.material_name,  materials.material_count,  materials.weight_unit,  materials.price_unit,  materials.sup_id,  materials.date_bought,  materials.receipt_id FROM materials INNER JOIN material_list ON  materials.material_id = material_list.material_id where materials.receipt_id =" + id+"", cn);
+            cmd = new SqlCommand("SELECT material_list.material_name,  materials.material_count,  materials.weight_unit,  materials.price_unit,  suppliers.sup_name,  materials.date_bought,  materials.receipt_id FROM  materials INNER JOIN suppliers ON  materials.sup_id =  suppliers.sup_id INNER JOIN material_list ON  materials.material_id =  material_list.material_id where receipt_id=" + id+"", cn);
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
             da.Fill(ds, "receipts");
@@ -334,7 +334,7 @@ namespace SysCafé
         public static void orders_grid_fill(ref DataSet ds,int table_num)
         {
             cn.Open();
-            cmd = new SqlCommand("select * from tickets where table_num ="+table_num+"", cn);
+            cmd = new SqlCommand("SELECT tickets.ticket_id,  tickets.table_num,  tickets.open_time,  tickets.close_time,  tickets.ticket_status,  tickets.ticket_type,  workers_info.worker_name FROM workers_info INNER JOIN tickets ON  workers_info.worker_id =  tickets.worker_id where table_num =" + table_num+"", cn);
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
             da.Fill(ds, "orders");
@@ -343,7 +343,7 @@ namespace SysCafé
         public static void details_grid_fill(ref DataSet ds, int id)
         {
             cn.Open();
-            cmd = new SqlCommand("SELECT ticket_content.ticket_id,  menu_items.item_name,  menu_items.item_size,  menu_items.item_price,  menu_items.category_id,  ticket_content.item_count FROM menu_items INNER JOIN ticket_content ON  menu_items.item_id =  ticket_content.item_id where ticket_id="+id+"", cn);
+            cmd = new SqlCommand("SELECT ticket_content.ticket_id,  menu_items.item_name,  menu_items.item_size,  menu_items.item_price,  menu_category.category_name,  ticket_content.item_count FROM ticket_content INNER JOIN menu_items ON  ticket_content.item_id =  menu_items.item_id INNER JOIN menu_category ON  menu_items.category_id =  menu_category.category_id where ticket_id= " + id+"", cn);
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
             da.Fill(ds, "details");

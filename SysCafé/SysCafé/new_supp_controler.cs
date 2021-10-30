@@ -62,7 +62,7 @@ namespace SysCafé
                 receipt_id = manager_model.receipt_id();
                 manager_model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
                 counter =counter+1;
-                manager_model.add_inventor(manager_model.get_mat_id(mat_combo.Text), Convert.ToDouble(count_num.Value));
+                manager_model.add_inventor(mat_id, Convert.ToDouble(count_num.Value));
             }
             if(counter == item_num)
             {
@@ -73,14 +73,14 @@ namespace SysCafé
             supp_name_combo.Text = "";
             unite_price_num.Value = 0;
             count_num.Value = 0;
-/*            weight_num.Value = 0;
-*/
+            weight_num.Value = 0;
+
         }
 
         private void finish_but_Click(object sender, EventArgs e)
         {
             mat_id = manager_model.get_mat_id(mat_combo.Text);
-
+            manager_model.add_inventor(manager_model.get_mat_id(mat_combo.Text), Convert.ToDouble(count_num.Value));
             supplier_id = manager_model.get_supplier_id(supp_name_combo.SelectedItem.ToString());
             receipt_id = manager_model.receipt_id();
             manager_model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
@@ -95,7 +95,7 @@ namespace SysCafé
             counter = 1;
             manager_model.fill_pre_receipt_grid(ref ds);
             oldreceipt_grid.DataSource = ds.Tables[0].DefaultView;
-            manager_model.add_inventor(manager_model.get_mat_id(mat_combo.Text), Convert.ToDouble(count_num.Value));
+            
             mat_combo.Text = "";
             oldreceipt_grid.Sort(oldreceipt_grid.Columns[0], ListSortDirection.Descending);
 

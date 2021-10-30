@@ -58,7 +58,10 @@ namespace SysCafé
 
         private void suplier_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           manager_model.supp_id =Convert.ToInt32(suplier_grid.Rows[e.RowIndex].Cells[0].Value);
+            if (e.RowIndex!=-1)
+            {
+                manager_model.supp_id = Convert.ToInt32(suplier_grid.Rows[e.RowIndex].Cells[0].Value);
+            }
 
         }
 

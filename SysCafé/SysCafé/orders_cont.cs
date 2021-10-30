@@ -59,14 +59,30 @@ namespace SysCafé
             Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
             manager_model.orders_grid_fill(ref ds, Convert.ToInt32(clickedButton.Text));
             orders_grid.DataSource = ds.Tables[0].DefaultView;
+            orders_grid.Columns[0].HeaderText = "Ticket ID";
+            orders_grid.Columns[1].HeaderText = "Table Number";
+            orders_grid.Columns[2].HeaderText = "Oppening Time";
+            orders_grid.Columns[3].HeaderText = "Closed Time";
+            orders_grid.Columns[4].HeaderText = "Ticket Status";
+            orders_grid.Columns[5].HeaderText = "Ticket Type";
+            orders_grid.Columns[6].HeaderText = "Worker";
 
         }
 
         private void orders_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int ticket_id =Convert.ToInt32( orders_grid.Rows[e.RowIndex].Cells[0].Value);
-            manager_model.details_grid_fill(ref ds, ticket_id);
-            details_grid.DataSource = ds.Tables[0].DefaultView;
+            if (e.RowIndex != -1)
+            {
+                int ticket_id = Convert.ToInt32(orders_grid.Rows[e.RowIndex].Cells[0].Value);
+                manager_model.details_grid_fill(ref ds, ticket_id);
+                details_grid.DataSource = ds.Tables[0].DefaultView;
+                details_grid.Columns[0].HeaderText = "Ticket ID";
+                details_grid.Columns[1].HeaderText = "Item Name";
+                details_grid.Columns[2].HeaderText = "Size";
+                details_grid.Columns[3].HeaderText = "Price";
+                details_grid.Columns[4].HeaderText = "Category";
+                details_grid.Columns[5].HeaderText = "Count";
+            }
         }
     }
 }
