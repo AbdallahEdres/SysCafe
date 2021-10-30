@@ -269,5 +269,50 @@ namespace SysCafé
 
         }
         #endregion
+        #region orders
+        public static int num_table()
+        {
+            int num;
+            cn.Open();
+            cmd = new SqlCommand("select count (*) from the_tables", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            num = Convert.ToInt32(dr[0]);
+            dr.Close();
+            cn.Close();
+            return num;
+        }
+        public static int table_status(int id)
+        {
+            int status;
+            cn.Open();
+            cmd = new SqlCommand("select table_status from the_tables where table_number = "+id+"", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            status = Convert.ToInt32(dr[0]);
+            dr.Close();
+            cn.Close();
+            return status;
+
+        }
+        public static void orders_grid_fill(ref DataSet ds,int table_num)
+        {
+            cn.Open();
+            cmd = new SqlCommand("select * from tickets where table_num ="+table_num+"", cn);
+            da = new SqlDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds, "orders");
+            cn.Close();
+        }
+        public static void details_grid_fill(ref DataSet ds, int id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("SELECT ticket_content.ticket_id,  menu_items.item_name,  menu_items.item_size,  menu_items.item_price,  menu_items.category_id,  ticket_content.item_count FROM menu_items INNER JOIN ticket_content ON  menu_items.item_id =  ticket_content.item_id where ticket_id="+id+"", cn);
+            da = new SqlDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds, "details");
+            cn.Close();
+        }
+        #endregion
     }
 }

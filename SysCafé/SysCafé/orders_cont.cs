@@ -10,17 +10,19 @@ using System.Windows.Forms;
 
 namespace SysCafé
 {
+    
     public partial class orders_cont : UserControl
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orders_cont));
-        private void creat_free_table()
+        DataSet ds;
+        int num_tables = manager_model.num_table();
+
+        private void creat_table(int id)
         {
             Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
             freetabla.Image =imageList1.Images[0];
             freetabla.ImageSize = new Size(130, 130);
-            freetabla.Text = "1";
+            freetabla.Text = id.ToString() ;
             freetabla.Font = new Font("Inter Semi Bold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            freetabla.FillColor = Color.FromArgb(159, 159, 158);
             freetabla.BorderRadius = 50;
             freetabla.Name = "table1";
             freetabla.Location =new Point(19, 45);
@@ -28,25 +30,16 @@ namespace SysCafé
             freetabla.TextOffset = new Point(-33, 40);
             freetabla.ImageOffset = new Point(5,-20);
             freetabla.Margin = new Padding(10);
+            freetabla.Click += new EventHandler(table_Click);
+            if (manager_model.table_status(id) == 0)
+            {
+                freetabla.FillColor = Color.FromArgb(159, 159, 158);
 
-            flowLayoutPanel1.Controls.Add(freetabla);
+            }else if(manager_model.table_status(id) == 1)
+            {
+                freetabla.FillColor = Color.FromArgb(9, 170, 41);
 
-        }
-        private void creat_ocupied_table()
-        {
-            Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
-            freetabla.Image = imageList1.Images[0];
-            freetabla.ImageSize = new Size(130, 130);
-            freetabla.Text = "1";
-            freetabla.Font = new Font("Inter Semi Bold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            freetabla.FillColor = Color.FromArgb(9, 170, 41);
-            freetabla.BorderRadius = 50;
-            freetabla.Name = "table1";
-            freetabla.Location = new Point(19, 45);
-            freetabla.Size = new Size(285, 150);
-            freetabla.TextOffset = new Point(-33, 40);
-            freetabla.ImageOffset = new Point(5, -20);
-            freetabla.Margin = new Padding(10);
+            }
 
             flowLayoutPanel1.Controls.Add(freetabla);
 
@@ -54,18 +47,27 @@ namespace SysCafé
         public orders_cont()
         {
             InitializeComponent();
-            for(int i =0; i < 5; i++)
+            for(int i =1; i <= num_tables; i++)
             {
-
-                creat_free_table();
-
+                creat_table(i);
             }
-            for (int i = 0; i < 5; i++)
-            {
+            
+        }
 
-                creat_ocupied_table();
+        private void table_Click(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+            MessageBox.Show("" + clickedButton.Text);
+            manager_model.orders_grid_fill(ref ds, Convert.ToInt32(clickedButton.Text));
+            orders_grid.DataSource = ds.Tables[0].DefaultView;
 
-            }
+        }
+
+        private void orders_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int ticket_id =Convert.ToInt32( orders_grid.Rows[e.RowIndex].Cells[0].Value);
+            manager_model.details_grid_fill(ref ds, ticket_id);
+            details_grid.DataSource = ds.Tables[0].DefaultView;
         }
     }
 }
