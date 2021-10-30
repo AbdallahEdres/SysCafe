@@ -90,6 +90,18 @@ namespace SysCafé
             cmd.ExecuteNonQuery();
             cn.Close();
         }
+        public static void fill_mat_combo(Guna.UI2.WinForms.Guna2ComboBox c)
+        {
+            cn.Open();
+            cmd = new SqlCommand("select material_name from material_list", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                c.Items.Add(dr[0]);
+            }
+            dr.Close();
+            cn.Close();
+        }
         public static int receipt_id()
         {
             int id;
@@ -126,11 +138,22 @@ namespace SysCafé
             cn.Close();
             return id;
         }
-        public static void insert_materials(string name, double price ,int supplier_id,double count,double wight,DateTime date,int receipt_id)
+        public static int get_mat_id(string name)
         {
-            
+            int id;
             cn.Open();
-            cmd = new SqlCommand("insert into materials values ('"+name+"',"+count+","+wight+","+price+ ","+supplier_id+",'"+ date.ToString("yyyy-MM-dd")+"',"+receipt_id+")", cn);
+            cmd = new SqlCommand("select material_id from material_list where material_name ='" + name + "'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            id = Convert.ToInt32(dr[0]);
+            dr.Close();
+            cn.Close();
+            return id;
+        }
+        public static void insert_materials(int mat_id, double price ,int supplier_id,double count,double wight,DateTime date,int receipt_id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("insert into materials values ('"+mat_id+"',"+count+","+wight+","+price+ ","+supplier_id+",'"+ date.ToString("yyyy-MM-dd")+"',"+receipt_id+")", cn);
             cmd.ExecuteNonQuery();
             cn.Close();
         }
@@ -146,7 +169,7 @@ namespace SysCafé
         public static void fill_content_grid(ref DataSet ds,int id)
         {
             cn.Open();
-            cmd = new SqlCommand("select * from materials where receipt_id ="+id+"", cn);
+            cmd = new SqlCommand("SELECT  material_list.material_name,  materials.material_count,  materials.weight_unit,  materials.price_unit,  materials.sup_id,  materials.date_bought,  materials.receipt_id FROM materials INNER JOIN material_list ON  materials.material_id = material_list.material_id where materials.receipt_id =" + id+"", cn);
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
             da.Fill(ds, "receipts");

@@ -311,10 +311,10 @@ namespace SysCafé
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.Controls.Add(this.new_supp_controler1);
             this.main_panel.Controls.Add(this.supplier_cont1);
             this.main_panel.Controls.Add(this.orders_cont1);
             this.main_panel.Controls.Add(this.stock_cont21);
-            this.main_panel.Controls.Add(this.new_supp_controler1);
             this.main_panel.Location = new System.Drawing.Point(99, 82);
             this.main_panel.Name = "main_panel";
             this.main_panel.ShadowDecoration.Parent = this.main_panel;
@@ -351,10 +351,10 @@ namespace SysCafé
             // new_supp_controler1
             // 
             this.new_supp_controler1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.new_supp_controler1.Location = new System.Drawing.Point(0, 0);
+            this.new_supp_controler1.Location = new System.Drawing.Point(0, 1);
             this.new_supp_controler1.Name = "new_supp_controler1";
             this.new_supp_controler1.Size = new System.Drawing.Size(1800, 960);
-            this.new_supp_controler1.TabIndex = 0;
+            this.new_supp_controler1.TabIndex = 5;
             this.new_supp_controler1.Visible = false;
             // 
             // maneger_form
@@ -392,11 +392,11 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2Button Home_button;
         private Guna.UI2.WinForms.Guna2Panel main_panel;
         private Guna.UI2.WinForms.Guna2Button stock_but;
-        private new_supp_controler new_supp_controler1;
         private stock_cont2 stock_cont21;
         private Guna.UI2.WinForms.Guna2Button orders_but;
         private orders_cont orders_cont1;
         private Guna.UI2.WinForms.Guna2Button logout_but;
         private supplier_cont supplier_cont1;
+        private new_supp_controler new_supp_controler1;
     }
 }
