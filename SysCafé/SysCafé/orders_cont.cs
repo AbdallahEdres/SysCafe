@@ -57,7 +57,6 @@ namespace SysCafé
         private void table_Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
-            MessageBox.Show("" + clickedButton.Text);
             manager_model.orders_grid_fill(ref ds, Convert.ToInt32(clickedButton.Text));
             orders_grid.DataSource = ds.Tables[0].DefaultView;
 

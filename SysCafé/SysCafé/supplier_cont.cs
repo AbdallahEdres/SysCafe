@@ -61,5 +61,11 @@ namespace SysCafé
            manager_model.supp_id =Convert.ToInt32(suplier_grid.Rows[e.RowIndex].Cells[0].Value);
 
         }
+
+        private void refresh_but_Click(object sender, EventArgs e)
+        {
+            manager_model.fill_grid(ref ds, supplier_serach_txt.Text);
+            suplier_grid.DataSource = ds.Tables[0].DefaultView;
+        }
     }
 }

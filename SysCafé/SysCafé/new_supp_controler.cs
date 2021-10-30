@@ -21,8 +21,6 @@ namespace SysCafé
         public new_supp_controler()
         {
             InitializeComponent();
-            manager_model.fill_suppliers_combo(supp_name_combo);
-            manager_model.fill_mat_combo(mat_combo);
             receipt_date.Value = DateTime.Now;
             manager_model.fill_pre_receipt_grid(ref ds);
             
@@ -51,7 +49,6 @@ namespace SysCafé
                 next_but.Enabled = true;
             }
             item_num =Convert.ToInt32( items_num.Value);
-            MessageBox.Show("" + item_num);
         }
 
         
@@ -65,15 +62,13 @@ namespace SysCafé
                 receipt_id = manager_model.receipt_id();
                 manager_model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
                 counter =counter+1;
-                manager_model.add_inventor(mat_id,Convert.ToDouble(count_num.Value));
+                manager_model.add_inventor(manager_model.get_mat_id(mat_combo.Text), Convert.ToDouble(count_num.Value));
             }
             if(counter == item_num)
             {
                 finish_but.Enabled = true;
                 next_but.Enabled = false;
-            }
-            MessageBox.Show("" + counter);
-            
+            }            
             mat_combo.Text = "";
             supp_name_combo.Text = "";
             unite_price_num.Value = 0;
@@ -93,7 +88,6 @@ namespace SysCafé
             new_receipt_panel.Enabled = true;
             items_num.Value = 1;
             price_num.Value = 0;
-            mat_combo.Text = "";
             supp_name_combo.Text = "";
             unite_price_num.Value = 0;
             count_num.Value = 0;
@@ -101,7 +95,10 @@ namespace SysCafé
             counter = 1;
             manager_model.fill_pre_receipt_grid(ref ds);
             oldreceipt_grid.DataSource = ds.Tables[0].DefaultView;
-            manager_model.add_inventor(mat_id, Convert.ToDouble(count_num.Value));
+            manager_model.add_inventor(manager_model.get_mat_id(mat_combo.Text), Convert.ToDouble(count_num.Value));
+            mat_combo.Text = "";
+            oldreceipt_grid.Sort(oldreceipt_grid.Columns[0], ListSortDirection.Descending);
+
         }
 
         private void oldreceipt_grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,6 +118,29 @@ namespace SysCafé
                 content_grid.Columns[6].HeaderText = "Receipt ID";
             }
             
+        }
+
+        private void cansel_but_Click(object sender, EventArgs e)
+        {
+            receipt_id = manager_model.receipt_id();
+           DialogResult d= MessageBox.Show("Are you sure ypu want to cansel?" ," ", MessageBoxButtons.YesNo);
+            if (d== DialogResult.Yes)
+            {
+                manager_model.delete_receipt(receipt_id);
+                new_receipt_panel.Enabled = true;
+                content_panel.Enabled = false;
+            }
+            
+        }
+
+        private void mat_combo_Click(object sender, EventArgs e)
+        {
+            manager_model.fill_mat_combo(mat_combo);
+        }
+
+        private void supp_name_combo_Click(object sender, EventArgs e)
+        {
+            manager_model.fill_suppliers_combo(supp_name_combo);
         }
     }
 }

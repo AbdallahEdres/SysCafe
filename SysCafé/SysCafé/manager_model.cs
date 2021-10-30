@@ -92,6 +92,7 @@ namespace SysCafé
         }
         public static void fill_mat_combo(Guna.UI2.WinForms.Guna2ComboBox c)
         {
+            c.Items.Clear();
             cn.Open();
             cmd = new SqlCommand("select material_name from material_list", cn);
             dr = cmd.ExecuteReader();
@@ -116,6 +117,7 @@ namespace SysCafé
         }
         public static void fill_suppliers_combo(Guna.UI2.WinForms.Guna2ComboBox c)
         {
+            c.Items.Clear();
             cn.Open();
             cmd = new SqlCommand("select sup_name from suppliers",cn);
             dr = cmd.ExecuteReader();
@@ -192,6 +194,40 @@ namespace SysCafé
             cmd.ExecuteReader();
             cn.Close();
             
+        }
+        public static void delete_receipt (int receipt_id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("delete from materials where receipt_id="+receipt_id+"",cn);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("delete from material_receipts where receipt_id=" + receipt_id + "", cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+
+        }
+        public static void exit_delete_receipt()
+        {
+            int id =receipt_id();
+            int num_receipt;
+            int num_entered;
+            cn.Open();
+            cmd = new SqlCommand("select num_items from material_receipts where receipt_id ="+id+"",cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            num_receipt = Convert.ToInt32(dr[0]);
+            dr.Close();
+            cmd = new SqlCommand("select count (*) from materials where receipt_id ="+id+"", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            num_entered = Convert.ToInt32(dr[0]);
+            dr.Close();
+            cn.Close();
+            if (num_entered != num_receipt)
+            {
+                delete_receipt(id);
+            }
+            
+
         }
         #endregion
         #region stock
