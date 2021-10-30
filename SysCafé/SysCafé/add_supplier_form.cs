@@ -21,5 +21,12 @@ namespace SysCafé
         {
             this.Close();
         }
+
+        private void add_but_Click(object sender, EventArgs e)
+        {
+            manager_model.add_supplier(sup_name_txt.Text, sup_phone_txt.Text,sup_phonne2.Text, sup_address_txt.Text,sup_adress2.Text);
+            MessageBox.Show("Done!");
+            this.Close();
+        }
     }
 }
