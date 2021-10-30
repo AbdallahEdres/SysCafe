@@ -59,11 +59,8 @@ namespace SysCafé
             button_reset(suppliers_but);
             button_reset(orders_but);
             button_reset(Home_button);
-
             hide_cont();
             new_supp_controler1.Show();
-
-
         }
 
         private void stock_but_Click(object sender, EventArgs e)
@@ -74,8 +71,7 @@ namespace SysCafé
             button_reset(orders_but);
             button_reset(Home_button);
             hide_cont();
-            stock_cont21.Show();
-           
+            stock_cont21.Show();           
         }
 
         private void orders_but_Click(object sender, EventArgs e)
@@ -87,13 +83,11 @@ namespace SysCafé
             button_reset(Home_button);
             hide_cont();
             orders_cont1.Show();
-
-
         }
 
         private void maneger_form_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+            manager_model.exit_delete_receipt();
             Application.OpenForms[0].Show();
         }
 
