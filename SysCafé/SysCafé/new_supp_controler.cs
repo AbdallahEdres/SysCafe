@@ -73,8 +73,8 @@ namespace SysCafé
             supp_name_combo.Text = "";
             unite_price_num.Value = 0;
             count_num.Value = 0;
-            weight_num.Value = 0;
-
+/*            weight_num.Value = 0;
+*/
         }
 
         private void finish_but_Click(object sender, EventArgs e)
