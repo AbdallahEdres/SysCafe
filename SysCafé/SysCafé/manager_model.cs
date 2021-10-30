@@ -175,6 +175,99 @@ namespace SysCafé
             da.Fill(ds, "receipts");
             cn.Close();
         }
+        public static void add_inventor(int id,double new_count)
+        {
+            double count;
+            cn.Open();
+            cmd = new SqlCommand("select the_count from iventory where material_id=" + id + "",cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            count = (Convert.ToInt32(dr[0])+new_count);
+            dr.Close();
+            cn.Close();
+
+            cn.Open();
+            cmd = new SqlCommand("update iventory set the_count ="+count+"" +
+                "where material_id ="+id+"",cn);
+            cmd.ExecuteReader();
+            cn.Close();
+            
+        }
+        #endregion
+        #region stock
+        public static void fill_inven_grid(ref DataSet ds)
+        {
+            cn.Open();
+            cmd = new SqlCommand("SELECT material_list.material_name,  iventory.the_count FROM iventory INNER JOIN material_list ON  iventory.material_id =  material_list.material_id", cn);
+            da = new SqlDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds, "inventory");
+            cn.Close();
+        }
+        public static void fill_kitchen_grid(ref DataSet ds)
+        {
+            cn.Open();
+            cmd = new SqlCommand("SELECT material_list.material_name,  kitchen_stock.the_count FROM kitchen_stock INNER JOIN material_list ON  kitchen_stock.material_id =  material_list.material_id", cn);
+            da = new SqlDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds, "kitchen");
+            cn.Close();
+        }
+        public static void add_ketchin(int id, double new_count)
+        {
+            double count;
+            cn.Open();
+            cmd = new SqlCommand("select the_count from kitchen_stock where material_id=" + id + "", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            count = (Convert.ToInt32(dr[0]) + new_count);
+            dr.Close();
+            cn.Close();
+
+            cn.Open();
+            cmd = new SqlCommand("update kitchen_stock set the_count =" + count + "" +
+                "where material_id =" + id + "", cn);
+            cmd.ExecuteReader();
+            cn.Close();
+
+        }
+        
+        public static void remov_inventory(int id, double new_count)
+        {
+            double count;
+            cn.Open();
+            cmd = new SqlCommand("select the_count from iventory where material_id=" + id + "", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            count = (Convert.ToInt32(dr[0]) - new_count);
+            dr.Close();
+            cn.Close();
+
+            cn.Open();
+            cmd = new SqlCommand("update iventory set the_count =" + count + "" +
+                "where material_id =" + id + "", cn);
+            cmd.ExecuteReader();
+            cn.Close();
+
+        }
+        public static void remov_kitchen(int id, double new_count)
+        {
+            double count;
+            cn.Open();
+            cmd = new SqlCommand("select the_count from kitchen_stock where material_id=" + id + "", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            count = (Convert.ToInt32(dr[0]) - new_count);
+            dr.Close();
+            cn.Close();
+
+            cn.Open();
+            cmd = new SqlCommand("update kitchen_stock set the_count =" + count + "" +
+                "where material_id =" + id + "", cn);
+            cmd.ExecuteReader();
+            cn.Close();
+
+        }
         #endregion
     }
 }

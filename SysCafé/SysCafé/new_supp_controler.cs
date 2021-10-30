@@ -65,6 +65,7 @@ namespace SysCafé
                 receipt_id = manager_model.receipt_id();
                 manager_model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
                 counter =counter+1;
+                manager_model.add_inventor(mat_id,Convert.ToDouble(count_num.Value));
             }
             if(counter == item_num)
             {
@@ -100,6 +101,7 @@ namespace SysCafé
             counter = 1;
             manager_model.fill_pre_receipt_grid(ref ds);
             oldreceipt_grid.DataSource = ds.Tables[0].DefaultView;
+            manager_model.add_inventor(mat_id, Convert.ToDouble(count_num.Value));
         }
 
         private void oldreceipt_grid_CellClick(object sender, DataGridViewCellEventArgs e)
