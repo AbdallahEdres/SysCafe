@@ -60,6 +60,12 @@
     <Compile Include="add_supplier_form.Designer.cs">
       <DependentUpon>add_supplier_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="close_ticket_content_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="close_ticket_content_form.Designer.cs">
+      <DependentUpon>close_ticket_content_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,11 +79,23 @@
     <Compile Include="maneger_form.Designer.cs">
       <DependentUpon>maneger_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="menu_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="menu_cont.Designer.cs">
+      <DependentUpon>menu_cont.cs</DependentUpon>
+    </Compile>
     <Compile Include="new_supp_controler.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="new_supp_controler.Designer.cs">
       <DependentUpon>new_supp_controler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="new_ticket_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="new_ticket_form.Designer.cs">
+      <DependentUpon>new_ticket_form.cs</DependentUpon>
     </Compile>
     <Compile Include="orders_cont.cs">
       <SubType>UserControl</SubType>
@@ -105,8 +123,23 @@
     <Compile Include="supplier_cont.Designer.cs">
       <DependentUpon>supplier_cont.cs</DependentUpon>
     </Compile>
+    <Compile Include="tickets_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="tickets_cont.Designer.cs">
+      <DependentUpon>tickets_cont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="waiter_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="waiter_form.Designer.cs">
+      <DependentUpon>waiter_form.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="add_supplier_form.resx">
       <DependentUpon>add_supplier_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="close_ticket_content_form.resx">
+      <DependentUpon>close_ticket_content_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -114,8 +147,14 @@
     <EmbeddedResource Include="maneger_form.resx">
       <DependentUpon>maneger_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="menu_cont.resx">
+      <DependentUpon>menu_cont.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="new_supp_controler.resx">
       <DependentUpon>new_supp_controler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="new_ticket_form.resx">
+      <DependentUpon>new_ticket_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="orders_cont.resx">
       <DependentUpon>orders_cont.cs</DependentUpon>
@@ -137,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="supplier_cont.resx">
       <DependentUpon>supplier_cont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tickets_cont.resx">
+      <DependentUpon>tickets_cont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="waiter_form.resx">
+      <DependentUpon>waiter_form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

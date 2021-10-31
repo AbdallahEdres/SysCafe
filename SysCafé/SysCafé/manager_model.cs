@@ -17,6 +17,7 @@ namespace SysCafé
         public static SqlDataReader dr;
         public static SqlDataAdapter da;
         public static int supp_id=1;
+        public static DataTable dt;
 
         #region form1
         public static string login(string username ,string pasoword)
@@ -230,6 +231,7 @@ namespace SysCafé
 
         }
         #endregion
+        
         #region stock
         public static void fill_inven_grid(ref DataSet ds)
         {

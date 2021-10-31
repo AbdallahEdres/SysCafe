@@ -36,6 +36,11 @@ namespace SysCafé
             }else if (status == "wrong")
             {
                 MessageBox.Show("wrong");
+            }else if (status == "waiter")
+            {
+                waiter_form w = new waiter_form();
+                w.Show();
+                
             }
            
         }

@@ -18,6 +18,7 @@ namespace SysCafé
         int counter = 1;
         int item_num = 0;
         int mat_id;
+        
         public new_supp_controler()
         {
             InitializeComponent();
@@ -107,6 +108,7 @@ namespace SysCafé
             {
                 receipt_id = Convert.ToInt32(oldreceipt_grid.Rows[e.RowIndex].Cells[0].Value);
                 manager_model.fill_content_grid(ref ds, receipt_id);
+
                 content_grid.DataSource = ds.Tables[0].DefaultView;
                 content_grid.Columns[0].HeaderText = "Name";
                 content_grid.Columns[1].HeaderText = "Count";

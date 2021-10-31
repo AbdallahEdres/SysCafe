@@ -14,7 +14,7 @@ namespace SysCafé
     {
         DataSet ds;
         string name;
-        private void fill_grids()
+        public void fill_grids()
         {
             manager_model.fill_kitchen_grid(ref ds);
             kitchen_grid.DataSource = ds.Tables[0].DefaultView;
