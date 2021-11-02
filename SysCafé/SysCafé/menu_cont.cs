@@ -17,7 +17,7 @@ namespace SysCafé
         private void creat_table(int id)
         {
             Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
-            freetabla.Image = imageList1.Images[0];
+            freetabla.Image = tabel_image.Images[0];
             freetabla.ImageSize = new Size(45, 45);
             freetabla.Text = id.ToString();
             freetabla.Font = new Font("Inter Medium", 20.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
@@ -73,7 +73,7 @@ namespace SysCafé
         private void create_picbox(Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1)
         {
             
-            guna2CirclePictureBox1.Image =imageList2.Images[0];
+            guna2CirclePictureBox1.Image =menu_image.Images[0];
             guna2CirclePictureBox1.Location = new System.Drawing.Point(41, 14);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;

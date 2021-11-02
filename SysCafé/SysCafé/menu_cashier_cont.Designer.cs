@@ -1,8 +1,7 @@
 ﻿
-
 namespace SysCafé
 {
-    partial class menu_cont
+    partial class menu_cashier_cont
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,38 +33,35 @@ namespace SysCafé
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu_cont));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu_cashier_cont));
             this.panel1 = new System.Windows.Forms.Panel();
             this.price_label = new System.Windows.Forms.Label();
             this.total_label = new System.Windows.Forms.Label();
             this.save_order_but = new Guna.UI2.WinForms.Guna2Button();
-            this.tables_orders_label = new System.Windows.Forms.Label();
+            this.orders_label = new System.Windows.Forms.Label();
             this.order_grid = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabel_image = new System.Windows.Forms.ImageList(this.components);
             this.menu_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.menu_image = new System.Windows.Forms.ImageList(this.components);
+            this.make_order_label = new System.Windows.Forms.Label();
+            this.order_num_label = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.order_grid)).BeginInit();
-            this.guna2ShadowPanel1.SuspendLayout();
             this.menu_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.price_label);
             this.panel1.Controls.Add(this.total_label);
             this.panel1.Controls.Add(this.save_order_but);
-            this.panel1.Controls.Add(this.tables_orders_label);
+            this.panel1.Controls.Add(this.orders_label);
             this.panel1.Controls.Add(this.order_grid);
-            this.panel1.Location = new System.Drawing.Point(1136, 3);
+            this.panel1.Location = new System.Drawing.Point(1134, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(649, 933);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 3;
             // 
             // price_label
             // 
@@ -107,16 +103,16 @@ namespace SysCafé
             this.save_order_but.TabIndex = 8;
             this.save_order_but.Text = "Done!";
             // 
-            // tables_orders_label
+            // orders_label
             // 
-            this.tables_orders_label.AutoSize = true;
-            this.tables_orders_label.Font = new System.Drawing.Font("Inter Semi Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tables_orders_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.tables_orders_label.Location = new System.Drawing.Point(199, 32);
-            this.tables_orders_label.Name = "tables_orders_label";
-            this.tables_orders_label.Size = new System.Drawing.Size(234, 39);
-            this.tables_orders_label.TabIndex = 7;
-            this.tables_orders_label.Text = "Table\'s Order";
+            this.orders_label.AutoSize = true;
+            this.orders_label.Font = new System.Drawing.Font("Inter Semi Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orders_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.orders_label.Location = new System.Drawing.Point(273, 32);
+            this.orders_label.Name = "orders_label";
+            this.orders_label.Size = new System.Drawing.Size(106, 39);
+            this.orders_label.TabIndex = 7;
+            this.orders_label.Text = "Order";
             // 
             // order_grid
             // 
@@ -184,62 +180,18 @@ namespace SysCafé
             this.order_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.order_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             // 
-            // guna2ShadowPanel1
-            // 
-            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.label1);
-            this.guna2ShadowPanel1.Controls.Add(this.flowLayoutPanel1);
-            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ShadowPanel1.Location = new System.Drawing.Point(3, 3);
-            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
-            this.guna2ShadowPanel1.Radius = 5;
-            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.ShadowShift = 10;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(1127, 160);
-            this.guna2ShadowPanel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.label1.Location = new System.Drawing.Point(14, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tables :";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(98, 32);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1003, 110);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // tabel_image
-            // 
-            this.tabel_image.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tabel_image.ImageStream")));
-            this.tabel_image.TransparentColor = System.Drawing.Color.Transparent;
-            this.tabel_image.Images.SetKeyName(0, "chair.png");
-            // 
             // menu_panel
             // 
             this.menu_panel.BackColor = System.Drawing.Color.Transparent;
             this.menu_panel.Controls.Add(this.flowLayoutPanel2);
             this.menu_panel.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.menu_panel.Location = new System.Drawing.Point(3, 182);
+            this.menu_panel.Location = new System.Drawing.Point(1, 111);
             this.menu_panel.Name = "menu_panel";
             this.menu_panel.Radius = 10;
             this.menu_panel.ShadowColor = System.Drawing.Color.Black;
             this.menu_panel.ShadowShift = 10;
-            this.menu_panel.Size = new System.Drawing.Size(1127, 754);
-            this.menu_panel.TabIndex = 2;
+            this.menu_panel.Size = new System.Drawing.Size(1127, 825);
+            this.menu_panel.TabIndex = 5;
             // 
             // flowLayoutPanel2
             // 
@@ -249,9 +201,8 @@ namespace SysCafé
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1077, 700);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1077, 867);
             this.flowLayoutPanel2.TabIndex = 0;
-            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // menu_image
             // 
@@ -259,41 +210,61 @@ namespace SysCafé
             this.menu_image.TransparentColor = System.Drawing.Color.Transparent;
             this.menu_image.Images.SetKeyName(0, "coffee-cup.png");
             // 
-            // menu_cont
+            // make_order_label
+            // 
+            this.make_order_label.AutoSize = true;
+            this.make_order_label.Font = new System.Drawing.Font("Inter Semi Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.make_order_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.make_order_label.Location = new System.Drawing.Point(243, 35);
+            this.make_order_label.Name = "make_order_label";
+            this.make_order_label.Size = new System.Drawing.Size(288, 39);
+            this.make_order_label.TabIndex = 9;
+            this.make_order_label.Text = "Make Order NO. ";
+            // 
+            // order_num_label
+            // 
+            this.order_num_label.AutoSize = true;
+            this.order_num_label.Font = new System.Drawing.Font("Inter", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.order_num_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.order_num_label.Location = new System.Drawing.Point(522, 41);
+            this.order_num_label.Name = "order_num_label";
+            this.order_num_label.Size = new System.Drawing.Size(237, 33);
+            this.order_num_label.TabIndex = 10;
+            this.order_num_label.Text = "Make Order NO. ";
+            // 
+            // menu_cashier_cont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.menu_panel);
-            this.Controls.Add(this.guna2ShadowPanel1);
+            this.Controls.Add(this.order_num_label);
+            this.Controls.Add(this.make_order_label);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menu_panel);
             this.Location = new System.Drawing.Point(109, 88);
-            this.Name = "menu_cont";
+            this.Name = "menu_cashier_cont";
             this.Size = new System.Drawing.Size(1785, 939);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.order_grid)).EndInit();
-            this.guna2ShadowPanel1.ResumeLayout(false);
-            this.guna2ShadowPanel1.PerformLayout();
             this.menu_panel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ImageList tabel_image;
+        private System.Windows.Forms.Label price_label;
+        private System.Windows.Forms.Label total_label;
+        private Guna.UI2.WinForms.Guna2Button save_order_but;
+        private System.Windows.Forms.Label orders_label;
+        private Guna.UI2.WinForms.Guna2DataGridView order_grid;
         private Guna.UI2.WinForms.Guna2ShadowPanel menu_panel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.ImageList menu_image;
-        private Guna.UI2.WinForms.Guna2DataGridView order_grid;
-        private System.Windows.Forms.Label tables_orders_label;
-        private Guna.UI2.WinForms.Guna2Button save_order_but;
-        private System.Windows.Forms.Label price_label;
-        private System.Windows.Forms.Label total_label;
+        private System.Windows.Forms.Label make_order_label;
+        private System.Windows.Forms.Label order_num_label;
     }
 }

@@ -41,6 +41,10 @@ namespace SysCafé
                 waiter_form w = new waiter_form();
                 w.Show();
                 
+            }else if (status == "cashier")
+            {
+                cashier_form c = new cashier_form();
+                c.Show();
             }
            
         }

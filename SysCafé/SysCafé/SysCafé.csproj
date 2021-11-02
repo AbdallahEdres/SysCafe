@@ -60,11 +60,29 @@
     <Compile Include="add_supplier_form.Designer.cs">
       <DependentUpon>add_supplier_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="cashier_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cashier_form.Designer.cs">
+      <DependentUpon>cashier_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="close_ticket_content_form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="close_ticket_content_form.Designer.cs">
       <DependentUpon>close_ticket_content_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="customer_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customer_info.Designer.cs">
+      <DependentUpon>customer_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="delivery_takeaway_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="delivery_takeaway_form.Designer.cs">
+      <DependentUpon>delivery_takeaway_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -78,6 +96,12 @@
     </Compile>
     <Compile Include="maneger_form.Designer.cs">
       <DependentUpon>maneger_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menu_cashier_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="menu_cashier_cont.Designer.cs">
+      <DependentUpon>menu_cashier_cont.cs</DependentUpon>
     </Compile>
     <Compile Include="menu_cont.cs">
       <SubType>UserControl</SubType>
@@ -103,6 +127,12 @@
     <Compile Include="orders_cont.Designer.cs">
       <DependentUpon>orders_cont.cs</DependentUpon>
     </Compile>
+    <Compile Include="payment_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="payment_cont.Designer.cs">
+      <DependentUpon>payment_cont.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="stock_cont2.cs">
@@ -123,6 +153,12 @@
     <Compile Include="supplier_cont.Designer.cs">
       <DependentUpon>supplier_cont.cs</DependentUpon>
     </Compile>
+    <Compile Include="tickets_casier_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="tickets_casier_cont.Designer.cs">
+      <DependentUpon>tickets_casier_cont.cs</DependentUpon>
+    </Compile>
     <Compile Include="tickets_cont.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -138,14 +174,26 @@
     <EmbeddedResource Include="add_supplier_form.resx">
       <DependentUpon>add_supplier_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cashier_form.resx">
+      <DependentUpon>cashier_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="close_ticket_content_form.resx">
       <DependentUpon>close_ticket_content_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customer_info.resx">
+      <DependentUpon>customer_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="delivery_takeaway_form.resx">
+      <DependentUpon>delivery_takeaway_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="maneger_form.resx">
       <DependentUpon>maneger_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu_cashier_cont.resx">
+      <DependentUpon>menu_cashier_cont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menu_cont.resx">
       <DependentUpon>menu_cont.cs</DependentUpon>
@@ -158,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="orders_cont.resx">
       <DependentUpon>orders_cont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="payment_cont.resx">
+      <DependentUpon>payment_cont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -176,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="supplier_cont.resx">
       <DependentUpon>supplier_cont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tickets_casier_cont.resx">
+      <DependentUpon>tickets_casier_cont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tickets_cont.resx">
       <DependentUpon>tickets_cont.cs</DependentUpon>
