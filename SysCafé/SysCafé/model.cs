@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SysCafé
 {
-    public static class manager_model
+    public static class model
     {
         public static SqlConnection cn = new SqlConnection("server=DESKTOP-2ROJPSN ;database=Sys_cafe ;integrated security=true");
         public static SqlCommand cmd;
@@ -38,6 +38,7 @@ namespace SysCafé
         }
         #endregion
 
+        #region manager form
         #region suppliers
         public static void add_supplier(string name, string phone,string phone2,string adrees,string adress2)
         {
@@ -320,6 +321,24 @@ namespace SysCafé
             cn.Close();
             return num;
         }
+
+        // get table ids
+        public static List<int>  get_table_id()
+        {
+            List<int> ids = new List<int>();
+            cn.Open();
+            cmd = new SqlCommand("select table_number from the_tables", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                ids.Add(Convert.ToInt32(dr[0]));
+            }
+            dr.Close();
+            cn.Close();
+            return ids;
+        }
+
+        //get table status from database
         public static int table_status(int id)
         {
             int status;
@@ -333,6 +352,7 @@ namespace SysCafé
             return status;
 
         }
+
         public static void orders_grid_fill(ref DataSet ds,int table_num)
         {
             cn.Open();
@@ -351,6 +371,58 @@ namespace SysCafé
             da.Fill(ds, "details");
             cn.Close();
         }
+        #endregion
+        #endregion
+
+        #region waiter form
+
+        // gets open ticket for specific table
+        public static void fill_open_ticket_grid(ref DataSet ds , int table_num,ref string tkt_id,ref string worker ,ref string time)
+        {
+            int ticket_id;
+            ds = new DataSet();
+            cn.Open();
+            cmd = new SqlCommand("SELECT  tickets.ticket_id,  tickets.open_time,  workers_info.worker_name FROM workers_info INNER JOIN tickets ON  workers_info.worker_id =  tickets.worker_id where ticket_status = 'open' and table_num= " + table_num+"", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+
+                tkt_id += dr[0].ToString();
+                worker = dr[2].ToString();
+                time = dr[1].ToString();
+                ticket_id = Convert.ToInt32(dr[0]);
+                dr.Close();
+                cmd = new SqlCommand("SELECT menu_items.item_name,  menu_items.item_size,  ticket_content.item_count,  menu_items.item_price,  menu_category.category_name FROM menu_items INNER JOIN menu_category ON  menu_items.category_id =  menu_category.category_id INNER JOIN ticket_content ON  menu_items.item_id =  ticket_content.item_id INNER JOIN tickets ON  ticket_content.ticket_id =  tickets.ticket_id where tickets.ticket_id ="+ticket_id+"", cn);
+                da = new SqlDataAdapter(cmd);
+                
+                da.Fill(ds, "open ticket content");
+                
+
+            }
+            cn.Close();
+        }
+
+        // gets closed tickets for specific table
+        public static void fill_closed_tkt_grid(ref DataSet ds,int table)
+        {
+           
+            cmd = new SqlCommand("SELECT tickets.ticket_id,  tickets.table_num,  tickets.open_time,  tickets.close_time,  workers_info.worker_name FROM workers_info INNER JOIN tickets ON  workers_info.worker_id =  tickets.worker_id  where table_num ="+table+" and ticket_status = 'closed' ", cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "closed");
+        }
+
+        // open new ticket 
+        public static void new_tkt(int table, int worker_id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("insert into tickets values ("+table+",'"+DateTime.Now+"',null,'open','table',"+worker_id+")", cn);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("update the_tables set table_status =0 where table_number="+table+"", cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+
         #endregion
     }
 }

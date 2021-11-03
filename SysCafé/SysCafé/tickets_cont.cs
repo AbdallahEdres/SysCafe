@@ -12,8 +12,11 @@ namespace SysCafé
 {
     public partial class tickets_cont : UserControl
     {
-        int num_tables = manager_model.num_table();
-
+        //list decleartion
+        List<int> tables_id;
+        DataSet ds;
+       public List<Guna.UI2.WinForms.Guna2Button> but_list = new List<Guna.UI2.WinForms.Guna2Button>();
+        int table_id;
         private void creat_table(int id)
         {
             Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
@@ -28,35 +31,128 @@ namespace SysCafé
             freetabla.TextOffset = new Point(-33, 40);
             freetabla.ImageOffset = new Point(5, -20);
             freetabla.Margin = new Padding(10);
-/*            freetabla.Click += new EventHandler(table_Click);
-*/            if (manager_model.table_status(id) == 0)
+            freetabla.Click += new EventHandler(fill_open_ticket_content);
+           
+
+            if (model.table_status(id) == 0)
             {
                 freetabla.FillColor = Color.FromArgb(159, 159, 158);
 
             }
-            else if (manager_model.table_status(id) == 1)
+            else if (model.table_status(id) == 1)
             {
                 freetabla.FillColor = Color.FromArgb(9, 170, 41);
 
             }
 
             flowLayoutPanel1.Controls.Add(freetabla);
+            but_list.Add(freetabla);
+        }
+
+        private void order_column_naming()
+        {
+            orders_grid.Columns[0].HeaderText = "Item";
+            orders_grid.Columns[1].HeaderText = "Size";
+            orders_grid.Columns[2].HeaderText = "Count";
+            orders_grid.Columns[3].HeaderText = "Price";
+            orders_grid.Columns[4].HeaderText = "Category";
 
         }
+
+        private void closed_grid_naming()
+        {
+            closed_grid.Columns[0].HeaderText = "Id";
+            closed_grid.Columns[1].HeaderText = "Table";
+            closed_grid.Columns[2].HeaderText = "Opend At";
+            closed_grid.Columns[3].HeaderText = "Closed At";
+            closed_grid.Columns[4].HeaderText = "Worker";
+        }
+
+        // uncheck all other buttons
+        private void unchek_but()
+        {
+            foreach(Guna.UI2.WinForms.Guna2Button but in but_list)
+            {
+                but.Checked = false;
+                but.BorderThickness = 0;
+            }
+        }
+
+        // getting tables orders 
+       public  void fill_open_ticket_content(object sender, EventArgs e)
+        {
+            
+            unchek_but();
+            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+            table_id = Convert.ToInt32(clickedButton.Text);
+            clickedButton.Checked = true;
+            clickedButton.CheckedState.BorderColor = Color.FromArgb(252, 128, 25);
+            clickedButton.BorderThickness = 5;
+            string tkt_id =" ";
+            string worker = " ";
+            string time = " ";
+            ds = new DataSet();
+            model.fill_open_ticket_grid(ref ds, Convert.ToInt32(clickedButton.Text),ref tkt_id,ref worker,ref time);
+            model.fill_closed_tkt_grid(ref ds, Convert.ToInt32(clickedButton.Text));
+            if (ds.Tables.Count > 1)
+            {
+                new_ticket_panel.Hide();
+                orders_grid.DataSource = ds.Tables["open ticket content"].DefaultView;
+                table_id_label.Text = tkt_id;
+                open_time_value.Text = time;
+                waiter_iname_label.Text = worker;
+                order_column_naming();
+
+            }
+            else
+            {
+                new_ticket_panel.Show();
+                table_id_label.Text = " ";
+                open_time_value.Text = " ";
+                waiter_iname_label.Text = " ";
+            }
+            closed_grid.DataSource = ds.Tables["closed"];
+            closed_grid_naming();
+        }
+
+
         public tickets_cont()
         {
-            InitializeComponent(); 
-            for (int i = 1; i <= num_tables; i++)
+            InitializeComponent();
+
+            //create tables 
+            tables_id = model.get_table_id();
+            for (int i = 0; i < tables_id.Count; i++)
             {
-                creat_table(i);
+                creat_table(tables_id[i]);
             }
         }
 
         private void new_ticket_but_Click(object sender, EventArgs e)
         {
+            model.new_tkt(table_id,1);
             new_ticket_panel.Visible = false;
-            new_ticket_form new_Ticket = new new_ticket_form();
-            new_Ticket.Show();
+            string tkt_id = " ";
+            string worker = " ";
+            string time = " ";
+            ds = new DataSet();
+            model.fill_open_ticket_grid(ref ds, Convert.ToInt32(table_id), ref tkt_id, ref worker, ref time);
+            orders_grid.DataSource = ds.Tables["open ticket content"].DefaultView;
+            table_id_label.Text = tkt_id;
+            open_time_value.Text = time;
+            waiter_iname_label.Text = worker;
+            order_column_naming();
+            flowLayoutPanel1.Controls.Clear();
+            tables_id = model.get_table_id();
+            for (int i = 0; i < tables_id.Count; i++)
+            {
+                creat_table(tables_id[i]);
+            }
+           
+            /*  new_ticket_form new_Ticket = new new_ticket_form();
+              new_Ticket.Show();*/
         }
+
+
     }
 }

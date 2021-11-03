@@ -25,26 +25,29 @@ namespace SysCafé
         
         private void login_but_Click(object sender, EventArgs e)
         {
-           string status= manager_model.login(username_txt.Text, Pasword_txt.Text);
+           string status= model.login(username_txt.Text, Pasword_txt.Text);
             if (status == "manager")
             {
                 maneger_form m = new maneger_form();
                 m.Show();
-                this.Hide();
                 username_txt.Text = "";
                 Pasword_txt.Text = "";
-            }else if (status == "wrong")
+                this.Hide();
+            }
+            else if (status == "wrong")
             {
                 MessageBox.Show("wrong");
             }else if (status == "waiter")
             {
                 waiter_form w = new waiter_form();
                 w.Show();
-                
-            }else if (status == "cashier")
+                this.Hide();
+            }
+            else if (status == "cashier")
             {
                 cashier_form c = new cashier_form();
                 c.Show();
+                this.Hide();
             }
            
         }

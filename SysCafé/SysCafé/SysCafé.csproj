@@ -90,7 +90,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="manager_model.cs" />
+    <Compile Include="model.cs" />
     <Compile Include="maneger_form.cs">
       <SubType>Form</SubType>
     </Compile>

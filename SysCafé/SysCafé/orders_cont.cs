@@ -14,7 +14,7 @@ namespace SysCafé
     public partial class orders_cont : UserControl
     {
         DataSet ds;
-        int num_tables = manager_model.num_table();
+        int num_tables = model.num_table();
 
         private void creat_table(int id)
         {
@@ -31,11 +31,11 @@ namespace SysCafé
             freetabla.ImageOffset = new Point(5,-20);
             freetabla.Margin = new Padding(10);
             freetabla.Click += new EventHandler(table_Click);
-            if (manager_model.table_status(id) == 0)
+            if (model.table_status(id) == 0)
             {
                 freetabla.FillColor = Color.FromArgb(159, 159, 158);
 
-            }else if(manager_model.table_status(id) == 1)
+            }else if(model.table_status(id) == 1)
             {
                 freetabla.FillColor = Color.FromArgb(9, 170, 41);
 
@@ -57,7 +57,7 @@ namespace SysCafé
         private void table_Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
-            manager_model.orders_grid_fill(ref ds, Convert.ToInt32(clickedButton.Text));
+            model.orders_grid_fill(ref ds, Convert.ToInt32(clickedButton.Text));
             orders_grid.DataSource = ds.Tables[0].DefaultView;
             orders_grid.Columns[0].HeaderText = "Ticket ID";
             orders_grid.Columns[1].HeaderText = "Table Number";
@@ -74,7 +74,7 @@ namespace SysCafé
             if (e.RowIndex != -1)
             {
                 int ticket_id = Convert.ToInt32(orders_grid.Rows[e.RowIndex].Cells[0].Value);
-                manager_model.details_grid_fill(ref ds, ticket_id);
+                model.details_grid_fill(ref ds, ticket_id);
                 details_grid.DataSource = ds.Tables[0].DefaultView;
                 details_grid.Columns[0].HeaderText = "Ticket ID";
                 details_grid.Columns[1].HeaderText = "Item Name";

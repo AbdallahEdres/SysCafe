@@ -87,7 +87,7 @@ namespace SysCafé
 
         private void maneger_form_FormClosed(object sender, FormClosedEventArgs e)
         {
-            manager_model.exit_delete_receipt();
+            model.exit_delete_receipt();
             Application.OpenForms[0].Show();
         }
 

@@ -16,11 +16,11 @@ namespace SysCafé
         string name;
         public void fill_grids()
         {
-            manager_model.fill_kitchen_grid(ref ds);
+            model.fill_kitchen_grid(ref ds);
             kitchen_grid.DataSource = ds.Tables[0].DefaultView;
             kitchen_grid.Columns[0].HeaderText = "Name";
             kitchen_grid.Columns[1].HeaderText = "Count";
-            manager_model.fill_inven_grid(ref ds);
+            model.fill_inven_grid(ref ds);
             ineventory_grid.DataSource = ds.Tables[0].DefaultView;
             ineventory_grid.Columns[0].HeaderText = "Name";
             ineventory_grid.Columns[1].HeaderText = "Count";
@@ -44,15 +44,15 @@ namespace SysCafé
 
         private void send_kitchen_but_Click(object sender, EventArgs e)
         {
-            manager_model.add_ketchin(manager_model.get_mat_id(name), Convert.ToDouble(inventory_count.Value));
-            manager_model.remov_inventory(manager_model.get_mat_id(name), Convert.ToDouble(inventory_count.Value));
+            model.add_ketchin(model.get_mat_id(name), Convert.ToDouble(inventory_count.Value));
+            model.remov_inventory(model.get_mat_id(name), Convert.ToDouble(inventory_count.Value));
             fill_grids();
         }
 
         private void send_inven_but_Click(object sender, EventArgs e)
         {
-            manager_model.add_inventor(manager_model.get_mat_id(name), Convert.ToDouble(kitchen_count.Value));
-            manager_model.remov_kitchen(manager_model.get_mat_id(name), Convert.ToDouble(kitchen_count.Value));
+            model.add_inventor(model.get_mat_id(name), Convert.ToDouble(kitchen_count.Value));
+            model.remov_kitchen(model.get_mat_id(name), Convert.ToDouble(kitchen_count.Value));
             fill_grids();
         }
 

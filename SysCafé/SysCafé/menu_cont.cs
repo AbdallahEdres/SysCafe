@@ -12,7 +12,7 @@ namespace SysCafé
 {
     public partial class menu_cont : UserControl
     {
-        int num_tables = manager_model.num_table();
+        int num_tables = model.num_table();
 
         private void creat_table(int id)
         {
@@ -32,12 +32,12 @@ namespace SysCafé
 
 /*            freetabla.Click += new EventHandler(table_Click);
 */
-              if (manager_model.table_status(id) == 0)
+              if (model.table_status(id) == 0)
             {
                 freetabla.FillColor = Color.FromArgb(159, 159, 158);
 
             }
-            else if (manager_model.table_status(id) == 1)
+            else if (model.table_status(id) == 1)
             {
                 freetabla.FillColor = Color.FromArgb(9, 170, 41);
 

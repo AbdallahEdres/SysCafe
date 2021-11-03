@@ -48,6 +48,7 @@ namespace SysCafé
             this.nav_panel.SuspendLayout();
             this.top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.main_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // nav_panel
@@ -265,7 +266,8 @@ namespace SysCafé
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(167, 156);
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(54, 65);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1689, 816);
             this.flowLayoutPanel1.TabIndex = 6;
@@ -273,6 +275,7 @@ namespace SysCafé
             // main_panel
             // 
             this.main_panel.BackColor = System.Drawing.Color.Transparent;
+            this.main_panel.Controls.Add(this.flowLayoutPanel1);
             this.main_panel.FillColor = System.Drawing.Color.WhiteSmoke;
             this.main_panel.Location = new System.Drawing.Point(109, 88);
             this.main_panel.Name = "main_panel";
@@ -288,15 +291,16 @@ namespace SysCafé
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1902, 1039);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.main_panel);
             this.Controls.Add(this.nav_panel);
             this.Controls.Add(this.top_panel);
             this.Name = "waiter_form";
             this.Text = "waiter_form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.waiter_form_FormClosed);
             this.nav_panel.ResumeLayout(false);
             this.top_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.main_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

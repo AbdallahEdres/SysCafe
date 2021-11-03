@@ -17,7 +17,7 @@ namespace SysCafé
         public supplier_cont()
         {
             InitializeComponent();
-            manager_model.fill_grid(ref ds,supplier_serach_txt.Text);
+            model.fill_grid(ref ds,supplier_serach_txt.Text);
             suplier_grid.DataSource = ds.Tables[0].DefaultView;
             suplier_grid.Columns[0].HeaderText = "Supplier ID";
             suplier_grid.Columns[1].HeaderText = "Supplier Name";
@@ -40,7 +40,7 @@ namespace SysCafé
 
         private void edit_but_Click(object sender, EventArgs e)
         {
-            if (manager_model.supp_id != null)
+            if (model.supp_id != null)
             {
                 supllier_edit_form Edit_Form = new supllier_edit_form();
                 Edit_Form.Show();
@@ -51,7 +51,7 @@ namespace SysCafé
 
         private void supplier_serach_txt_TextChanged(object sender, EventArgs e)
         {
-            manager_model.fill_grid(ref ds, supplier_serach_txt.Text);
+            model.fill_grid(ref ds, supplier_serach_txt.Text);
             suplier_grid.DataSource = ds.Tables[0].DefaultView;
 
         }
@@ -60,14 +60,14 @@ namespace SysCafé
         {
             if (e.RowIndex!=-1)
             {
-                manager_model.supp_id = Convert.ToInt32(suplier_grid.Rows[e.RowIndex].Cells[0].Value);
+                model.supp_id = Convert.ToInt32(suplier_grid.Rows[e.RowIndex].Cells[0].Value);
             }
 
         }
 
         private void refresh_but_Click(object sender, EventArgs e)
         {
-            manager_model.fill_grid(ref ds, supplier_serach_txt.Text);
+            model.fill_grid(ref ds, supplier_serach_txt.Text);
             suplier_grid.DataSource = ds.Tables[0].DefaultView;
         }
     }

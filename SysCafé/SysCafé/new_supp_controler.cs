@@ -23,7 +23,7 @@ namespace SysCafé
         {
             InitializeComponent();
             receipt_date.Value = DateTime.Now;
-            manager_model.fill_pre_receipt_grid(ref ds);
+            model.fill_pre_receipt_grid(ref ds);
             
             oldreceipt_grid.DataSource = ds.Tables[0].DefaultView;
             oldreceipt_grid.Columns[0].HeaderText = "Receipt ID";
@@ -36,7 +36,7 @@ namespace SysCafé
 
         private void save_receipt_but_Click(object sender, EventArgs e)
         {
-            manager_model.add_receipt(receipt_date.Value,Convert.ToDouble(price_num.Value),Convert.ToInt32(items_num.Value));
+            model.add_receipt(receipt_date.Value,Convert.ToDouble(price_num.Value),Convert.ToInt32(items_num.Value));
             content_panel.Enabled = true;
             new_receipt_panel.Enabled = false;
             if (items_num.Value == 1)
@@ -56,14 +56,14 @@ namespace SysCafé
 
         private void next_but_Click(object sender, EventArgs e)
         {
-            mat_id = manager_model.get_mat_id(mat_combo.Text);
+            mat_id = model.get_mat_id(mat_combo.Text);
             if (counter < item_num)
             {
-                supplier_id = manager_model.get_supplier_id(supp_name_combo.SelectedItem.ToString());
-                receipt_id = manager_model.receipt_id();
-                manager_model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
+                supplier_id = model.get_supplier_id(supp_name_combo.SelectedItem.ToString());
+                receipt_id = model.receipt_id();
+                model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
                 counter =counter+1;
-                manager_model.add_inventor(mat_id, Convert.ToDouble(count_num.Value));
+                model.add_inventor(mat_id, Convert.ToDouble(count_num.Value));
             }
             if(counter == item_num)
             {
@@ -80,11 +80,11 @@ namespace SysCafé
 
         private void finish_but_Click(object sender, EventArgs e)
         {
-            mat_id = manager_model.get_mat_id(mat_combo.Text);
-            manager_model.add_inventor(manager_model.get_mat_id(mat_combo.Text), Convert.ToDouble(count_num.Value));
-            supplier_id = manager_model.get_supplier_id(supp_name_combo.SelectedItem.ToString());
-            receipt_id = manager_model.receipt_id();
-            manager_model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
+            mat_id = model.get_mat_id(mat_combo.Text);
+            model.add_inventor(model.get_mat_id(mat_combo.Text), Convert.ToDouble(count_num.Value));
+            supplier_id = model.get_supplier_id(supp_name_combo.SelectedItem.ToString());
+            receipt_id = model.receipt_id();
+            model.insert_materials(mat_id, Convert.ToDouble(unite_price_num.Value), supplier_id, Convert.ToDouble(count_num.Value), Convert.ToDouble(weight_num.Value), receipt_date.Value, receipt_id);
             content_panel.Enabled = false;
             new_receipt_panel.Enabled = true;
             items_num.Value = 1;
@@ -94,7 +94,7 @@ namespace SysCafé
             count_num.Value = 0;
             weight_num.Value = 0;
             counter = 1;
-            manager_model.fill_pre_receipt_grid(ref ds);
+            model.fill_pre_receipt_grid(ref ds);
             oldreceipt_grid.DataSource = ds.Tables[0].DefaultView;
             
             mat_combo.Text = "";
@@ -107,7 +107,7 @@ namespace SysCafé
             if (e.RowIndex !=-1)
             {
                 receipt_id = Convert.ToInt32(oldreceipt_grid.Rows[e.RowIndex].Cells[0].Value);
-                manager_model.fill_content_grid(ref ds, receipt_id);
+                model.fill_content_grid(ref ds, receipt_id);
 
                 content_grid.DataSource = ds.Tables[0].DefaultView;
                 content_grid.Columns[0].HeaderText = "Name";
@@ -124,11 +124,11 @@ namespace SysCafé
 
         private void cansel_but_Click(object sender, EventArgs e)
         {
-            receipt_id = manager_model.receipt_id();
+            receipt_id = model.receipt_id();
            DialogResult d= MessageBox.Show("Are you sure ypu want to cansel?" ," ", MessageBoxButtons.YesNo);
             if (d== DialogResult.Yes)
             {
-                manager_model.delete_receipt(receipt_id);
+                model.delete_receipt(receipt_id);
                 new_receipt_panel.Enabled = true;
                 content_panel.Enabled = false;
             }
@@ -137,12 +137,12 @@ namespace SysCafé
 
         private void mat_combo_Click(object sender, EventArgs e)
         {
-            manager_model.fill_mat_combo(mat_combo);
+            model.fill_mat_combo(mat_combo);
         }
 
         private void supp_name_combo_Click(object sender, EventArgs e)
         {
-            manager_model.fill_suppliers_combo(supp_name_combo);
+            model.fill_suppliers_combo(supp_name_combo);
         }
     }
 }
