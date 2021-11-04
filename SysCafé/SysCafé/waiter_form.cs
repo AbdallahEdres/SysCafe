@@ -41,6 +41,8 @@ namespace SysCafé
             freetabla.Margin = new Padding(80);
             freetabla.Click += new EventHandler(tickets_cont1.fill_open_ticket_content);
             freetabla.Click += new EventHandler(tickets_but_Click);
+            freetabla.Click += new EventHandler(check_but_tkts);
+
             if (model.table_status(id) == 0)
             {
                 freetabla.FillColor = Color.FromArgb(159, 159, 158);
@@ -56,7 +58,32 @@ namespace SysCafé
 
         }
 
-        //geting number of table from database
+      private void check_but_tkts(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+            foreach(Guna.UI2.WinForms.Guna2Button but in tickets_cont1.but_list)
+            {
+                if (but.Text == clickedButton.Text)
+                {
+                    tickets_cont1.check_but(but);
+                }
+            }
+
+        }
+        private void check_but_menu(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+            foreach (Guna.UI2.WinForms.Guna2Button but in Menu_Cont1.flowLayoutPanel1.Controls)
+            {
+                if (but.Text == clickedButton.Text)
+                {
+                    Menu_Cont1.check_but(but);
+                    
+                }
+
+            }
+
+        }
 
         //reseting buttons method 
         private void button_reset(Guna.UI2.WinForms.Guna2Button b)
@@ -82,6 +109,9 @@ namespace SysCafé
         {
             InitializeComponent();
             button_select(Home_button);
+            tickets_cont1.new_ticket_but.Click += new EventHandler(new_tkt);
+            tickets_cont1.new_ticket_but.Click += new EventHandler(check_but_menu);
+
 
             // add user controllers to the form
             this.Controls.Add(tickets_cont1);
@@ -106,11 +136,16 @@ namespace SysCafé
             button_select(tickets_but);           
         }
 
-        private void Home_button_Click(object sender, EventArgs e)
+        public void Home_button_Click(object sender, EventArgs e)
         {
             hid_cont();
             button_select(Home_button);
             main_panel.Show();
+            flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < tables_id.Count; i++)
+            {
+                creat_table(tables_id[i]);
+            }
         }
 
         private void menu_but_Click(object sender, EventArgs e)
@@ -118,12 +153,29 @@ namespace SysCafé
             hid_cont();
             button_select(menu_but);
             Menu_Cont1.Show();
+            Menu_Cont1.refresh();
             
         }
 
         private void waiter_form_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.OpenForms[0].Show();
+        }
+        private void new_tkt(object sender, EventArgs e)
+        {
+            if (tickets_cont1.table_id > 0)
+            {
+                hid_cont();
+                button_select(menu_but);
+                Menu_Cont1.Show();
+                Menu_Cont1.table_id = tickets_cont1.table_id;
+                
+            }
+            else
+            {
+                MessageBox.Show("choose table");
+            }
+            Menu_Cont1.refresh();
         }
     }
 }

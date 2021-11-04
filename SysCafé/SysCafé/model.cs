@@ -341,14 +341,19 @@ namespace SysCafé
         //get table status from database
         public static int table_status(int id)
         {
-            int status;
-            cn.Open();
-            cmd = new SqlCommand("select table_status from the_tables where table_number = "+id+"", cn);
-            dr = cmd.ExecuteReader();
-            dr.Read();
-            status = Convert.ToInt32(dr[0]);
-            dr.Close();
-            cn.Close();
+            int status=-1;
+            if (id > 0)
+            {
+                cn.Open();
+                cmd = new SqlCommand("select table_status from the_tables where table_number = " + id + "", cn);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                status = Convert.ToInt32(dr[0]);
+                dr.Close();
+                cn.Close();
+            }
+           
+            
             return status;
 
         }
@@ -376,6 +381,7 @@ namespace SysCafé
 
         #region waiter form
 
+        #region tickets conroller
         // gets open ticket for specific table
         public static void fill_open_ticket_grid(ref DataSet ds , int table_num,ref string tkt_id,ref string worker ,ref string time)
         {
@@ -422,7 +428,103 @@ namespace SysCafé
             cn.Close();
         }
 
+        #endregion
+
+        #region menu controller
+
+        public static void fill_order_content(ref DataSet ds,int table_num)
+        {
+            ds = new DataSet();
+            cn.Open();
+            cmd = new SqlCommand("SELECT menu_items.item_name,  menu_items.item_size,  ticket_content.item_count,  menu_items.item_price,  menu_category.category_name FROM tickets INNER JOIN ticket_content ON  tickets.ticket_id =  ticket_content.ticket_id INNER JOIN  menu_items ON  ticket_content.item_id =  menu_items.item_id INNER JOIN  menu_category ON  menu_items.category_id =  menu_category.category_id where tickets.ticket_status='open' and tickets.table_num="+table_num+"", cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "order_content");
+            cn.Close();
+        }
+        public static List<int> get_item_id()
+        {
+            List<int> item_id=new List<int>();
+            cn.Open();
+            cmd = new SqlCommand("select item_id from menu_items", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                item_id.Add(Convert.ToInt32(dr[0]));
+            }
+            dr.Close();
+            cn.Close();
+            return item_id;
+        }
+        public static void panel_build(int item_id, ref string name ,ref string price , ref int pic_id)
+        {
+            cn.Open();
+            cmd = new SqlCommand(" select * from menu_items where item_id="+item_id+"", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            name = dr[1].ToString()+" "+dr[2].ToString();
+            price = dr[3].ToString();
+            pic_id = Convert.ToInt32(dr[5]);
+            dr.Close();
+            cn.Close();
+        }
+
+        public static void add_order(int table,int item)
+        {
+            int tkt_id;
+            cn.Open();
+            cmd = new SqlCommand("select ticket_id from tickets where table_num="+table+" and ticket_status='open'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            tkt_id = Convert.ToInt32(dr[0]);
+            dr.Close();
+            cmd = new SqlCommand("select item_count from ticket_content where ticket_id="+tkt_id+" and item_id="+item+"", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                int count = Convert.ToInt32(dr[0]);
+                dr.Close();
+                cmd = new SqlCommand("update ticket_content set item_count=" + (count += 1) + " where item_id ="+item+"and ticket_id="+tkt_id+"", cn);
+                cmd.ExecuteNonQuery();
+            } else
+            {
+                dr.Close();
+                cmd = new SqlCommand("insert into ticket_content values(" + tkt_id + " ," + item + ",1)", cn);
+                cmd.ExecuteNonQuery();
+            }
+            
+            cn.Close();
+
+        }
+        public static string calc_total(int table)
+        {
+            string total = "";
+            double total_price=0;
+            int tkt_id;
+            cn.Open();
+            cmd = new SqlCommand("select ticket_id from tickets where table_num=" + table + " and ticket_status='open'", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                tkt_id = Convert.ToInt32(dr[0]);
+                dr.Close();
+                cmd = new SqlCommand("SELECT ticket_content.item_count,  menu_items.item_price FROM  menu_items INNER JOIN ticket_content ON  menu_items.item_id =  ticket_content.item_id where ticket_content.ticket_id=" + tkt_id + "", cn);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    total_price += (Convert.ToDouble(dr[0]) * Convert.ToDouble(dr[1]));
+                }
+             
+            }
+            total = total_price.ToString();
+            dr.Close();
+            cn.Close();
+            return total;
+        }
 
         #endregion
+
+
+        #endregion
+
     }
 }

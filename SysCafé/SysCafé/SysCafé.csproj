@@ -115,12 +115,6 @@
     <Compile Include="new_supp_controler.Designer.cs">
       <DependentUpon>new_supp_controler.cs</DependentUpon>
     </Compile>
-    <Compile Include="new_ticket_form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="new_ticket_form.Designer.cs">
-      <DependentUpon>new_ticket_form.cs</DependentUpon>
-    </Compile>
     <Compile Include="orders_cont.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,9 +194,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="new_supp_controler.resx">
       <DependentUpon>new_supp_controler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="new_ticket_form.resx">
-      <DependentUpon>new_ticket_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="orders_cont.resx">
       <DependentUpon>orders_cont.cs</DependentUpon>

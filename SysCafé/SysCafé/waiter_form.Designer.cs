@@ -310,7 +310,7 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2Panel nav_panel;
         private Guna.UI2.WinForms.Guna2Button logout_but;
         private Guna.UI2.WinForms.Guna2Button tickets_but;
-        private Guna.UI2.WinForms.Guna2Button menu_but;
+        public  Guna.UI2.WinForms.Guna2Button menu_but;
         private Guna.UI2.WinForms.Guna2Button Home_button;
         private Guna.UI2.WinForms.Guna2Panel top_panel;
         private Guna.UI2.WinForms.Guna2CircleButton refresh_but;

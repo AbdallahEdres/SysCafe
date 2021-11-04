@@ -12,8 +12,22 @@ namespace SysCafé
 {
     public partial class menu_cont : UserControl
     {
-        int num_tables = model.num_table();
+        List<int> tables_id;
+        public int table_id;
+        DataSet ds;
+        public List<Guna.UI2.WinForms.Guna2Button> table_but_list = new List<Guna.UI2.WinForms.Guna2Button>();
+        public List<Guna.UI2.WinForms.Guna2ShadowPanel> menu_but_list = new List<Guna.UI2.WinForms.Guna2ShadowPanel>();
+        List<int> item_id = model.get_item_id();
+        string total_p;
 
+        public void refresh()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < tables_id.Count; i++)
+            {
+                creat_table(tables_id[i]);
+            }
+        }
         private void creat_table(int id)
         {
             Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
@@ -29,10 +43,8 @@ namespace SysCafé
             freetabla.ImageOffset = new Point(35, -10);
             freetabla.Margin = new Padding(10);
             freetabla.ImageAlign = HorizontalAlignment.Right;
-
-/*            freetabla.Click += new EventHandler(table_Click);
-*/
-              if (model.table_status(id) == 0)
+            freetabla.Click += new EventHandler(grid_fill);
+            if (model.table_status(id) == 0)
             {
                 freetabla.FillColor = Color.FromArgb(159, 159, 158);
 
@@ -44,37 +56,52 @@ namespace SysCafé
             }
 
             flowLayoutPanel1.Controls.Add(freetabla);
-
+ 
         }
-        private void create_item_menu()
+        private void unchek_but()
         {
+            foreach (Guna.UI2.WinForms.Guna2Button but in table_but_list)
+            {
+                but.Checked = false;
+                but.BorderThickness = 0;
+            }
+        }
+        public void check_but(Guna.UI2.WinForms.Guna2Button but)
+        {
+
+
+            unchek_but();
+            but.Checked = true;
+            but.CheckedState.BorderColor = Color.FromArgb(252, 128, 25);
+            but.BorderThickness = 5;
+        }
+        private void create_item_menu(int item_id)
+        {
+            string name=" ",price=" ";
+            int pic_id=-1;
+            model.panel_build( item_id, ref name, ref price,ref pic_id);
             Guna.UI2.WinForms.Guna2ShadowPanel item_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             item_panel.BackColor = Color.Transparent;
-            Label label3 = new Label();
-            create_price(label3);
-            item_panel.Controls.Add(label3);
-            Label label2 = new Label();
-            crate_item_name(label2);
-            item_panel.Controls.Add(label2);
-            Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            create_picbox(guna2CirclePictureBox1);
-            item_panel.Controls.Add(guna2CirclePictureBox1);
+            item_panel.Controls.Add(create_price(price));            
+            item_panel.Controls.Add(create_item_name(name));
+            item_panel.Controls.Add(create_picbox(pic_id));
             item_panel.FillColor = Color.White;
             item_panel.Location = new Point(13, 13);
-            item_panel.Name = "item_panel";
+            item_panel.Name = item_id.ToString() ;
             item_panel.Radius = 15;
             item_panel.ShadowColor =Color.Black;
             item_panel.Size = new Size(200, 200);
             item_panel.TabIndex = 0;
             item_panel.Cursor = Cursors.Hand;
+            menu_but_list.Add(item_panel);
             flowLayoutPanel2.Controls.Add(item_panel);
-
+            item_panel.Click += new EventHandler(take_order);
         }
-        private void create_picbox(Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1)
+        private Guna.UI2.WinForms.Guna2CirclePictureBox create_picbox(int id)
         {
-            
-            guna2CirclePictureBox1.Image =menu_image.Images[0];
-            guna2CirclePictureBox1.Location = new System.Drawing.Point(41, 14);
+            Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            guna2CirclePictureBox1.Image =menu_image.Images[id];
+            guna2CirclePictureBox1.Location = new Point(41, 14);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox1.ShadowDecoration.Parent = guna2CirclePictureBox1;
@@ -82,48 +109,131 @@ namespace SysCafé
             guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             guna2CirclePictureBox1.TabIndex = 0;
             guna2CirclePictureBox1.TabStop = false;
+            guna2CirclePictureBox1.Click += new EventHandler(take_order);
+
+            return guna2CirclePictureBox1;
         }
-        private void create_price(Label label3)
+        private Label create_price(string price)
         {
+            Label label3 = new Label();
             label3.AutoSize = true;
             label3.Font = new Font("Inter Medium", 12F,FontStyle.Bold,GraphicsUnit.Point, ((byte)(0)));
             label3.Location = new Point(75, 170);
             label3.Name = "label3";
             label3.Size = new Size(56, 19);
             label3.TabIndex = 2;
-            label3.Text = "label3";
+            label3.Text = price+"$";
+            label3.Click += new EventHandler(take_order);
+
+            return label3;
         }
-        private void crate_item_name(Label label2)
+        private Label create_item_name(string name)
         {
+            Label label2 = new Label();
             label2.AutoSize = true;
             label2.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label2.Location = new Point(76, 137);
-            label2.Name = "label2";
+            label2.Name = "name";
             label2.Size = new Size(55, 19);
             label2.TabIndex = 1;
-            label2.Text = "label2";
+            label2.Text = name;
+            label2.Click += new EventHandler(take_order);
+
+            return label2;
         }
         public menu_cont()
         {
-            InitializeComponent(); 
-            for (int i = 1; i <= num_tables; i++)
+            InitializeComponent();
+            tables_id = model.get_table_id();
+            for (int i = 0; i < tables_id.Count; i++)
             {
-                creat_table(i);
+                creat_table(tables_id[i]);
+
             }
-            for(int i=0; i < 50; i++)
+            foreach (int id in item_id)
             {
-                create_item_menu();
+                create_item_menu(id);
             }
         }
 
-        private void guna2ShadowPanel4_Paint(object sender, PaintEventArgs e)
+        public void grid_fill(object sender, EventArgs e)
         {
 
+            ds = new DataSet();
+            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+             table_id = Convert.ToInt32(clickedButton.Text);
+            model.fill_order_content(ref ds, table_id);
+            if (ds.Tables.Count > 0)
+            {
+                order_grid.DataSource = ds.Tables["order_content"].DefaultView;
+                name_grid();
+                total_p = model.calc_total(table_id) + "$";
+                price_label.Text = total_p;
+            }
+            check_but(clickedButton);
+        
         }
 
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        private void name_grid()
         {
+            order_grid.Columns[0].HeaderText = "Item";
+            order_grid.Columns[1].HeaderText = "Size";
+            order_grid.Columns[2].HeaderText = "Count";
+            order_grid.Columns[3].HeaderText = "Price/1";
+            order_grid.Columns[4].HeaderText = "Category";
 
         }
+
+        private void take_order(object sender, EventArgs e)
+        {
+            int status =model.table_status(table_id);
+            if (status == 0)
+            {
+                Guna.UI2.WinForms.Guna2ShadowPanel clickedButton = sender as Guna.UI2.WinForms.Guna2ShadowPanel;
+                int id = Convert.ToInt32(clickedButton.Name);
+                model.add_order(table_id, id);
+                model.fill_order_content(ref ds, table_id);
+                if (ds.Tables.Count > 0)
+                {
+                    price_label.Text = model.calc_total(table_id)+"$";
+                    order_grid.DataSource = ds.Tables["order_content"].DefaultView;
+                    name_grid();
+                    total_p = model.calc_total(table_id) + "$";
+                    price_label.Text = total_p;
+                }
+
+            }else if (status == 1)
+            {
+                DialogResult dialog= MessageBox.Show( "Do you want to open new ticket??", "No Open Tickets", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    model.new_tkt(table_id, 1);
+                    Guna.UI2.WinForms.Guna2ShadowPanel clickedButton = sender as Guna.UI2.WinForms.Guna2ShadowPanel;
+                    int id = Convert.ToInt32(clickedButton.Name);
+                    model.add_order(table_id, id);
+                    model.fill_order_content(ref ds, table_id);
+                    if (ds.Tables.Count > 0)
+                    {
+                        order_grid.DataSource = ds.Tables["order_content"].DefaultView;
+                        name_grid();
+                        total_p = model.calc_total(table_id) + "$";
+                        price_label.Text = total_p;
+                    }
+                    flowLayoutPanel1.Controls.Clear();
+                    for (int i = 0; i < tables_id.Count; i++)
+                    {
+                        creat_table(tables_id[i]);
+                    }
+                }
+                
+
+            }else if (status == -1)
+            {
+                MessageBox.Show("choose table!");
+            }
+           
+        }
+
+        
     }
 }

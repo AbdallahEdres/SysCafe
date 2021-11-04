@@ -479,7 +479,7 @@ namespace SysCafé
         private System.Windows.Forms.Label waiter_label;
         private System.Windows.Forms.Panel new_ticket_panel;
         private System.Windows.Forms.Label no_oppen_label;
-        private Guna.UI2.WinForms.Guna2Button new_ticket_but;
+        public Guna.UI2.WinForms.Guna2Button new_ticket_but;
         private System.Windows.Forms.Label table_id_label;
         private System.Windows.Forms.Label open_time_value;
         private System.Windows.Forms.Label waiter_iname_label;
