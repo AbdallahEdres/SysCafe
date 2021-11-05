@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace SysCafé
 {
@@ -18,7 +19,7 @@ namespace SysCafé
 
         private void creat_table(int id)
         {
-            Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
+            Guna2Button freetabla = new Guna2Button();
             freetabla.Image =imageList1.Images[0];
             freetabla.ImageSize = new Size(130, 130);
             freetabla.Text = id.ToString() ;
@@ -56,7 +57,7 @@ namespace SysCafé
 
         private void table_Click(object sender, EventArgs e)
         {
-            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+            Guna2Button clickedButton = sender as Guna2Button;
             model.orders_grid_fill(ref ds, Convert.ToInt32(clickedButton.Text));
             orders_grid.DataSource = ds.Tables[0].DefaultView;
             orders_grid.Columns[0].HeaderText = "Ticket ID";

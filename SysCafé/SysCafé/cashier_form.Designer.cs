@@ -31,15 +31,15 @@ namespace SysCafé
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cashier_form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nav_panel = new Guna.UI2.WinForms.Guna2Panel();
             this.payment_but = new Guna.UI2.WinForms.Guna2Button();
             this.logout_but = new Guna.UI2.WinForms.Guna2Button();
@@ -47,6 +47,7 @@ namespace SysCafé
             this.menu_but = new Guna.UI2.WinForms.Guna2Button();
             this.Home_button = new Guna.UI2.WinForms.Guna2Button();
             this.top_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.new_ticket = new Guna.UI2.WinForms.Guna2Button();
             this.refresh_but = new Guna.UI2.WinForms.Guna2CircleButton();
             this.select_table_but = new Guna.UI2.WinForms.Guna2Button();
             this.time_label = new System.Windows.Forms.Label();
@@ -68,7 +69,9 @@ namespace SysCafé
             this.closed_label = new System.Windows.Forms.Label();
             this.Closed_tkt_grid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.new_ticket = new Guna.UI2.WinForms.Guna2Button();
+            this.date_valu = new System.Windows.Forms.Label();
+            this.order_num_val = new System.Windows.Forms.Label();
+            this.income_val = new System.Windows.Forms.Label();
             this.nav_panel.SuspendLayout();
             this.top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -226,6 +229,26 @@ namespace SysCafé
             this.top_panel.Size = new System.Drawing.Size(1904, 82);
             this.top_panel.TabIndex = 6;
             // 
+            // new_ticket
+            // 
+            this.new_ticket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.new_ticket.BorderRadius = 5;
+            this.new_ticket.CheckedState.Parent = this.new_ticket;
+            this.new_ticket.CustomImages.Parent = this.new_ticket;
+            this.new_ticket.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.new_ticket.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_ticket.ForeColor = System.Drawing.Color.White;
+            this.new_ticket.HoverState.Parent = this.new_ticket;
+            this.new_ticket.Image = ((System.Drawing.Image)(resources.GetObject("new_ticket.Image")));
+            this.new_ticket.ImageOffset = new System.Drawing.Point(0, -3);
+            this.new_ticket.Location = new System.Drawing.Point(1400, 18);
+            this.new_ticket.Name = "new_ticket";
+            this.new_ticket.ShadowDecoration.Parent = this.new_ticket;
+            this.new_ticket.Size = new System.Drawing.Size(166, 48);
+            this.new_ticket.TabIndex = 6;
+            this.new_ticket.Text = "New Ticket";
+            this.new_ticket.Click += new System.EventHandler(this.new_ticket_Click);
+            // 
             // refresh_but
             // 
             this.refresh_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -326,6 +349,9 @@ namespace SysCafé
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.income_val);
+            this.guna2ShadowPanel1.Controls.Add(this.order_num_val);
+            this.guna2ShadowPanel1.Controls.Add(this.date_valu);
             this.guna2ShadowPanel1.Controls.Add(this.total_label);
             this.guna2ShadowPanel1.Controls.Add(this.num_order_label);
             this.guna2ShadowPanel1.Controls.Add(this.date_label);
@@ -373,7 +399,10 @@ namespace SysCafé
             // 
             // main_panel
             // 
+            this.main_panel.Controls.Add(this.guna2ShadowPanel2);
+            this.main_panel.Controls.Add(this.guna2ShadowPanel4);
             this.main_panel.Controls.Add(this.guna2ShadowPanel1);
+            this.main_panel.Controls.Add(this.guna2ShadowPanel3);
             this.main_panel.Location = new System.Drawing.Point(100, 82);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(1801, 960);
@@ -385,7 +414,7 @@ namespace SysCafé
             this.guna2ShadowPanel2.Controls.Add(this.history_label);
             this.guna2ShadowPanel2.Controls.Add(this.history_grid);
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel2.Location = new System.Drawing.Point(1492, 88);
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(1389, 5);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.Radius = 10;
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
@@ -408,35 +437,35 @@ namespace SysCafé
             // 
             this.history_grid.AllowUserToAddRows = false;
             this.history_grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.history_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.history_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
             this.history_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.history_grid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.history_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.history_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.history_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.history_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.history_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.history_grid.ColumnHeadersHeight = 25;
             this.history_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.history_grid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.history_grid.DefaultCellStyle = dataGridViewCellStyle30;
             this.history_grid.EnableHeadersVisualStyles = false;
             this.history_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.history_grid.Location = new System.Drawing.Point(44, 150);
@@ -476,7 +505,7 @@ namespace SysCafé
             this.guna2ShadowPanel3.Controls.Add(this.open_label);
             this.guna2ShadowPanel3.Controls.Add(this.open_tkt_grid);
             this.guna2ShadowPanel3.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel3.Location = new System.Drawing.Point(115, 281);
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(15, 190);
             this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
             this.guna2ShadowPanel3.Radius = 10;
             this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
@@ -499,35 +528,35 @@ namespace SysCafé
             // 
             this.open_tkt_grid.AllowUserToAddRows = false;
             this.open_tkt_grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.open_tkt_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.open_tkt_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.open_tkt_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.open_tkt_grid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.open_tkt_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.open_tkt_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.open_tkt_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.open_tkt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.open_tkt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.open_tkt_grid.ColumnHeadersHeight = 25;
             this.open_tkt_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.open_tkt_grid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.open_tkt_grid.DefaultCellStyle = dataGridViewCellStyle33;
             this.open_tkt_grid.EnableHeadersVisualStyles = false;
             this.open_tkt_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.open_tkt_grid.Location = new System.Drawing.Point(26, 109);
@@ -567,7 +596,7 @@ namespace SysCafé
             this.guna2ShadowPanel4.Controls.Add(this.closed_label);
             this.guna2ShadowPanel4.Controls.Add(this.Closed_tkt_grid);
             this.guna2ShadowPanel4.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel4.Location = new System.Drawing.Point(828, 284);
+            this.guna2ShadowPanel4.Location = new System.Drawing.Point(728, 190);
             this.guna2ShadowPanel4.Name = "guna2ShadowPanel4";
             this.guna2ShadowPanel4.Radius = 10;
             this.guna2ShadowPanel4.ShadowColor = System.Drawing.Color.Black;
@@ -590,35 +619,35 @@ namespace SysCafé
             // 
             this.Closed_tkt_grid.AllowUserToAddRows = false;
             this.Closed_tkt_grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.Closed_tkt_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.Closed_tkt_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.Closed_tkt_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Closed_tkt_grid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.Closed_tkt_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Closed_tkt_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.Closed_tkt_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Closed_tkt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Closed_tkt_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.Closed_tkt_grid.ColumnHeadersHeight = 25;
             this.Closed_tkt_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Closed_tkt_grid.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Closed_tkt_grid.DefaultCellStyle = dataGridViewCellStyle36;
             this.Closed_tkt_grid.EnableHeadersVisualStyles = false;
             this.Closed_tkt_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.Closed_tkt_grid.Location = new System.Drawing.Point(35, 109);
@@ -658,25 +687,35 @@ namespace SysCafé
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // new_ticket
+            // date_valu
             // 
-            this.new_ticket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.new_ticket.BorderRadius = 5;
-            this.new_ticket.CheckedState.Parent = this.new_ticket;
-            this.new_ticket.CustomImages.Parent = this.new_ticket;
-            this.new_ticket.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.new_ticket.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_ticket.ForeColor = System.Drawing.Color.White;
-            this.new_ticket.HoverState.Parent = this.new_ticket;
-            this.new_ticket.Image = ((System.Drawing.Image)(resources.GetObject("new_ticket.Image")));
-            this.new_ticket.ImageOffset = new System.Drawing.Point(0, -3);
-            this.new_ticket.Location = new System.Drawing.Point(1400, 18);
-            this.new_ticket.Name = "new_ticket";
-            this.new_ticket.ShadowDecoration.Parent = this.new_ticket;
-            this.new_ticket.Size = new System.Drawing.Size(166, 48);
-            this.new_ticket.TabIndex = 6;
-            this.new_ticket.Text = "New Ticket";
-            this.new_ticket.Click += new System.EventHandler(this.new_ticket_Click);
+            this.date_valu.AutoSize = true;
+            this.date_valu.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_valu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.date_valu.Location = new System.Drawing.Point(97, 15);
+            this.date_valu.Name = "date_valu";
+            this.date_valu.Size = new System.Drawing.Size(0, 25);
+            this.date_valu.TabIndex = 8;
+            // 
+            // order_num_val
+            // 
+            this.order_num_val.AutoSize = true;
+            this.order_num_val.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.order_num_val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.order_num_val.Location = new System.Drawing.Point(228, 89);
+            this.order_num_val.Name = "order_num_val";
+            this.order_num_val.Size = new System.Drawing.Size(0, 25);
+            this.order_num_val.TabIndex = 9;
+            // 
+            // income_val
+            // 
+            this.income_val.AutoSize = true;
+            this.income_val.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.income_val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.income_val.Location = new System.Drawing.Point(1178, 89);
+            this.income_val.Name = "income_val";
+            this.income_val.Size = new System.Drawing.Size(0, 25);
+            this.income_val.TabIndex = 11;
             // 
             // cashier_form
             // 
@@ -684,15 +723,13 @@ namespace SysCafé
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1902, 1039);
-            this.Controls.Add(this.guna2ShadowPanel4);
-            this.Controls.Add(this.guna2ShadowPanel3);
-            this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.nav_panel);
             this.Controls.Add(this.top_panel);
             this.Controls.Add(this.main_panel);
             this.Name = "cashier_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "casheir_form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.cashier_form_FormClosed);
             this.nav_panel.ResumeLayout(false);
             this.top_panel.ResumeLayout(false);
             this.top_panel.PerformLayout();
@@ -744,5 +781,8 @@ namespace SysCafé
         private System.Windows.Forms.Label closed_label;
         private System.Windows.Forms.Panel main_panel;
         private Guna.UI2.WinForms.Guna2Button new_ticket;
+        private System.Windows.Forms.Label order_num_val;
+        private System.Windows.Forms.Label date_valu;
+        private System.Windows.Forms.Label income_val;
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
+
 namespace SysCafé
 {
     public partial class waiter_form : Form
@@ -27,7 +29,7 @@ namespace SysCafé
         //creating tables method
         private void creat_table(int id)
         {
-            Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
+            Guna2Button freetabla = new Guna2Button();
             freetabla.Image = imageList1.Images[0];
             freetabla.ImageSize = new Size(130, 130);
             freetabla.Text = id.ToString();
@@ -60,8 +62,8 @@ namespace SysCafé
 
       private void check_but_tkts(object sender, EventArgs e)
         {
-            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
-            foreach(Guna.UI2.WinForms.Guna2Button but in tickets_cont1.but_list)
+            Guna2Button clickedButton = sender as Guna2Button;
+            foreach(Guna2Button but in tickets_cont1.but_list)
             {
                 if (but.Text == clickedButton.Text)
                 {
@@ -72,8 +74,8 @@ namespace SysCafé
         }
         private void check_but_menu(object sender, EventArgs e)
         {
-            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
-            foreach (Guna.UI2.WinForms.Guna2Button but in Menu_Cont1.flowLayoutPanel1.Controls)
+            Guna2Button clickedButton = sender as Guna2Button;
+            foreach (Guna2Button but in Menu_Cont1.flowLayoutPanel1.Controls)
             {
                 if (but.Text == clickedButton.Text)
                 {
@@ -86,7 +88,7 @@ namespace SysCafé
         }
 
         //reseting buttons method 
-        private void button_reset(Guna.UI2.WinForms.Guna2Button b)
+        private void button_reset(Guna2Button b)
         {
             b.FillColor = Color.Transparent;
             b.BorderColor = Color.FromArgb(252, 128, 25);
@@ -94,7 +96,7 @@ namespace SysCafé
         }
  
         // select spacific button
-        private void button_select(Guna.UI2.WinForms.Guna2Button b)
+        private void button_select(Guna2Button b)
         {
             button_reset(Home_button);
             button_reset(menu_but);

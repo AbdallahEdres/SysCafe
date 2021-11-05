@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace SysCafé
 {
@@ -15,11 +16,11 @@ namespace SysCafé
         //list decleartion
         List<int> tables_id;
         DataSet ds;
-       public List<Guna.UI2.WinForms.Guna2Button> but_list = new List<Guna.UI2.WinForms.Guna2Button>();
+       public List<Guna2Button> but_list = new List<Guna2Button>();
         public int table_id;
         private void creat_table(int id)
         {
-            Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
+            Guna2Button freetabla = new Guna2Button();
             freetabla.Image = imageList1.Images[0];
             freetabla.ImageSize = new Size(130, 130);
             freetabla.Text = id.ToString();
@@ -69,7 +70,7 @@ namespace SysCafé
             closed_grid.Columns[4].HeaderText = "Worker";
         }
         // change button to checked status
-        public void check_but (Guna.UI2.WinForms.Guna2Button but )
+        public void check_but (Guna2Button but )
         {
             
 
@@ -83,7 +84,7 @@ namespace SysCafé
         // uncheck all other buttons
         private void unchek_but()
         {
-            foreach(Guna.UI2.WinForms.Guna2Button but in but_list)
+            foreach(Guna2Button but in but_list)
             {
                 but.Checked = false;
                 but.BorderThickness = 0;
@@ -94,7 +95,7 @@ namespace SysCafé
        public  void fill_open_ticket_content(object sender, EventArgs e)
         {
             
-            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+            Guna2Button clickedButton = sender as Guna2Button;
             table_id = Convert.ToInt32(clickedButton.Text);
             check_but(clickedButton);
             string tkt_id =" ";

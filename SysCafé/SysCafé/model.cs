@@ -421,7 +421,7 @@ namespace SysCafé
         public static void new_tkt(int table, int worker_id)
         {
             cn.Open();
-            cmd = new SqlCommand("insert into tickets values ("+table+",'"+DateTime.Now+"',null,'open','table',"+worker_id+")", cn);
+            cmd = new SqlCommand("insert into tickets values ("+table+",'"+DateTime.Now+"',null,'open','table',"+worker_id+",'"+DateTime.Now.ToString("yyyy-MM-dd")+"',50)", cn);
             cmd.ExecuteNonQuery();
             cmd = new SqlCommand("update the_tables set table_status =0 where table_number="+table+"", cn);
             cmd.ExecuteNonQuery();
@@ -526,5 +526,87 @@ namespace SysCafé
 
         #endregion
 
+
+        // methods for cashier form
+        #region cashier form
+
+        // cashier home page moethods
+        #region home page
+        // gits data for home page in cashier form from databse
+        public static void fill_home_grid(ref DataSet ds)
+        {
+            ds = new DataSet();   
+            cmd = new SqlCommand("select * from cashier_home_view where ticket_status= 'open' and order_date = '" + DateTime.Now.ToString("yyyy-MM-dd")+"'", cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "open tickets");
+            cmd = new SqlCommand("select * from cashier_home_view where ticket_status= 'closed' and order_date = '" + DateTime.Now.ToString("yyyy-MM-dd") +"'", cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "closed tickets");
+            cmd = new SqlCommand("select the_date ,total_calc from daily_profit", cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "history");
+        }
+
+
+        //gets total income of the day until now and number of orders made
+        public static void orders_income(ref string num_order, ref string income) 
+        {
+            cn.Open();
+            cmd = new SqlCommand("select count (*) from tickets where order_date = '"+DateTime.Now.ToString("yyyy-MM-dd")+"'", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                num_order = dr[0].ToString();
+            }
+           
+            dr.Close();
+            cmd = new SqlCommand(" select sum (ticket_valu) from tickets where order_date='" + DateTime.Now.ToString("yyyy-MM-dd") +"'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr[0].ToString()!="")
+            {
+                income = dr[0].ToString();
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        #endregion
+
+        // payment page methods
+        #region payment
+
+        //gets data for tickets grid
+        public static void fill_payment_open_tkt(ref DataSet ds , string tkt_status ,string typ)
+        {
+            cmd = new SqlCommand("select * from cashier_home_view where order_date='"+DateTime.Now.ToString("yyyy-MM-dd")+"'"+tkt_status+typ, cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "payment tickets");
+
+        }
+        // gets the data for receipt content
+        public static void fill_recipt(ref DataSet ds, int order_id)
+        {
+            cmd = new SqlCommand("select * from payment_veiw where ticket_id ="+order_id+"", cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "receipt");
+        }
+        // calculate the total value of receipt for payment
+        public static double calc_payment(int receipt_id)
+        {
+            double total = 0;
+            cn.Open();
+            cmd = new SqlCommand(" select item_count , item_price from payment_veiw where ticket_id="+receipt_id+"", cn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                total += (Convert.ToDouble(dr[0]) * Convert.ToDouble(dr[1]));
+            }
+            dr.Close();
+            cn.Close();
+            return total;
+        }
+        #endregion
+        #endregion
     }
 }

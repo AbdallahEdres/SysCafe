@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace SysCafé
 {
@@ -15,8 +16,8 @@ namespace SysCafé
         List<int> tables_id;
         public int table_id;
         DataSet ds;
-        public List<Guna.UI2.WinForms.Guna2Button> table_but_list = new List<Guna.UI2.WinForms.Guna2Button>();
-        public List<Guna.UI2.WinForms.Guna2ShadowPanel> menu_but_list = new List<Guna.UI2.WinForms.Guna2ShadowPanel>();
+        public List<Guna2Button> table_but_list = new List<Guna2Button>();
+        public List<Guna2ShadowPanel> menu_but_list = new List<Guna2ShadowPanel>();
         List<int> item_id = model.get_item_id();
         string total_p;
 
@@ -30,7 +31,7 @@ namespace SysCafé
         }
         private void creat_table(int id)
         {
-            Guna.UI2.WinForms.Guna2Button freetabla = new Guna.UI2.WinForms.Guna2Button();
+            Guna2Button freetabla = new Guna2Button();
             freetabla.Image = tabel_image.Images[0];
             freetabla.ImageSize = new Size(45, 45);
             freetabla.Text = id.ToString();
@@ -60,13 +61,13 @@ namespace SysCafé
         }
         private void unchek_but()
         {
-            foreach (Guna.UI2.WinForms.Guna2Button but in table_but_list)
+            foreach (Guna2Button but in table_but_list)
             {
                 but.Checked = false;
                 but.BorderThickness = 0;
             }
         }
-        public void check_but(Guna.UI2.WinForms.Guna2Button but)
+        public void check_but(Guna2Button but)
         {
 
 
@@ -80,7 +81,7 @@ namespace SysCafé
             string name=" ",price=" ";
             int pic_id=-1;
             model.panel_build( item_id, ref name, ref price,ref pic_id);
-            Guna.UI2.WinForms.Guna2ShadowPanel item_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            Guna2ShadowPanel item_panel = new Guna2ShadowPanel();
             item_panel.BackColor = Color.Transparent;
             item_panel.Controls.Add(create_price(price));            
             item_panel.Controls.Add(create_item_name(name));
@@ -97,13 +98,12 @@ namespace SysCafé
             flowLayoutPanel2.Controls.Add(item_panel);
             item_panel.Click += new EventHandler(take_order);
         }
-        private Guna.UI2.WinForms.Guna2CirclePictureBox create_picbox(int id)
+        private Guna2CirclePictureBox create_picbox(int id)
         {
-            Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            Guna2CirclePictureBox guna2CirclePictureBox1 = new Guna2CirclePictureBox();
             guna2CirclePictureBox1.Image =menu_image.Images[id];
             guna2CirclePictureBox1.Location = new Point(41, 14);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox1.ShadowDecoration.Parent = guna2CirclePictureBox1;
             guna2CirclePictureBox1.Size = new Size(120, 120);
             guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -160,7 +160,7 @@ namespace SysCafé
         {
 
             ds = new DataSet();
-            Guna.UI2.WinForms.Guna2Button clickedButton = sender as Guna.UI2.WinForms.Guna2Button;
+            Guna2Button clickedButton = sender as Guna2Button;
              table_id = Convert.ToInt32(clickedButton.Text);
             model.fill_order_content(ref ds, table_id);
             if (ds.Tables.Count > 0)
@@ -189,7 +189,7 @@ namespace SysCafé
             int status =model.table_status(table_id);
             if (status == 0)
             {
-                Guna.UI2.WinForms.Guna2ShadowPanel clickedButton = sender as Guna.UI2.WinForms.Guna2ShadowPanel;
+                Guna2ShadowPanel clickedButton = sender as Guna2ShadowPanel;
                 int id = Convert.ToInt32(clickedButton.Name);
                 model.add_order(table_id, id);
                 model.fill_order_content(ref ds, table_id);
@@ -208,7 +208,7 @@ namespace SysCafé
                 if (dialog == DialogResult.Yes)
                 {
                     model.new_tkt(table_id, 1);
-                    Guna.UI2.WinForms.Guna2ShadowPanel clickedButton = sender as Guna.UI2.WinForms.Guna2ShadowPanel;
+                    Guna2ShadowPanel clickedButton = sender as Guna2ShadowPanel;
                     int id = Convert.ToInt32(clickedButton.Name);
                     model.add_order(table_id, id);
                     model.fill_order_content(ref ds, table_id);
