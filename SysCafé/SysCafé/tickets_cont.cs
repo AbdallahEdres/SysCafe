@@ -142,7 +142,7 @@ namespace SysCafé
         {
             if (table_id > 0)
             {
-                model.new_tkt(table_id, 1);
+                model.new_tkt_table(table_id, 1);
                 new_ticket_panel.Visible = false;
                 string tkt_id = " ";
                 string worker = " ";

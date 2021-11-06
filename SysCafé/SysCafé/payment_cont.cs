@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace SysCafé
 {
@@ -19,10 +14,14 @@ namespace SysCafé
         string status_cond = "";
         string type_cond = "";
 
+       public int ticket_id;
+        double pay;
+        int table_id;
+
 
         #region methods
         // naming grid view headers 
-        private void grid_naming(Guna.UI2.WinForms.Guna2DataGridView grid)
+        private void grid_naming(Guna2DataGridView grid)
         {
             grid.Columns[0].HeaderText = "Ticket ID";
             grid.Columns[1].HeaderText = "Table";
@@ -60,7 +59,7 @@ namespace SysCafé
         }
 
         // method to get grid view data
-        private void fill_tkts_grid()
+        public void fill_tkts_grid()
         {
             ds.Clear();
             choose_cond(ref status_cond, ref type_cond);
@@ -96,7 +95,7 @@ namespace SysCafé
             all_radio.Checked = true;
         }
 
-        #endregion
+        
 
         private void open_close_togel_CheckedChanged(object sender, EventArgs e)
         {
@@ -125,13 +124,26 @@ namespace SysCafé
         {
             if (e.RowIndex != -1)
             {
-                int ticket_id = Convert.ToInt32(tickets_grid.Rows[e.RowIndex].Cells[0].Value);
+                ticket_id = Convert.ToInt32(tickets_grid.Rows[e.RowIndex].Cells[0].Value);
+                if (tickets_grid.Rows[e.RowIndex].Cells[1].Value.ToString() !="")
+                {
+                    table_id = Convert.ToInt32(tickets_grid.Rows[e.RowIndex].Cells[1].Value);
+
+                }
+
                 model.fill_recipt(ref ds, ticket_id);
                 recipt_grid.DataSource = ds.Tables["receipt"].DefaultView;
                 receipt_grid_naming();
-                double pay = model.calc_payment(ticket_id);
+                 pay = model.calc_payment(ticket_id);
                 price_label.Text = pay.ToString() + "$";
             }
         }
+
+        private void close_tkt_but_Click(object sender, EventArgs e)
+        {
+            model.close_tkt(ticket_id, pay,table_id);
+            fill_tkts_grid();
+        }
     }
+    #endregion
 }

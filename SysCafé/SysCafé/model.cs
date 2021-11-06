@@ -17,6 +17,7 @@ namespace SysCafé
         public static SqlDataReader dr;
         public static SqlDataAdapter da;
         public static int supp_id=1;
+
         public static DataTable dt;
 
         #region form1
@@ -418,7 +419,7 @@ namespace SysCafé
         }
 
         // open new ticket 
-        public static void new_tkt(int table, int worker_id)
+        public static void new_tkt_table(int table, int worker_id)
         {
             cn.Open();
             cmd = new SqlCommand("insert into tickets values ("+table+",'"+DateTime.Now+"',null,'open','table',"+worker_id+",'"+DateTime.Now.ToString("yyyy-MM-dd")+"',50)", cn);
@@ -579,6 +580,7 @@ namespace SysCafé
         //gets data for tickets grid
         public static void fill_payment_open_tkt(ref DataSet ds , string tkt_status ,string typ)
         {
+            ds = new DataSet();
             cmd = new SqlCommand("select * from cashier_home_view where order_date='"+DateTime.Now.ToString("yyyy-MM-dd")+"'"+tkt_status+typ, cn);
             da = new SqlDataAdapter(cmd);
             da.Fill(ds, "payment tickets");
@@ -587,6 +589,7 @@ namespace SysCafé
         // gets the data for receipt content
         public static void fill_recipt(ref DataSet ds, int order_id)
         {
+            ds = new DataSet();
             cmd = new SqlCommand("select * from payment_veiw where ticket_id ="+order_id+"", cn);
             da = new SqlDataAdapter(cmd);
             da.Fill(ds, "receipt");
@@ -606,7 +609,125 @@ namespace SysCafé
             cn.Close();
             return total;
         }
+
+        //close ticket method
+
+        public static void close_tkt(int tkt_id , double total_val,int table)
+        {
+
+            cn.Open();
+            cmd = new SqlCommand("update tickets set close_time ='"+DateTime.Now.ToString()+"',ticket_status='closed' , ticket_valu="+total_val+" where ticket_id="+tkt_id+"", cn);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("update the_tables set table_status=1 where table_number="+table+"", cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+        public static int new_tkt_delivry_takeaway(string typ, int worker_id)
+        {
+            string d = DateTime.Now.ToString();
+            cn.Open();
+            cmd = new SqlCommand("insert into tickets values (null,'" +d + "',null,'open','"+typ+"'," + worker_id + ",'" + DateTime.Now.ToString("yyyy-MM-dd") + "',0)", cn);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("select ticket_id from tickets where open_time='"+d+"'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            int order_id = Convert.ToInt32(dr[0]);
+            dr.Close();
+            cn.Close();
+            return order_id;
+            
+        }
+
+        // take order in casheir form
+
+        public static void add_order_casheir(int tkt_id, int item)
+        {
+            cn.Open();
+            cmd = new SqlCommand("select item_count from ticket_content where ticket_id=" + tkt_id + " and item_id=" + item + "", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                int count = Convert.ToInt32(dr[0]);
+                dr.Close();
+                cmd = new SqlCommand("update ticket_content set item_count=" + (count += 1) + " where item_id =" + item + "and ticket_id=" + tkt_id + "", cn);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                dr.Close();
+                cmd = new SqlCommand("insert into ticket_content values(" + tkt_id + " ," + item + ",1)", cn);
+                cmd.ExecuteNonQuery();
+            }
+
+            cn.Close();
+        }
         #endregion
+
+        #region Casheir Tickets
+        /*  public static void fill_casheir_tkts_ds(ref DataSet ds )*/
+
+
+        #endregion
+        #endregion
+
+        // delivery customers' information 
+
+        #region customer info
+        public static int check_customer(string phone)
+        {
+            int stat = 0;
+            cn.Open();
+            cmd = new SqlCommand("select * from customer_info where customer_phone='" + phone + "'", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                stat = 1;
+            }
+            dr.Close();
+            cn.Close();
+
+                return stat;
+        }
+
+        public static void get_customer_info(string phone, ref string name , ref string adress, ref string pin, ref string email, ref int id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("select * from customer_info where customer_phone='"+phone+"'", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                name = dr[1].ToString();
+                id = Convert.ToInt32(dr[0]);
+                adress = dr[3].ToString();
+                email = dr[4].ToString();
+                pin = dr[5].ToString();
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        public static void add_delivery_order(int order_id, int customer_id,string adress)
+        {
+            cn.Open();
+            cmd = new SqlCommand("insert into delivery values ("+order_id+","+customer_id+",35,1,'hold',N'"+adress+"')", cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+        public static int add_new_customer(string phone,  string name,  string adress,  string pin,  string email)
+        {
+            int id;
+            cn.Open();
+            cmd = new SqlCommand("insert into customer_info values(N'"+name+"','"+phone+"',N'"+adress+"',N'"+email+"','"+pin+"',1) ", cn);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("select customer_id from customer_info where customer_phone = '"+phone+"'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            id = Convert.ToInt32(dr[0]);
+            dr.Close();
+
+            cn.Close();
+            return id;
+        }
         #endregion
     }
 }

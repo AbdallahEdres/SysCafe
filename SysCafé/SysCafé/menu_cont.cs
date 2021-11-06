@@ -21,6 +21,7 @@ namespace SysCafé
         List<int> item_id = model.get_item_id();
         string total_p;
 
+        // refresh tables status
         public void refresh()
         {
             flowLayoutPanel1.Controls.Clear();
@@ -29,6 +30,8 @@ namespace SysCafé
                 creat_table(tables_id[i]);
             }
         }
+
+        //creat tables buttons
         private void creat_table(int id)
         {
             Guna2Button freetabla = new Guna2Button();
@@ -59,6 +62,8 @@ namespace SysCafé
             flowLayoutPanel1.Controls.Add(freetabla);
  
         }
+
+        // check /uncheck buttons
         private void unchek_but()
         {
             foreach (Guna2Button but in table_but_list)
@@ -76,8 +81,11 @@ namespace SysCafé
             but.CheckedState.BorderColor = Color.FromArgb(252, 128, 25);
             but.BorderThickness = 5;
         }
+
+        // create menu items buttons
         private void create_item_menu(int item_id)
         {
+            
             string name=" ",price=" ";
             int pic_id=-1;
             model.panel_build( item_id, ref name, ref price,ref pic_id);
@@ -96,7 +104,8 @@ namespace SysCafé
             item_panel.Cursor = Cursors.Hand;
             menu_but_list.Add(item_panel);
             flowLayoutPanel2.Controls.Add(item_panel);
-            item_panel.Click += new EventHandler(take_order);
+            item_panel.MouseDown += new MouseEventHandler(take_order);
+           
         }
         private Guna2CirclePictureBox create_picbox(int id)
         {
@@ -109,8 +118,8 @@ namespace SysCafé
             guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             guna2CirclePictureBox1.TabIndex = 0;
             guna2CirclePictureBox1.TabStop = false;
-            guna2CirclePictureBox1.Click += new EventHandler(take_order);
-
+/*            guna2CirclePictureBox1.Click += new EventHandler(take_order);
+*/
             return guna2CirclePictureBox1;
         }
         private Label create_price(string price)
@@ -123,8 +132,8 @@ namespace SysCafé
             label3.Size = new Size(56, 19);
             label3.TabIndex = 2;
             label3.Text = price+"$";
-            label3.Click += new EventHandler(take_order);
-
+/*            label3.Click += new EventHandler(take_order);
+*/
             return label3;
         }
         private Label create_item_name(string name)
@@ -137,23 +146,9 @@ namespace SysCafé
             label2.Size = new Size(55, 19);
             label2.TabIndex = 1;
             label2.Text = name;
-            label2.Click += new EventHandler(take_order);
-
+/*            label2.Click += new EventHandler(take_order);
+*/
             return label2;
-        }
-        public menu_cont()
-        {
-            InitializeComponent();
-            tables_id = model.get_table_id();
-            for (int i = 0; i < tables_id.Count; i++)
-            {
-                creat_table(tables_id[i]);
-
-            }
-            foreach (int id in item_id)
-            {
-                create_item_menu(id);
-            }
         }
 
         public void grid_fill(object sender, EventArgs e)
@@ -161,7 +156,7 @@ namespace SysCafé
 
             ds = new DataSet();
             Guna2Button clickedButton = sender as Guna2Button;
-             table_id = Convert.ToInt32(clickedButton.Text);
+            table_id = Convert.ToInt32(clickedButton.Text);
             model.fill_order_content(ref ds, table_id);
             if (ds.Tables.Count > 0)
             {
@@ -171,7 +166,7 @@ namespace SysCafé
                 price_label.Text = total_p;
             }
             check_but(clickedButton);
-        
+
         }
 
         private void name_grid()
@@ -186,7 +181,7 @@ namespace SysCafé
 
         private void take_order(object sender, EventArgs e)
         {
-            int status =model.table_status(table_id);
+            int status = model.table_status(table_id);
             if (status == 0)
             {
                 Guna2ShadowPanel clickedButton = sender as Guna2ShadowPanel;
@@ -195,19 +190,20 @@ namespace SysCafé
                 model.fill_order_content(ref ds, table_id);
                 if (ds.Tables.Count > 0)
                 {
-                    price_label.Text = model.calc_total(table_id)+"$";
+                    price_label.Text = model.calc_total(table_id) + "$";
                     order_grid.DataSource = ds.Tables["order_content"].DefaultView;
                     name_grid();
                     total_p = model.calc_total(table_id) + "$";
                     price_label.Text = total_p;
                 }
 
-            }else if (status == 1)
+            }
+            else if (status == 1)
             {
-                DialogResult dialog= MessageBox.Show( "Do you want to open new ticket??", "No Open Tickets", MessageBoxButtons.YesNo);
+                DialogResult dialog = MessageBox.Show("Do you want to open new ticket??", "No Open Tickets", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    model.new_tkt(table_id, 1);
+                    model.new_tkt_table(table_id, 1);
                     Guna2ShadowPanel clickedButton = sender as Guna2ShadowPanel;
                     int id = Convert.ToInt32(clickedButton.Name);
                     model.add_order(table_id, id);
@@ -225,15 +221,35 @@ namespace SysCafé
                         creat_table(tables_id[i]);
                     }
                 }
-                
 
-            }else if (status == -1)
+
+            }
+            else if (status == -1)
             {
                 MessageBox.Show("choose table!");
             }
-           
+
         }
 
-        
+
+        #region buttons
+        public menu_cont()
+        {
+            InitializeComponent();
+            tables_id = model.get_table_id();
+            for (int i = 0; i < tables_id.Count; i++)
+            {
+                creat_table(tables_id[i]);
+
+            }
+            foreach (int id in item_id)
+            {
+                create_item_menu(id);
+            }
+        }
+
+        #endregion
+
+      
     }
 }

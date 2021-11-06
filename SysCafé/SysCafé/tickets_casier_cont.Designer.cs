@@ -39,7 +39,7 @@ namespace SysCafé
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menu_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.all_status_but = new Guna.UI2.WinForms.Guna2Button();
+            this.openclose_table_togel = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.tabels_grid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.all_tables_but = new Guna.UI2.WinForms.Guna2Button();
@@ -47,20 +47,17 @@ namespace SysCafé
             this.open_label = new System.Windows.Forms.Label();
             this.tables_tickets_label = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.takaway_togel = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.takeaway_grid = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tak_away_label = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.delivery_togel = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.delivery_grid = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.delivery_labe = new System.Windows.Forms.Label();
-            this.openclose_togel = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.guna2ToggleSwitch2 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.menu_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabels_grid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -73,8 +70,7 @@ namespace SysCafé
             // menu_panel
             // 
             this.menu_panel.BackColor = System.Drawing.Color.Transparent;
-            this.menu_panel.Controls.Add(this.openclose_togel);
-            this.menu_panel.Controls.Add(this.all_status_but);
+            this.menu_panel.Controls.Add(this.openclose_table_togel);
             this.menu_panel.Controls.Add(this.tabels_grid);
             this.menu_panel.Controls.Add(this.flowLayoutPanel1);
             this.menu_panel.Controls.Add(this.closed_label);
@@ -89,21 +85,24 @@ namespace SysCafé
             this.menu_panel.Size = new System.Drawing.Size(813, 915);
             this.menu_panel.TabIndex = 3;
             // 
-            // all_status_but
+            // openclose_table_togel
             // 
-            this.all_status_but.BorderRadius = 10;
-            this.all_status_but.CheckedState.Parent = this.all_status_but;
-            this.all_status_but.CustomImages.Parent = this.all_status_but;
-            this.all_status_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.all_status_but.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.all_status_but.ForeColor = System.Drawing.Color.White;
-            this.all_status_but.HoverState.Parent = this.all_status_but;
-            this.all_status_but.Location = new System.Drawing.Point(230, 81);
-            this.all_status_but.Name = "all_status_but";
-            this.all_status_but.ShadowDecoration.Parent = this.all_status_but;
-            this.all_status_but.Size = new System.Drawing.Size(42, 29);
-            this.all_status_but.TabIndex = 14;
-            this.all_status_but.Text = "All";
+            this.openclose_table_togel.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.openclose_table_togel.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.openclose_table_togel.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.openclose_table_togel.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.openclose_table_togel.CheckedState.Parent = this.openclose_table_togel;
+            this.openclose_table_togel.Location = new System.Drawing.Point(361, 81);
+            this.openclose_table_togel.Name = "openclose_table_togel";
+            this.openclose_table_togel.ShadowDecoration.Parent = this.openclose_table_togel;
+            this.openclose_table_togel.Size = new System.Drawing.Size(72, 25);
+            this.openclose_table_togel.TabIndex = 27;
+            this.openclose_table_togel.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            this.openclose_table_togel.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            this.openclose_table_togel.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.openclose_table_togel.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.openclose_table_togel.UncheckedState.Parent = this.openclose_table_togel;
+            this.openclose_table_togel.CheckedChanged += new System.EventHandler(this.openclose_table_togel_CheckedChanged);
             // 
             // tabels_grid
             // 
@@ -170,6 +169,7 @@ namespace SysCafé
             this.tabels_grid.ThemeStyle.RowsStyle.Height = 20;
             this.tabels_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.tabels_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tabels_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabels_grid_CellDoubleClick);
             // 
             // flowLayoutPanel1
             // 
@@ -199,7 +199,6 @@ namespace SysCafé
             this.all_tables_but.Size = new System.Drawing.Size(115, 80);
             this.all_tables_but.TabIndex = 0;
             this.all_tables_but.Text = "All Tabels";
-            this.all_tables_but.Click += new System.EventHandler(this.all_tables_but_Click);
             // 
             // closed_label
             // 
@@ -239,9 +238,8 @@ namespace SysCafé
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ToggleSwitch2);
+            this.guna2ShadowPanel1.Controls.Add(this.takaway_togel);
             this.guna2ShadowPanel1.Controls.Add(this.takeaway_grid);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2Button1);
             this.guna2ShadowPanel1.Controls.Add(this.label1);
             this.guna2ShadowPanel1.Controls.Add(this.label2);
             this.guna2ShadowPanel1.Controls.Add(this.tak_away_label);
@@ -253,6 +251,25 @@ namespace SysCafé
             this.guna2ShadowPanel1.ShadowShift = 10;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(804, 453);
             this.guna2ShadowPanel1.TabIndex = 4;
+            // 
+            // takaway_togel
+            // 
+            this.takaway_togel.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.takaway_togel.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.takaway_togel.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.takaway_togel.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.takaway_togel.CheckedState.Parent = this.takaway_togel;
+            this.takaway_togel.Location = new System.Drawing.Point(601, 24);
+            this.takaway_togel.Name = "takaway_togel";
+            this.takaway_togel.ShadowDecoration.Parent = this.takaway_togel;
+            this.takaway_togel.Size = new System.Drawing.Size(72, 25);
+            this.takaway_togel.TabIndex = 28;
+            this.takaway_togel.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            this.takaway_togel.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            this.takaway_togel.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.takaway_togel.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.takaway_togel.UncheckedState.Parent = this.takaway_togel;
+            this.takaway_togel.CheckedChanged += new System.EventHandler(this.takaway_togel_CheckedChanged);
             // 
             // takeaway_grid
             // 
@@ -319,22 +336,7 @@ namespace SysCafé
             this.takeaway_grid.ThemeStyle.RowsStyle.Height = 20;
             this.takeaway_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.takeaway_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(470, 24);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(42, 29);
-            this.guna2Button1.TabIndex = 18;
-            this.guna2Button1.Text = "All";
+            this.takeaway_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.takeaway_grid_CellDoubleClick);
             // 
             // label1
             // 
@@ -374,9 +376,8 @@ namespace SysCafé
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Controls.Add(this.guna2ToggleSwitch1);
+            this.guna2ShadowPanel2.Controls.Add(this.delivery_togel);
             this.guna2ShadowPanel2.Controls.Add(this.delivery_grid);
-            this.guna2ShadowPanel2.Controls.Add(this.guna2Button2);
             this.guna2ShadowPanel2.Controls.Add(this.label3);
             this.guna2ShadowPanel2.Controls.Add(this.label4);
             this.guna2ShadowPanel2.Controls.Add(this.delivery_labe);
@@ -388,6 +389,25 @@ namespace SysCafé
             this.guna2ShadowPanel2.ShadowShift = 10;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(804, 456);
             this.guna2ShadowPanel2.TabIndex = 5;
+            // 
+            // delivery_togel
+            // 
+            this.delivery_togel.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.delivery_togel.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.delivery_togel.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.delivery_togel.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.delivery_togel.CheckedState.Parent = this.delivery_togel;
+            this.delivery_togel.Location = new System.Drawing.Point(601, 26);
+            this.delivery_togel.Name = "delivery_togel";
+            this.delivery_togel.ShadowDecoration.Parent = this.delivery_togel;
+            this.delivery_togel.Size = new System.Drawing.Size(72, 25);
+            this.delivery_togel.TabIndex = 28;
+            this.delivery_togel.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            this.delivery_togel.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            this.delivery_togel.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.delivery_togel.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.delivery_togel.UncheckedState.Parent = this.delivery_togel;
+            this.delivery_togel.CheckedChanged += new System.EventHandler(this.delivery_togel_CheckedChanged);
             // 
             // delivery_grid
             // 
@@ -454,22 +474,7 @@ namespace SysCafé
             this.delivery_grid.ThemeStyle.RowsStyle.Height = 20;
             this.delivery_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.delivery_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(470, 26);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(42, 29);
-            this.guna2Button2.TabIndex = 18;
-            this.guna2Button2.Text = "All";
+            this.delivery_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.delivery_grid_CellDoubleClick);
             // 
             // label3
             // 
@@ -505,60 +510,6 @@ namespace SysCafé
             this.delivery_labe.Size = new System.Drawing.Size(274, 39);
             this.delivery_labe.TabIndex = 8;
             this.delivery_labe.Text = "Delivery Tickets";
-            // 
-            // openclose_togel
-            // 
-            this.openclose_togel.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.openclose_togel.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.openclose_togel.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.openclose_togel.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.openclose_togel.CheckedState.Parent = this.openclose_togel;
-            this.openclose_togel.Location = new System.Drawing.Point(361, 81);
-            this.openclose_togel.Name = "openclose_togel";
-            this.openclose_togel.ShadowDecoration.Parent = this.openclose_togel;
-            this.openclose_togel.Size = new System.Drawing.Size(72, 25);
-            this.openclose_togel.TabIndex = 27;
-            this.openclose_togel.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.openclose_togel.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.openclose_togel.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.openclose_togel.UncheckedState.InnerColor = System.Drawing.Color.White;
-            this.openclose_togel.UncheckedState.Parent = this.openclose_togel;
-            // 
-            // guna2ToggleSwitch1
-            // 
-            this.guna2ToggleSwitch1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.guna2ToggleSwitch1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.guna2ToggleSwitch1.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.CheckedState.Parent = this.guna2ToggleSwitch1;
-            this.guna2ToggleSwitch1.Location = new System.Drawing.Point(601, 26);
-            this.guna2ToggleSwitch1.Name = "guna2ToggleSwitch1";
-            this.guna2ToggleSwitch1.ShadowDecoration.Parent = this.guna2ToggleSwitch1;
-            this.guna2ToggleSwitch1.Size = new System.Drawing.Size(72, 25);
-            this.guna2ToggleSwitch1.TabIndex = 28;
-            this.guna2ToggleSwitch1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.guna2ToggleSwitch1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.guna2ToggleSwitch1.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.UncheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.UncheckedState.Parent = this.guna2ToggleSwitch1;
-            // 
-            // guna2ToggleSwitch2
-            // 
-            this.guna2ToggleSwitch2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.guna2ToggleSwitch2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.guna2ToggleSwitch2.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch2.CheckedState.Parent = this.guna2ToggleSwitch2;
-            this.guna2ToggleSwitch2.Location = new System.Drawing.Point(601, 24);
-            this.guna2ToggleSwitch2.Name = "guna2ToggleSwitch2";
-            this.guna2ToggleSwitch2.ShadowDecoration.Parent = this.guna2ToggleSwitch2;
-            this.guna2ToggleSwitch2.Size = new System.Drawing.Size(72, 25);
-            this.guna2ToggleSwitch2.TabIndex = 28;
-            this.guna2ToggleSwitch2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.guna2ToggleSwitch2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            this.guna2ToggleSwitch2.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch2.UncheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch2.UncheckedState.Parent = this.guna2ToggleSwitch2;
             // 
             // tickets_casier_cont
             // 
@@ -596,19 +547,16 @@ namespace SysCafé
         private System.Windows.Forms.Label closed_label;
         private System.Windows.Forms.Label open_label;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2Button all_status_but;
-        private Guna.UI2.WinForms.Guna2DataGridView tabels_grid;
-        public Guna.UI2.WinForms.Guna2Button all_tables_but;
-        private Guna.UI2.WinForms.Guna2DataGridView takeaway_grid;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        public  Guna.UI2.WinForms.Guna2DataGridView tabels_grid;
+        public  Guna.UI2.WinForms.Guna2Button all_tables_but;
+        public  Guna.UI2.WinForms.Guna2DataGridView takeaway_grid;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2DataGridView delivery_grid;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        public  Guna.UI2.WinForms.Guna2DataGridView delivery_grid;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch openclose_togel;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch2;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch openclose_table_togel;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch takaway_togel;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch delivery_togel;
     }
 }

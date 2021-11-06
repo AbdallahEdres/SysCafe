@@ -42,9 +42,10 @@ namespace SysCafé
             this.order_grid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.menu_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.menu_image = new System.Windows.Forms.ImageList(this.components);
             this.make_order_label = new System.Windows.Forms.Label();
             this.order_num_label = new System.Windows.Forms.Label();
+            this.menu_image = new System.Windows.Forms.ImageList(this.components);
+            this.chang_but = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.order_grid)).BeginInit();
             this.menu_panel.SuspendLayout();
@@ -204,12 +205,6 @@ namespace SysCafé
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1077, 867);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
-            // menu_image
-            // 
-            this.menu_image.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menu_image.ImageStream")));
-            this.menu_image.TransparentColor = System.Drawing.Color.Transparent;
-            this.menu_image.Images.SetKeyName(0, "coffee-cup.png");
-            // 
             // make_order_label
             // 
             this.make_order_label.AutoSize = true;
@@ -228,15 +223,44 @@ namespace SysCafé
             this.order_num_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
             this.order_num_label.Location = new System.Drawing.Point(522, 41);
             this.order_num_label.Name = "order_num_label";
-            this.order_num_label.Size = new System.Drawing.Size(237, 33);
+            this.order_num_label.Size = new System.Drawing.Size(32, 33);
             this.order_num_label.TabIndex = 10;
-            this.order_num_label.Text = "Make Order NO. ";
+            this.order_num_label.Text = "0";
+            this.order_num_label.TextChanged += new System.EventHandler(this.order_num_label_TextChanged);
+            // 
+            // menu_image
+            // 
+            this.menu_image.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menu_image.ImageStream")));
+            this.menu_image.TransparentColor = System.Drawing.Color.Transparent;
+            this.menu_image.Images.SetKeyName(0, "coffee-cup.png");
+            this.menu_image.Images.SetKeyName(1, "tea.jpg");
+            this.menu_image.Images.SetKeyName(2, "5f18454f2f2914121973102fa0f9692b.jpg");
+            // 
+            // chang_but
+            // 
+            this.chang_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chang_but.BorderRadius = 5;
+            this.chang_but.CheckedState.Parent = this.chang_but;
+            this.chang_but.CustomImages.Parent = this.chang_but;
+            this.chang_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            this.chang_but.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chang_but.ForeColor = System.Drawing.Color.White;
+            this.chang_but.HoverState.Parent = this.chang_but;
+            this.chang_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.chang_but.Location = new System.Drawing.Point(799, 29);
+            this.chang_but.Name = "chang_but";
+            this.chang_but.ShadowDecoration.Parent = this.chang_but;
+            this.chang_but.Size = new System.Drawing.Size(166, 48);
+            this.chang_but.TabIndex = 11;
+            this.chang_but.Text = "Change Order";
+            this.chang_but.Click += new System.EventHandler(this.chang_but_Click);
             // 
             // menu_cashier_cont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.chang_but);
             this.Controls.Add(this.order_num_label);
             this.Controls.Add(this.make_order_label);
             this.Controls.Add(this.panel1);
@@ -263,8 +287,9 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2DataGridView order_grid;
         private Guna.UI2.WinForms.Guna2ShadowPanel menu_panel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.ImageList menu_image;
         private System.Windows.Forms.Label make_order_label;
         private System.Windows.Forms.Label order_num_label;
+        private System.Windows.Forms.ImageList menu_image;
+        public Guna.UI2.WinForms.Guna2Button chang_but;
     }
 }
