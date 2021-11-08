@@ -18,8 +18,8 @@ namespace SysCafé
         public static SqlDataAdapter da;
         public static int supp_id=1;
 
-        public static DataTable dt;
-
+/*        public static DataTable dt;
+*/
         #region form1
         public static string login(string username ,string pasoword)
         {
@@ -375,6 +375,46 @@ namespace SysCafé
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
             da.Fill(ds, "details");
+            cn.Close();
+        }
+        #endregion
+
+        #region workers_info
+        public static void get_workers_list(ref DataTable dt)
+        {
+            cmd = new SqlCommand("select worker_id,worker_name from workers_info", cn);
+            
+                dt = new DataTable();
+                da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            
+        }
+
+        public static void get_worker_info(int id, ref string name, ref string age, ref string adress, ref string type, ref string phone ,ref int pic_id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("select * from workers_info where worker_id = "+id+"", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                name = dr[1].ToString();
+                phone = dr[2].ToString();
+                age = dr[3].ToString();
+                type = dr[4].ToString();
+                adress = dr[5].ToString();
+                pic_id = Convert.ToInt32(dr[6]);
+            }
+            dr.Close();
+            cn.Close();
+
+        }
+
+        public static void edit_worker(int id,string name , string phone , string adress, string age ,string type)
+        {
+            cn.Open();
+            cmd = new SqlCommand("update workers_info " +
+                "set worker_name = N'" + name+"',worker_phone = N'"+phone+"',adress=N'"+adress+"',worker_age="+age+",worker_type=N'"+type+"' where worker_id="+id+"", cn);
+            cmd.ExecuteNonQuery();
             cn.Close();
         }
         #endregion

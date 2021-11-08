@@ -13,7 +13,7 @@ namespace SysCafé
     public partial class stock_cont2 : UserControl
     {
         DataSet ds;
-        string name;
+        string name_stock="",name_kitchen="";
         public void fill_grids()
         {
             model.fill_kitchen_grid(ref ds);
@@ -37,23 +37,40 @@ namespace SysCafé
             {
                 inventory_count.Maximum = Convert.ToDecimal(ineventory_grid.Rows[e.RowIndex].Cells[1].Value);
                 inventory_count.Value = Convert.ToDecimal(ineventory_grid.Rows[e.RowIndex].Cells[1].Value);
-                name = ineventory_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+                name_stock = ineventory_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
             }
 
         }
 
         private void send_kitchen_but_Click(object sender, EventArgs e)
         {
-            model.add_ketchin(model.get_mat_id(name), Convert.ToDouble(inventory_count.Value));
-            model.remov_inventory(model.get_mat_id(name), Convert.ToDouble(inventory_count.Value));
-            fill_grids();
+            if (name_stock == "")
+            {
+                MessageBox.Show("Select material from the stock");
+            }
+            else
+            {
+                model.add_ketchin(model.get_mat_id(name_stock), Convert.ToDouble(inventory_count.Value));
+                model.remov_inventory(model.get_mat_id(name_stock), Convert.ToDouble(inventory_count.Value));
+                fill_grids();
+            }
+            inventory_count.Value = 0;
+           
         }
 
         private void send_inven_but_Click(object sender, EventArgs e)
         {
-            model.add_inventor(model.get_mat_id(name), Convert.ToDouble(kitchen_count.Value));
-            model.remov_kitchen(model.get_mat_id(name), Convert.ToDouble(kitchen_count.Value));
-            fill_grids();
+            if (name_kitchen == "")
+            {
+                MessageBox.Show("Select material from kitchen");
+            }
+            else
+            {
+                model.add_inventor(model.get_mat_id(name_kitchen), Convert.ToDouble(kitchen_count.Value));
+                model.remov_kitchen(model.get_mat_id(name_kitchen), Convert.ToDouble(kitchen_count.Value));
+                fill_grids();
+            }
+            kitchen_count.Value = 0;
         }
 
         private void kitchen_grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -62,7 +79,7 @@ namespace SysCafé
             {
                 kitchen_count.Maximum = Convert.ToDecimal(kitchen_grid.Rows[e.RowIndex].Cells[1].Value);
                 kitchen_count.Value = Convert.ToDecimal(kitchen_grid.Rows[e.RowIndex].Cells[1].Value);
-                name = kitchen_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+                name_kitchen = kitchen_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
 
             }
            

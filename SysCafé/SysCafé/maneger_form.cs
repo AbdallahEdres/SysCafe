@@ -13,13 +13,15 @@ namespace SysCafé
     public partial class maneger_form : Form
     {
         
+        
 
         private void hide_cont()
         {
             supplier_cont1.Hide();
             new_supp_controler1.Hide();
             stock_cont21.Hide();
-            orders_cont1.Hide();
+            workers_cont1.Hide();
+            ticket_cont1.Hide();
         }
         private void button_reset(Guna.UI2.WinForms.Guna2Button b)
         {
@@ -29,6 +31,12 @@ namespace SysCafé
         }
         private void button_select(Guna.UI2.WinForms.Guna2Button b)
         {
+            button_reset(stock_but);
+            button_reset(materials_but);
+            button_reset(orders_but);
+            button_reset(Home_button);
+            button_reset(suppliers_but);
+            button_reset(workers_but);
             b.FillColor = Color.FromArgb(100, 252, 128, 25);
             b.BorderColor = Color.FromArgb(252, 128, 25);
             b.BorderThickness = 2;
@@ -37,28 +45,20 @@ namespace SysCafé
         public maneger_form()
         {
             InitializeComponent();
+            hide_cont();
             button_select(Home_button);
-
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             button_select(suppliers_but);
-            button_reset(stock_but);
-            button_reset(materials_but);
-            button_reset(orders_but);
-            button_reset(Home_button);
             hide_cont();
             supplier_cont1.Show();
         }
 
         private void materials_but_Click(object sender, EventArgs e)
         {
-            button_select(materials_but);
-            button_reset(stock_but);
-            button_reset(suppliers_but);
-            button_reset(orders_but);
-            button_reset(Home_button);
+            button_select(materials_but);     
             hide_cont();
             new_supp_controler1.Show();
         }
@@ -66,23 +66,16 @@ namespace SysCafé
         private void stock_but_Click(object sender, EventArgs e)
         {
             button_select(stock_but);
-            button_reset(suppliers_but);
-            button_reset(materials_but);
-            button_reset(orders_but);
-            button_reset(Home_button);
             hide_cont();
-            stock_cont21.Show();           
+            stock_cont21.Show();
+            stock_cont21.fill_grids();
         }
 
         private void orders_but_Click(object sender, EventArgs e)
         {
-            button_select(orders_but);
-            button_reset(suppliers_but);
-            button_reset(materials_but);
-            button_reset(stock_but);
-            button_reset(Home_button);
+            button_select(orders_but);            
             hide_cont();
-            orders_cont1.Show();
+            ticket_cont1.Show();
         }
 
         private void maneger_form_FormClosed(object sender, FormClosedEventArgs e)
@@ -101,11 +94,13 @@ namespace SysCafé
         {
             hide_cont();
             button_select(Home_button);
-            button_reset(suppliers_but);
-            button_reset(materials_but);
-            button_reset(stock_but);
-            button_reset(orders_but);
+        }
+
+        private void workers_but_Click(object sender, EventArgs e)
+        {
+            button_select(workers_but);
             hide_cont();
+            workers_cont1.Show();
         }
     }
 }

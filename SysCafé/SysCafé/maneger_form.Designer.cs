@@ -44,10 +44,12 @@ namespace SysCafé
             this.materials_but = new Guna.UI2.WinForms.Guna2Button();
             this.Home_button = new Guna.UI2.WinForms.Guna2Button();
             this.main_panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.supplier_cont1 = new SysCafé.supplier_cont();
-            this.orders_cont1 = new SysCafé.orders_cont();
-            this.stock_cont21 = new SysCafé.stock_cont2();
             this.new_supp_controler1 = new SysCafé.new_supp_controler();
+            this.supplier_cont1 = new SysCafé.supplier_cont();
+            this.stock_cont21 = new SysCafé.stock_cont2();
+            this.workers_but = new Guna.UI2.WinForms.Guna2Button();
+            this.workers_cont1 = new workers_cont();
+            this.ticket_cont1 = new tickets_casier_cont();
             this.top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.nav_panel.SuspendLayout();
@@ -166,6 +168,7 @@ namespace SysCafé
             this.nav_panel.AutoRoundedCorners = true;
             this.nav_panel.BackColor = System.Drawing.Color.White;
             this.nav_panel.BorderRadius = 49;
+            this.nav_panel.Controls.Add(this.workers_but);
             this.nav_panel.Controls.Add(this.logout_but);
             this.nav_panel.Controls.Add(this.orders_but);
             this.nav_panel.Controls.Add(this.stock_but);
@@ -313,13 +316,23 @@ namespace SysCafé
             this.main_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.main_panel.Controls.Add(this.new_supp_controler1);
             this.main_panel.Controls.Add(this.supplier_cont1);
-            this.main_panel.Controls.Add(this.orders_cont1);
             this.main_panel.Controls.Add(this.stock_cont21);
+            this.main_panel.Controls.Add(this.workers_cont1);
+            this.main_panel.Controls.Add(this.ticket_cont1);
             this.main_panel.Location = new System.Drawing.Point(99, 82);
             this.main_panel.Name = "main_panel";
             this.main_panel.ShadowDecoration.Parent = this.main_panel;
             this.main_panel.Size = new System.Drawing.Size(1800, 960);
             this.main_panel.TabIndex = 5;
+            // 
+            // new_supp_controler1
+            // 
+            this.new_supp_controler1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.new_supp_controler1.Location = new System.Drawing.Point(0, 1);
+            this.new_supp_controler1.Name = "new_supp_controler1";
+            this.new_supp_controler1.Size = new System.Drawing.Size(1800, 960);
+            this.new_supp_controler1.TabIndex = 5;
+            this.new_supp_controler1.Visible = false;
             // 
             // supplier_cont1
             // 
@@ -330,14 +343,14 @@ namespace SysCafé
             this.supplier_cont1.TabIndex = 4;
             this.supplier_cont1.Visible = false;
             // 
-            // orders_cont1
+            // ticket_cont1
             // 
-            this.orders_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.orders_cont1.Location = new System.Drawing.Point(0, 0);
-            this.orders_cont1.Name = "orders_cont1";
-            this.orders_cont1.Size = new System.Drawing.Size(1800, 960);
-            this.orders_cont1.TabIndex = 3;
-            this.orders_cont1.Visible = false;
+            this.ticket_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ticket_cont1.Location = new System.Drawing.Point(0, 0);
+            this.ticket_cont1.Name = "ticket_cont1";
+            this.ticket_cont1.Size = new System.Drawing.Size(1800, 960);
+            this.ticket_cont1.TabIndex = 3;
+            this.ticket_cont1.Visible = false;
             // 
             // stock_cont21
             // 
@@ -348,14 +361,26 @@ namespace SysCafé
             this.stock_cont21.TabIndex = 2;
             this.stock_cont21.Visible = false;
             // 
-            // new_supp_controler1
+            // workers_but
             // 
-            this.new_supp_controler1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.new_supp_controler1.Location = new System.Drawing.Point(0, 1);
-            this.new_supp_controler1.Name = "new_supp_controler1";
-            this.new_supp_controler1.Size = new System.Drawing.Size(1800, 960);
-            this.new_supp_controler1.TabIndex = 5;
-            this.new_supp_controler1.Visible = false;
+            this.workers_but.BorderRadius = 10;
+            this.workers_but.CheckedState.Parent = this.workers_but;
+            this.workers_but.CustomImages.Parent = this.workers_but;
+            this.workers_but.FillColor = System.Drawing.Color.Transparent;
+            this.workers_but.Font = new System.Drawing.Font("Inter Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.workers_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.workers_but.HoverState.Parent = this.workers_but;
+            this.workers_but.Image = ((System.Drawing.Image)(resources.GetObject("workers_but.Image")));
+            this.workers_but.ImageOffset = new System.Drawing.Point(16, -12);
+            this.workers_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.workers_but.Location = new System.Drawing.Point(-1, 636);
+            this.workers_but.Name = "workers_but";
+            this.workers_but.ShadowDecoration.Parent = this.workers_but;
+            this.workers_but.Size = new System.Drawing.Size(94, 72);
+            this.workers_but.TabIndex = 6;
+            this.workers_but.Text = "Workers";
+            this.workers_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.workers_but.Click += new System.EventHandler(this.workers_but_Click);
             // 
             // maneger_form
             // 
@@ -394,9 +419,12 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2Button stock_but;
         private stock_cont2 stock_cont21;
         private Guna.UI2.WinForms.Guna2Button orders_but;
-        private orders_cont orders_cont1;
         private Guna.UI2.WinForms.Guna2Button logout_but;
         private supplier_cont supplier_cont1;
         private new_supp_controler new_supp_controler1;
+        private Guna.UI2.WinForms.Guna2Button workers_but;
+        private workers_cont workers_cont1;
+        private tickets_casier_cont ticket_cont1;
+
     }
 }

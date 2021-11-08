@@ -115,17 +115,17 @@
     <Compile Include="new_supp_controler.Designer.cs">
       <DependentUpon>new_supp_controler.cs</DependentUpon>
     </Compile>
-    <Compile Include="orders_cont.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="orders_cont.Designer.cs">
-      <DependentUpon>orders_cont.cs</DependentUpon>
-    </Compile>
     <Compile Include="payment_cont.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="payment_cont.Designer.cs">
       <DependentUpon>payment_cont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="profile_pic_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="profile_pic_form.Designer.cs">
+      <DependentUpon>profile_pic_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +165,12 @@
     <Compile Include="waiter_form.Designer.cs">
       <DependentUpon>waiter_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="workers_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="workers_cont.Designer.cs">
+      <DependentUpon>workers_cont.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="add_supplier_form.resx">
       <DependentUpon>add_supplier_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,11 +201,11 @@
     <EmbeddedResource Include="new_supp_controler.resx">
       <DependentUpon>new_supp_controler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="orders_cont.resx">
-      <DependentUpon>orders_cont.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="payment_cont.resx">
       <DependentUpon>payment_cont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="profile_pic_form.resx">
+      <DependentUpon>profile_pic_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="waiter_form.resx">
       <DependentUpon>waiter_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="workers_cont.resx">
+      <DependentUpon>workers_cont.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

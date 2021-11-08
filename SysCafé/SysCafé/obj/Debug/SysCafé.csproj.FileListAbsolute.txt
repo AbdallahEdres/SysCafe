@@ -16,7 +16,6 @@ C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.add_
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.supllier_edit_form.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.new_supp_controler.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.stock_cont2.resources
-C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.orders_cont.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.csproj.AssemblyReference.cache
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.waiter_form.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.close_ticket_content_form.resources
@@ -28,3 +27,5 @@ C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.tick
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.delivery_takeaway_form.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.customer_info.resources
 C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.payment_cont.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.workers_cont.resources
+C:\Users\DoDa\Desktop\SysCafé\SysCafe\SysCafé\SysCafé\obj\Debug\SysCafé.profile_pic_form.resources
