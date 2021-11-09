@@ -78,6 +78,12 @@
     <Compile Include="customer_info.Designer.cs">
       <DependentUpon>customer_info.cs</DependentUpon>
     </Compile>
+    <Compile Include="customers_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="customers_cont.Designer.cs">
+      <DependentUpon>customers_cont.cs</DependentUpon>
+    </Compile>
     <Compile Include="delivery_takeaway_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="customer_info.resx">
       <DependentUpon>customer_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customers_cont.resx">
+      <DependentUpon>customers_cont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="delivery_takeaway_form.resx">
       <DependentUpon>delivery_takeaway_form.cs</DependentUpon>

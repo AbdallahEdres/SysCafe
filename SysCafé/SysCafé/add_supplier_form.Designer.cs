@@ -78,7 +78,7 @@ namespace SysCafé
             this.sup_phone_txt.SelectedText = "";
             this.sup_phone_txt.ShadowDecoration.Parent = this.sup_phone_txt;
             this.sup_phone_txt.Size = new System.Drawing.Size(367, 43);
-            this.sup_phone_txt.TabIndex = 1;
+            this.sup_phone_txt.TabIndex = 2;
             // 
             // sup_name_txt
             // 
@@ -103,7 +103,7 @@ namespace SysCafé
             this.sup_name_txt.SelectedText = "";
             this.sup_name_txt.ShadowDecoration.Parent = this.sup_name_txt;
             this.sup_name_txt.Size = new System.Drawing.Size(367, 45);
-            this.sup_name_txt.TabIndex = 2;
+            this.sup_name_txt.TabIndex = 1;
             // 
             // sup_address_txt
             // 
@@ -128,7 +128,7 @@ namespace SysCafé
             this.sup_address_txt.SelectedText = "";
             this.sup_address_txt.ShadowDecoration.Parent = this.sup_address_txt;
             this.sup_address_txt.Size = new System.Drawing.Size(367, 45);
-            this.sup_address_txt.TabIndex = 3;
+            this.sup_address_txt.TabIndex = 4;
             // 
             // name_label
             // 
@@ -137,7 +137,7 @@ namespace SysCafé
             this.name_label.Location = new System.Drawing.Point(152, 159);
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(138, 23);
-            this.name_label.TabIndex = 4;
+            this.name_label.TabIndex = 7;
             this.name_label.Text = "Supplier Name :";
             // 
             // adress_label
@@ -147,7 +147,7 @@ namespace SysCafé
             this.adress_label.Location = new System.Drawing.Point(143, 393);
             this.adress_label.Name = "adress_label";
             this.adress_label.Size = new System.Drawing.Size(147, 23);
-            this.adress_label.TabIndex = 5;
+            this.adress_label.TabIndex = 10;
             this.adress_label.Text = "Supplier Adress :";
             // 
             // phone_label
@@ -157,7 +157,7 @@ namespace SysCafé
             this.phone_label.Location = new System.Drawing.Point(147, 237);
             this.phone_label.Name = "phone_label";
             this.phone_label.Size = new System.Drawing.Size(143, 23);
-            this.phone_label.TabIndex = 6;
+            this.phone_label.TabIndex = 8;
             this.phone_label.Text = "Supplier Phone :";
             // 
             // close_but
@@ -176,7 +176,7 @@ namespace SysCafé
             this.close_but.Name = "close_but";
             this.close_but.ShadowDecoration.Parent = this.close_but;
             this.close_but.Size = new System.Drawing.Size(232, 70);
-            this.close_but.TabIndex = 8;
+            this.close_but.TabIndex = 12;
             this.close_but.Text = "Close";
             this.close_but.Click += new System.EventHandler(this.close_but_Click);
             // 
@@ -197,7 +197,7 @@ namespace SysCafé
             this.add_but.Name = "add_but";
             this.add_but.ShadowDecoration.Parent = this.add_but;
             this.add_but.Size = new System.Drawing.Size(232, 70);
-            this.add_but.TabIndex = 7;
+            this.add_but.TabIndex = 6;
             this.add_but.Text = "Add";
             this.add_but.Click += new System.EventHandler(this.add_but_Click);
             // 
@@ -208,7 +208,7 @@ namespace SysCafé
             this.label2.Location = new System.Drawing.Point(132, 315);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(158, 23);
-            this.label2.TabIndex = 10;
+            this.label2.TabIndex = 9;
             this.label2.Text = "Supplier Phone 2 :";
             // 
             // sup_phonne2
@@ -234,7 +234,7 @@ namespace SysCafé
             this.sup_phonne2.SelectedText = "";
             this.sup_phonne2.ShadowDecoration.Parent = this.sup_phonne2;
             this.sup_phonne2.Size = new System.Drawing.Size(367, 43);
-            this.sup_phonne2.TabIndex = 9;
+            this.sup_phonne2.TabIndex = 3;
             // 
             // label3
             // 
@@ -243,7 +243,7 @@ namespace SysCafé
             this.label3.Location = new System.Drawing.Point(128, 471);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 23);
-            this.label3.TabIndex = 12;
+            this.label3.TabIndex = 11;
             this.label3.Text = "Supplier Adress 2 :";
             // 
             // sup_adress2
@@ -269,7 +269,7 @@ namespace SysCafé
             this.sup_adress2.SelectedText = "";
             this.sup_adress2.ShadowDecoration.Parent = this.sup_adress2;
             this.sup_adress2.Size = new System.Drawing.Size(367, 45);
-            this.sup_adress2.TabIndex = 11;
+            this.sup_adress2.TabIndex = 5;
             // 
             // add_supplier_form
             // 
@@ -310,7 +310,7 @@ namespace SysCafé
         private System.Windows.Forms.Label adress_label;
         private System.Windows.Forms.Label phone_label;
         private Guna.UI2.WinForms.Guna2Button close_but;
-        private Guna.UI2.WinForms.Guna2Button add_but;
+        public Guna.UI2.WinForms.Guna2Button add_but;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox sup_phonne2;
         private System.Windows.Forms.Label label3;

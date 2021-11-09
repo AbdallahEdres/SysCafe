@@ -16,6 +16,7 @@ namespace SysCafé
         DataSet ds;
         List<Guna2ShadowPanel> menu_but_list = new List<Guna2ShadowPanel>();
         List<int> item_id = model.get_item_id();
+        string total_p = "";
 
         // create menu items buttons
         private void create_item_menu(int item_id)
@@ -99,6 +100,8 @@ namespace SysCafé
             model.fill_recipt(ref ds, Convert.ToInt32(order_num_label.Text));
             order_grid.DataSource = ds.Tables["receipt"].DefaultView;
             receipt_grid_naming();
+            total_p = model.calc_payment(Convert.ToInt32(order_num_label.Text)).ToString();
+            price_label.Text = total_p +" $";
         }
         private void receipt_grid_naming()
         {

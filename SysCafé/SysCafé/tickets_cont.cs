@@ -16,8 +16,14 @@ namespace SysCafé
         //list decleartion
         List<int> tables_id;
         DataSet ds;
-       public List<Guna2Button> but_list = new List<Guna2Button>();
+        public List<Guna2Button> but_list = new List<Guna2Button>();
         public int table_id;
+        string tkt_valu="0";
+        string tkt_id = " ";
+        string worker = " ";
+        string time = " ";
+
+        #region Functions 
         private void creat_table(int id)
         {
             Guna2Button freetabla = new Guna2Button();
@@ -63,11 +69,15 @@ namespace SysCafé
 
         private void closed_grid_naming()
         {
-            closed_grid.Columns[0].HeaderText = "Id";
+            closed_grid.Columns[0].HeaderText = "Ticket ID";
             closed_grid.Columns[1].HeaderText = "Table";
-            closed_grid.Columns[2].HeaderText = "Opend At";
-            closed_grid.Columns[3].HeaderText = "Closed At";
-            closed_grid.Columns[4].HeaderText = "Worker";
+            closed_grid.Columns[2].HeaderText = "Opend at";
+            closed_grid.Columns[3].HeaderText = "Closed at";
+            closed_grid.Columns[4].Visible = false;
+            closed_grid.Columns[5].HeaderText = "Worker";
+            closed_grid.Columns[6].HeaderText = "Status";
+            closed_grid.Columns[7].Visible = false;
+            closed_grid.Columns[8].HeaderText = "Total $";
         }
         // change button to checked status
         public void check_but (Guna2Button but )
@@ -92,18 +102,20 @@ namespace SysCafé
         }
 
         // getting tables orders 
-       public  void fill_open_ticket_content(object sender, EventArgs e)
+        public  void fill_open_ticket_content(object sender, EventArgs e)
         {
             
             Guna2Button clickedButton = sender as Guna2Button;
             table_id = Convert.ToInt32(clickedButton.Text);
+           
+            fill_grids();
             check_but(clickedButton);
-            string tkt_id =" ";
-            string worker = " ";
-            string time = " ";
+        }
+        private void fill_grids()
+        {
             ds = new DataSet();
-            model.fill_open_ticket_grid(ref ds, Convert.ToInt32(clickedButton.Text),ref tkt_id,ref worker,ref time);
-            model.fill_closed_tkt_grid(ref ds, Convert.ToInt32(clickedButton.Text));
+            model.fill_open_ticket_grid(ref ds, Convert.ToInt32(table_id), ref tkt_id, ref worker, ref time, ref tkt_valu);
+            model.fill_closed_tkt_grid(ref ds, Convert.ToInt32(table_id));
             if (ds.Tables.Count > 1)
             {
                 new_ticket_panel.Hide();
@@ -111,6 +123,7 @@ namespace SysCafé
                 table_id_label.Text = tkt_id;
                 open_time_value.Text = time;
                 waiter_iname_label.Text = worker;
+                total_label.Text = tkt_valu;
                 order_column_naming();
 
             }
@@ -123,19 +136,42 @@ namespace SysCafé
             }
             closed_grid.DataSource = ds.Tables["closed"];
             closed_grid_naming();
+            tables_orders_label.Text = "Table " + table_id + " Orders";
         }
 
+        private void fill_table_banel()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            tables_id = model.get_table_id();
+            for (int i = 0; i < tables_id.Count; i++)
+            {
+                creat_table(tables_id[i]);
+            }
+        }
+        public void refresh()
+        {
+            fill_table_banel();
+            fill_grids();
+            foreach( Guna2Button but in but_list)
+            {
+                if(Convert.ToInt32(but.Text) == table_id)
+                {
+                    check_but(but);
+                }
+            }
+        }
+
+        #endregion
+
+
+        #region Buttons
 
         public tickets_cont()
         {
             InitializeComponent();
 
             //create tables 
-            tables_id = model.get_table_id();
-            for (int i = 0; i < tables_id.Count; i++)
-            {
-                creat_table(tables_id[i]);
-            }
+            fill_table_banel();
         }
 
         public void new_ticket_but_Click(object sender, EventArgs e)
@@ -148,7 +184,7 @@ namespace SysCafé
                 string worker = " ";
                 string time = " ";
                 ds = new DataSet();
-                model.fill_open_ticket_grid(ref ds, Convert.ToInt32(table_id), ref tkt_id, ref worker, ref time);
+                model.fill_open_ticket_grid(ref ds, Convert.ToInt32(table_id), ref tkt_id, ref worker, ref time,ref tkt_valu);
                 orders_grid.DataSource = ds.Tables["open ticket content"].DefaultView;
                 table_id_label.Text = tkt_id;
                 open_time_value.Text = time;
@@ -165,6 +201,16 @@ namespace SysCafé
            
         }
 
+        private void closed_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                close_ticket_content_form _Ticket_Content_Form = new close_ticket_content_form(Convert.ToInt32(closed_grid.Rows[e.RowIndex].Cells[0].Value));
+                _Ticket_Content_Form.ShowDialog();
+            }
+            
+        }
 
+        #endregion
     }
 }

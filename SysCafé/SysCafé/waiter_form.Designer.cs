@@ -187,6 +187,7 @@ namespace SysCafé
             this.refresh_but.ShadowDecoration.Parent = this.refresh_but;
             this.refresh_but.Size = new System.Drawing.Size(54, 47);
             this.refresh_but.TabIndex = 4;
+            this.refresh_but.Click += new System.EventHandler(this.refresh_but_Click);
             // 
             // select_table_but
             // 
@@ -206,6 +207,7 @@ namespace SysCafé
             this.select_table_but.Size = new System.Drawing.Size(166, 48);
             this.select_table_but.TabIndex = 3;
             this.select_table_but.Text = "Select table";
+            this.select_table_but.Click += new System.EventHandler(this.select_table_but_Click);
             // 
             // search_but
             // 

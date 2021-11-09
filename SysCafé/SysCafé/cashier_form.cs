@@ -65,6 +65,10 @@ namespace SysCafé
             menu_cont1.Hide();
             this.Controls.Add(tickets_cont1);
             tickets_cont1.Hide();
+            
+            tickets_cont1.tabels_grid.CellDoubleClick += new DataGridViewCellEventHandler(tickets_cont1.tabels_grid_CellDoubleClick);
+            tickets_cont1.delivery_grid.CellDoubleClick += new DataGridViewCellEventHandler(tickets_cont1.delivery_grid_CellDoubleClick);
+            tickets_cont1.takeaway_grid.CellDoubleClick += new DataGridViewCellEventHandler(tickets_cont1.takeaway_grid_CellDoubleClick);
             tickets_cont1.tabels_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_to_menu);
             tickets_cont1.delivery_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_to_menu);
             tickets_cont1.takeaway_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_to_menu);
@@ -85,6 +89,7 @@ namespace SysCafé
             menu_cont1.Hide();
             tickets_cont1.Hide();
             main_panel.Hide();
+            customer_cont1.Hide();
         }
 
         // change button to selected status
@@ -104,6 +109,7 @@ namespace SysCafé
             button_reset(menu_but);
             button_reset(tickets_but);
             button_reset(payment_but);
+            button_reset(customers_but);
             b.FillColor = Color.FromArgb(100, 252, 128, 25);
             b.BorderColor = Color.FromArgb(252, 128, 25);
             b.BorderThickness = 2;
@@ -177,9 +183,10 @@ namespace SysCafé
         {
             delivery_Takeaway_Form.takeaway_but.Click += new EventHandler(menu_but_Click);
             delivery_Takeaway_Form.takeaway_but.Click += new EventHandler(send_order_id);
-           delivery_Takeaway_Form.FormClosed += new FormClosedEventHandler(send_order_id);
+            delivery_Takeaway_Form.FormClosed += new FormClosedEventHandler(send_order_id);
             delivery_Takeaway_Form.FormClosed += new FormClosedEventHandler(menu_but_Click);
-
+            delivery_Takeaway_Form.FormClosed += new FormClosedEventHandler(menu_but_Click);
+            delivery_Takeaway_Form.FormClosed += new FormClosedEventHandler(refresh_but_Click);
 
             delivery_Takeaway_Form.ShowDialog();
         }
@@ -198,6 +205,19 @@ namespace SysCafé
             pa.Show();
             button_select(payment_but);
             pa.fill_tkts_grid();
+        }
+
+        private void customers_but_Click(object sender, EventArgs e)
+        {
+            hide_all();
+            customer_cont1.Show();
+            customer_cont1.BringToFront();
+            button_select(customers_but);
+        }
+
+        private void refresh_but_Click(object sender, EventArgs e)
+        {
+            customer_cont1.refresh();
         }
 
         private void cashier_form_FormClosed(object sender, FormClosedEventArgs e)

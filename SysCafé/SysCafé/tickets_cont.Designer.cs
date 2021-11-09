@@ -31,33 +31,36 @@ namespace SysCafé
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tickets_cont));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.back_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.closed_tickets_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.closed_grid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.old_tickets_label = new System.Windows.Forms.Label();
             this.current_ticket_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.open_time_value = new System.Windows.Forms.Label();
+            this.waiter_iname_label = new System.Windows.Forms.Label();
+            this.table_id_label = new System.Windows.Forms.Label();
             this.new_ticket_panel = new System.Windows.Forms.Panel();
             this.new_ticket_but = new Guna.UI2.WinForms.Guna2Button();
             this.no_oppen_label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.open_time_label = new System.Windows.Forms.Label();
-            this.waiter_label = new System.Windows.Forms.Label();
-            this.orders_grid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.current_label = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.waiter_label = new System.Windows.Forms.Label();
+            this.open_time_label = new System.Windows.Forms.Label();
+            this.orders_grid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tables_orders_label = new System.Windows.Forms.Label();
             this.tabels_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.table_id_label = new System.Windows.Forms.Label();
-            this.waiter_iname_label = new System.Windows.Forms.Label();
-            this.open_time_value = new System.Windows.Forms.Label();
+            this.value_label = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.total_label = new System.Windows.Forms.Label();
             this.back_panel.SuspendLayout();
             this.closed_tickets_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closed_grid)).BeginInit();
@@ -95,47 +98,47 @@ namespace SysCafé
             this.closed_tickets_panel.Controls.Add(this.closed_grid);
             this.closed_tickets_panel.Controls.Add(this.old_tickets_label);
             this.closed_tickets_panel.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.closed_tickets_panel.Location = new System.Drawing.Point(1064, 312);
+            this.closed_tickets_panel.Location = new System.Drawing.Point(1013, 312);
             this.closed_tickets_panel.Name = "closed_tickets_panel";
             this.closed_tickets_panel.Radius = 5;
             this.closed_tickets_panel.ShadowColor = System.Drawing.Color.Black;
             this.closed_tickets_panel.ShadowShift = 10;
-            this.closed_tickets_panel.Size = new System.Drawing.Size(686, 622);
+            this.closed_tickets_panel.Size = new System.Drawing.Size(737, 622);
             this.closed_tickets_panel.TabIndex = 5;
             // 
             // closed_grid
             // 
             this.closed_grid.AllowUserToAddRows = false;
             this.closed_grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.closed_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.closed_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.closed_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.closed_grid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.closed_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.closed_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.closed_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.closed_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.closed_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.closed_grid.ColumnHeadersHeight = 25;
             this.closed_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.closed_grid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.closed_grid.DefaultCellStyle = dataGridViewCellStyle18;
             this.closed_grid.EnableHeadersVisualStyles = false;
             this.closed_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.closed_grid.Location = new System.Drawing.Point(19, 61);
@@ -144,7 +147,7 @@ namespace SysCafé
             this.closed_grid.RowHeadersVisible = false;
             this.closed_grid.RowTemplate.Height = 20;
             this.closed_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.closed_grid.Size = new System.Drawing.Size(637, 537);
+            this.closed_grid.Size = new System.Drawing.Size(703, 537);
             this.closed_grid.TabIndex = 6;
             this.closed_grid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.closed_grid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
@@ -168,6 +171,7 @@ namespace SysCafé
             this.closed_grid.ThemeStyle.RowsStyle.Height = 20;
             this.closed_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.closed_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.closed_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.closed_grid_CellDoubleClick);
             // 
             // old_tickets_label
             // 
@@ -183,10 +187,13 @@ namespace SysCafé
             // current_ticket_panel
             // 
             this.current_ticket_panel.BackColor = System.Drawing.Color.Transparent;
+            this.current_ticket_panel.Controls.Add(this.new_ticket_panel);
+            this.current_ticket_panel.Controls.Add(this.total_label);
+            this.current_ticket_panel.Controls.Add(this.label2);
             this.current_ticket_panel.Controls.Add(this.open_time_value);
+            this.current_ticket_panel.Controls.Add(this.value_label);
             this.current_ticket_panel.Controls.Add(this.waiter_iname_label);
             this.current_ticket_panel.Controls.Add(this.table_id_label);
-            this.current_ticket_panel.Controls.Add(this.new_ticket_panel);
             this.current_ticket_panel.Controls.Add(this.current_label);
             this.current_ticket_panel.Controls.Add(this.label4);
             this.current_ticket_panel.Controls.Add(this.waiter_label);
@@ -198,17 +205,50 @@ namespace SysCafé
             this.current_ticket_panel.Radius = 5;
             this.current_ticket_panel.ShadowColor = System.Drawing.Color.Black;
             this.current_ticket_panel.ShadowShift = 10;
-            this.current_ticket_panel.Size = new System.Drawing.Size(988, 622);
+            this.current_ticket_panel.Size = new System.Drawing.Size(963, 622);
             this.current_ticket_panel.TabIndex = 4;
+            // 
+            // open_time_value
+            // 
+            this.open_time_value.AutoSize = true;
+            this.open_time_value.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.open_time_value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.open_time_value.Location = new System.Drawing.Point(182, 61);
+            this.open_time_value.Name = "open_time_value";
+            this.open_time_value.Size = new System.Drawing.Size(17, 25);
+            this.open_time_value.TabIndex = 11;
+            this.open_time_value.Text = " ";
+            // 
+            // waiter_iname_label
+            // 
+            this.waiter_iname_label.AutoSize = true;
+            this.waiter_iname_label.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.waiter_iname_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.waiter_iname_label.Location = new System.Drawing.Point(665, 15);
+            this.waiter_iname_label.Name = "waiter_iname_label";
+            this.waiter_iname_label.Size = new System.Drawing.Size(17, 25);
+            this.waiter_iname_label.TabIndex = 10;
+            this.waiter_iname_label.Text = " ";
+            // 
+            // table_id_label
+            // 
+            this.table_id_label.AutoSize = true;
+            this.table_id_label.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.table_id_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.table_id_label.Location = new System.Drawing.Point(180, 15);
+            this.table_id_label.Name = "table_id_label";
+            this.table_id_label.Size = new System.Drawing.Size(17, 25);
+            this.table_id_label.TabIndex = 6;
+            this.table_id_label.Text = " ";
             // 
             // new_ticket_panel
             // 
             this.new_ticket_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.new_ticket_panel.Controls.Add(this.new_ticket_but);
             this.new_ticket_panel.Controls.Add(this.no_oppen_label);
-            this.new_ticket_panel.Location = new System.Drawing.Point(17, 18);
+            this.new_ticket_panel.Location = new System.Drawing.Point(7, 15);
             this.new_ticket_panel.Name = "new_ticket_panel";
-            this.new_ticket_panel.Size = new System.Drawing.Size(948, 583);
+            this.new_ticket_panel.Size = new System.Drawing.Size(943, 586);
             this.new_ticket_panel.TabIndex = 9;
             // 
             // new_ticket_but
@@ -223,7 +263,7 @@ namespace SysCafé
             this.new_ticket_but.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.new_ticket_but.HoverState.Parent = this.new_ticket_but;
             this.new_ticket_but.ImageSize = new System.Drawing.Size(40, 40);
-            this.new_ticket_but.Location = new System.Drawing.Point(333, 258);
+            this.new_ticket_but.Location = new System.Drawing.Point(328, 258);
             this.new_ticket_but.Name = "new_ticket_but";
             this.new_ticket_but.ShadowDecoration.BorderRadius = 0;
             this.new_ticket_but.ShadowDecoration.Parent = this.new_ticket_but;
@@ -244,16 +284,38 @@ namespace SysCafé
             this.no_oppen_label.TabIndex = 4;
             this.no_oppen_label.Text = "No Oppen Tickets";
             // 
+            // current_label
+            // 
+            this.current_label.AutoSize = true;
+            this.current_label.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.current_label.Location = new System.Drawing.Point(12, 15);
+            this.current_label.Name = "current_label";
+            this.current_label.Size = new System.Drawing.Size(162, 25);
+            this.current_label.TabIndex = 4;
+            this.current_label.Text = "Current Ticket :";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.label4.Location = new System.Drawing.Point(449, 97);
+            this.label4.Location = new System.Drawing.Point(428, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "Content";
+            // 
+            // waiter_label
+            // 
+            this.waiter_label.AutoSize = true;
+            this.waiter_label.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.waiter_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.waiter_label.Location = new System.Drawing.Point(578, 15);
+            this.waiter_label.Name = "waiter_label";
+            this.waiter_label.Size = new System.Drawing.Size(88, 25);
+            this.waiter_label.TabIndex = 6;
+            this.waiter_label.Text = "Waiter :";
             // 
             // open_time_label
             // 
@@ -266,59 +328,48 @@ namespace SysCafé
             this.open_time_label.TabIndex = 7;
             this.open_time_label.Text = "Open Time :";
             // 
-            // waiter_label
-            // 
-            this.waiter_label.AutoSize = true;
-            this.waiter_label.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waiter_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.waiter_label.Location = new System.Drawing.Point(428, 15);
-            this.waiter_label.Name = "waiter_label";
-            this.waiter_label.Size = new System.Drawing.Size(88, 25);
-            this.waiter_label.TabIndex = 6;
-            this.waiter_label.Text = "Waiter :";
-            // 
             // orders_grid
             // 
             this.orders_grid.AllowUserToAddRows = false;
             this.orders_grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.orders_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.orders_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.orders_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orders_grid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.orders_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orders_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.orders_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orders_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orders_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.orders_grid.ColumnHeadersHeight = 25;
             this.orders_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orders_grid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orders_grid.DefaultCellStyle = dataGridViewCellStyle15;
             this.orders_grid.EnableHeadersVisualStyles = false;
             this.orders_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.orders_grid.Location = new System.Drawing.Point(38, 125);
+            this.orders_grid.Location = new System.Drawing.Point(6, 125);
             this.orders_grid.Name = "orders_grid";
             this.orders_grid.ReadOnly = true;
             this.orders_grid.RowHeadersVisible = false;
             this.orders_grid.RowTemplate.Height = 20;
             this.orders_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orders_grid.Size = new System.Drawing.Size(917, 476);
+            this.orders_grid.Size = new System.Drawing.Size(938, 476);
             this.orders_grid.TabIndex = 5;
             this.orders_grid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.orders_grid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
@@ -342,17 +393,6 @@ namespace SysCafé
             this.orders_grid.ThemeStyle.RowsStyle.Height = 20;
             this.orders_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.orders_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            // 
-            // current_label
-            // 
-            this.current_label.AutoSize = true;
-            this.current_label.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.current_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.current_label.Location = new System.Drawing.Point(12, 15);
-            this.current_label.Name = "current_label";
-            this.current_label.Size = new System.Drawing.Size(162, 25);
-            this.current_label.TabIndex = 4;
-            this.current_label.Text = "Current Ticket :";
             // 
             // tables_orders_label
             // 
@@ -403,38 +443,38 @@ namespace SysCafé
             this.label1.TabIndex = 0;
             this.label1.Text = "Tables :";
             // 
-            // table_id_label
+            // value_label
             // 
-            this.table_id_label.AutoSize = true;
-            this.table_id_label.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table_id_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.table_id_label.Location = new System.Drawing.Point(180, 15);
-            this.table_id_label.Name = "table_id_label";
-            this.table_id_label.Size = new System.Drawing.Size(17, 25);
-            this.table_id_label.TabIndex = 6;
-            this.table_id_label.Text = " ";
+            this.value_label.AutoSize = true;
+            this.value_label.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.value_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.value_label.Location = new System.Drawing.Point(521, 61);
+            this.value_label.Name = "value_label";
+            this.value_label.Size = new System.Drawing.Size(145, 25);
+            this.value_label.TabIndex = 8;
+            this.value_label.Text = "Ticket Total : ";
             // 
-            // waiter_iname_label
+            // label2
             // 
-            this.waiter_iname_label.AutoSize = true;
-            this.waiter_iname_label.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waiter_iname_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.waiter_iname_label.Location = new System.Drawing.Point(522, 15);
-            this.waiter_iname_label.Name = "waiter_iname_label";
-            this.waiter_iname_label.Size = new System.Drawing.Size(17, 25);
-            this.waiter_iname_label.TabIndex = 10;
-            this.waiter_iname_label.Text = " ";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.label2.Location = new System.Drawing.Point(473, 299);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = " ";
             // 
-            // open_time_value
+            // total_label
             // 
-            this.open_time_value.AutoSize = true;
-            this.open_time_value.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.open_time_value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.open_time_value.Location = new System.Drawing.Point(182, 61);
-            this.open_time_value.Name = "open_time_value";
-            this.open_time_value.Size = new System.Drawing.Size(17, 25);
-            this.open_time_value.TabIndex = 11;
-            this.open_time_value.Text = " ";
+            this.total_label.AutoSize = true;
+            this.total_label.Font = new System.Drawing.Font("Inter", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            this.total_label.Location = new System.Drawing.Point(665, 61);
+            this.total_label.Name = "total_label";
+            this.total_label.Size = new System.Drawing.Size(17, 25);
+            this.total_label.TabIndex = 12;
+            this.total_label.Text = " ";
             // 
             // tickets_cont
             // 
@@ -483,5 +523,8 @@ namespace SysCafé
         private System.Windows.Forms.Label table_id_label;
         private System.Windows.Forms.Label open_time_value;
         private System.Windows.Forms.Label waiter_iname_label;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label total_label;
+        private System.Windows.Forms.Label value_label;
     }
 }

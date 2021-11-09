@@ -28,7 +28,22 @@ namespace SysCafé
             for (int i = 0; i < tables_id.Count; i++)
             {
                 creat_table(tables_id[i]);
+
             }
+            flowLayoutPanel2.Controls.Clear();
+            foreach (int id in item_id)
+            {
+                create_item_menu(id);
+            }
+            fill_order_grid();
+            foreach(Guna2Button but in table_but_list)
+            {
+                if (Convert.ToInt32(but.Text) == table_id)
+                {
+                    check_but(but);
+                }
+            }
+            tables_orders_label.Text = "Table " + table_id + " Order";
         }
 
         //creat tables buttons
@@ -60,6 +75,7 @@ namespace SysCafé
             }
 
             flowLayoutPanel1.Controls.Add(freetabla);
+            table_but_list.Add(freetabla);
  
         }
 
@@ -83,6 +99,7 @@ namespace SysCafé
         }
 
         // create menu items buttons
+        #region Create Menue
         private void create_item_menu(int item_id)
         {
             
@@ -150,6 +167,8 @@ namespace SysCafé
 */
             return label2;
         }
+        #endregion
+
 
         public void grid_fill(object sender, EventArgs e)
         {
@@ -157,6 +176,12 @@ namespace SysCafé
             ds = new DataSet();
             Guna2Button clickedButton = sender as Guna2Button;
             table_id = Convert.ToInt32(clickedButton.Text);
+            fill_order_grid();
+            check_but(clickedButton);
+
+        }
+        private void fill_order_grid()
+        {
             model.fill_order_content(ref ds, table_id);
             if (ds.Tables.Count > 0)
             {
@@ -165,10 +190,7 @@ namespace SysCafé
                 total_p = model.calc_total(table_id) + "$";
                 price_label.Text = total_p;
             }
-            check_but(clickedButton);
-
         }
-
         private void name_grid()
         {
             order_grid.Columns[0].HeaderText = "Item";

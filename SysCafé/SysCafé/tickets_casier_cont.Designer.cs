@@ -29,6 +29,7 @@ namespace SysCafé
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,6 +39,7 @@ namespace SysCafé
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tickets_casier_cont));
             this.menu_panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.openclose_table_togel = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.tabels_grid = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -58,6 +60,7 @@ namespace SysCafé
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.delivery_labe = new System.Windows.Forms.Label();
+            this.tabel_image = new System.Windows.Forms.ImageList(this.components);
             this.menu_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabels_grid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -169,7 +172,7 @@ namespace SysCafé
             this.tabels_grid.ThemeStyle.RowsStyle.Height = 20;
             this.tabels_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.tabels_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tabels_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabels_grid_CellDoubleClick);
+           
             // 
             // flowLayoutPanel1
             // 
@@ -199,6 +202,7 @@ namespace SysCafé
             this.all_tables_but.Size = new System.Drawing.Size(115, 80);
             this.all_tables_but.TabIndex = 0;
             this.all_tables_but.Text = "All Tabels";
+            this.all_tables_but.Click += new System.EventHandler(this.all_tables_but_Click);
             // 
             // closed_label
             // 
@@ -244,12 +248,12 @@ namespace SysCafé
             this.guna2ShadowPanel1.Controls.Add(this.label2);
             this.guna2ShadowPanel1.Controls.Add(this.tak_away_label);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ShadowPanel1.Location = new System.Drawing.Point(940, 3);
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(874, 3);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowShift = 10;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(804, 453);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(870, 453);
             this.guna2ShadowPanel1.TabIndex = 4;
             // 
             // takaway_togel
@@ -306,13 +310,13 @@ namespace SysCafé
             this.takeaway_grid.DefaultCellStyle = dataGridViewCellStyle6;
             this.takeaway_grid.EnableHeadersVisualStyles = false;
             this.takeaway_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.takeaway_grid.Location = new System.Drawing.Point(41, 59);
+            this.takeaway_grid.Location = new System.Drawing.Point(25, 59);
             this.takeaway_grid.Name = "takeaway_grid";
             this.takeaway_grid.ReadOnly = true;
             this.takeaway_grid.RowHeadersVisible = false;
             this.takeaway_grid.RowTemplate.Height = 20;
             this.takeaway_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.takeaway_grid.Size = new System.Drawing.Size(721, 361);
+            this.takeaway_grid.Size = new System.Drawing.Size(820, 361);
             this.takeaway_grid.TabIndex = 20;
             this.takeaway_grid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.takeaway_grid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
@@ -336,7 +340,6 @@ namespace SysCafé
             this.takeaway_grid.ThemeStyle.RowsStyle.Height = 20;
             this.takeaway_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.takeaway_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.takeaway_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.takeaway_grid_CellDoubleClick);
             // 
             // label1
             // 
@@ -382,12 +385,12 @@ namespace SysCafé
             this.guna2ShadowPanel2.Controls.Add(this.label4);
             this.guna2ShadowPanel2.Controls.Add(this.delivery_labe);
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ShadowPanel2.Location = new System.Drawing.Point(940, 462);
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(874, 462);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.Radius = 10;
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel2.ShadowShift = 10;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(804, 456);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(870, 456);
             this.guna2ShadowPanel2.TabIndex = 5;
             // 
             // delivery_togel
@@ -419,7 +422,7 @@ namespace SysCafé
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.delivery_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.delivery_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.delivery_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.delivery_grid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.delivery_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.delivery_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -444,13 +447,13 @@ namespace SysCafé
             this.delivery_grid.DefaultCellStyle = dataGridViewCellStyle9;
             this.delivery_grid.EnableHeadersVisualStyles = false;
             this.delivery_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.delivery_grid.Location = new System.Drawing.Point(53, 87);
+            this.delivery_grid.Location = new System.Drawing.Point(25, 87);
             this.delivery_grid.Name = "delivery_grid";
             this.delivery_grid.ReadOnly = true;
             this.delivery_grid.RowHeadersVisible = false;
             this.delivery_grid.RowTemplate.Height = 20;
             this.delivery_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.delivery_grid.Size = new System.Drawing.Size(721, 343);
+            this.delivery_grid.Size = new System.Drawing.Size(820, 343);
             this.delivery_grid.TabIndex = 19;
             this.delivery_grid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.delivery_grid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
@@ -474,7 +477,6 @@ namespace SysCafé
             this.delivery_grid.ThemeStyle.RowsStyle.Height = 20;
             this.delivery_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.delivery_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.delivery_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.delivery_grid_CellDoubleClick);
             // 
             // label3
             // 
@@ -510,6 +512,12 @@ namespace SysCafé
             this.delivery_labe.Size = new System.Drawing.Size(274, 39);
             this.delivery_labe.TabIndex = 8;
             this.delivery_labe.Text = "Delivery Tickets";
+            // 
+            // tabel_image
+            // 
+            this.tabel_image.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tabel_image.ImageStream")));
+            this.tabel_image.TransparentColor = System.Drawing.Color.Transparent;
+            this.tabel_image.Images.SetKeyName(0, "chair.png");
             // 
             // tickets_casier_cont
             // 
@@ -558,5 +566,6 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2ToggleSwitch openclose_table_togel;
         private Guna.UI2.WinForms.Guna2ToggleSwitch takaway_togel;
         private Guna.UI2.WinForms.Guna2ToggleSwitch delivery_togel;
+        private System.Windows.Forms.ImageList tabel_image;
     }
 }

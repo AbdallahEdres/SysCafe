@@ -78,7 +78,12 @@ namespace SysCafé
         public workers_cont()
         {
             InitializeComponent();
+            refresh();
+        }
+        public void refresh()
+        {
             fill_worker_list();
+
         }
     }
 }

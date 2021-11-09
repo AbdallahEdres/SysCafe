@@ -71,9 +71,9 @@ namespace SysCafé
             this.price_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
             this.price_label.Location = new System.Drawing.Point(453, 873);
             this.price_label.Name = "price_label";
-            this.price_label.Size = new System.Drawing.Size(67, 25);
+            this.price_label.Size = new System.Drawing.Size(26, 25);
             this.price_label.TabIndex = 10;
-            this.price_label.Text = "200$";
+            this.price_label.Text = "0";
             // 
             // total_label
             // 

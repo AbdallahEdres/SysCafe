@@ -20,11 +20,13 @@ namespace SysCafé
         string email;
         int id;
         public int order_id;
+        int stat;
 
-        public customer_info()
+        public customer_info(int status)
         {
             InitializeComponent();
             saved_radio.Checked = true;
+            stat = status;
         }
 
         
@@ -78,7 +80,7 @@ namespace SysCafé
             adress = adress_txt.Text;
             pin = pincode_txt.Text;
             email = email_txt.Text;
-            if (model.check_customer(phone) == 1)
+            if (model.check_customer(phone) == 1&&stat==1)
             {
                 order_id = model.new_tkt_delivry_takeaway("delivery", 1);
                 if (another_radio.Checked == true && sub_adress.Text != "")
@@ -98,10 +100,13 @@ namespace SysCafé
                     MessageBox.Show("Enter adress");
                 }
             }
-            else
+            else if (model.check_customer(phone) == 0 && stat == 1)
             {
               id=  model.add_new_customer(phone, name, adress, pin, email);
                 add_but.PerformClick();
+            }else if (stat == 0)
+            {
+                id = model.add_new_customer(phone, name, adress, pin, email);
             }
             this.Close();
         }

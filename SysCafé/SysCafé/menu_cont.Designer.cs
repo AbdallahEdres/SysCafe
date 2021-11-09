@@ -292,7 +292,7 @@ namespace SysCafé
         private System.Windows.Forms.ImageList menu_image;
         private Guna.UI2.WinForms.Guna2DataGridView order_grid;
         private System.Windows.Forms.Label tables_orders_label;
-        private Guna.UI2.WinForms.Guna2Button save_order_but;
+        public Guna.UI2.WinForms.Guna2Button save_order_but;
         private System.Windows.Forms.Label price_label;
         private System.Windows.Forms.Label total_label;
     }

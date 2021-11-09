@@ -16,7 +16,7 @@ namespace SysCafé
         public static SqlCommand cmd;
         public static SqlDataReader dr;
         public static SqlDataAdapter da;
-        public static int supp_id=1;
+        public static int supp_id=-1;
 
 /*        public static DataTable dt;
 */
@@ -424,7 +424,7 @@ namespace SysCafé
 
         #region tickets conroller
         // gets open ticket for specific table
-        public static void fill_open_ticket_grid(ref DataSet ds , int table_num,ref string tkt_id,ref string worker ,ref string time)
+        public static void fill_open_ticket_grid(ref DataSet ds , int table_num,ref string tkt_id,ref string worker ,ref string time, ref string value)
         {
             int ticket_id;
             ds = new DataSet();
@@ -434,7 +434,7 @@ namespace SysCafé
             if (dr.Read())
             {
 
-                tkt_id += dr[0].ToString();
+                tkt_id = dr[0].ToString();
                 worker = dr[2].ToString();
                 time = dr[1].ToString();
                 ticket_id = Convert.ToInt32(dr[0]);
@@ -443,7 +443,11 @@ namespace SysCafé
                 da = new SqlDataAdapter(cmd);
                 
                 da.Fill(ds, "open ticket content");
-                
+                cmd = new SqlCommand("select ticket_valu from tickets where ticket_id =" + ticket_id + "", cn);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                value = dr[0].ToString() + "$";
+                dr.Close();
 
             }
             cn.Close();
@@ -453,7 +457,7 @@ namespace SysCafé
         public static void fill_closed_tkt_grid(ref DataSet ds,int table)
         {
            
-            cmd = new SqlCommand("SELECT tickets.ticket_id,  tickets.table_num,  tickets.open_time,  tickets.close_time,  workers_info.worker_name FROM workers_info INNER JOIN tickets ON  workers_info.worker_id =  tickets.worker_id  where table_num ="+table+" and ticket_status = 'closed' ", cn);
+            cmd = new SqlCommand("SELECT * from cashier_home_view  where table_num =" + table+" and ticket_status = 'closed'and order_date= '"+DateTime.Now.ToString("yyyy-MM-dd")+"' ", cn);
             da = new SqlDataAdapter(cmd);
             da.Fill(ds, "closed");
         }
@@ -462,7 +466,7 @@ namespace SysCafé
         public static void new_tkt_table(int table, int worker_id)
         {
             cn.Open();
-            cmd = new SqlCommand("insert into tickets values ("+table+",'"+DateTime.Now+"',null,'open','table',"+worker_id+",'"+DateTime.Now.ToString("yyyy-MM-dd")+"',50)", cn);
+            cmd = new SqlCommand("insert into tickets values ("+table+",'"+DateTime.Now+"',null,'open','table',"+worker_id+",'"+DateTime.Now.ToString("yyyy-MM-dd")+"',0)", cn);
             cmd.ExecuteNonQuery();
             cmd = new SqlCommand("update the_tables set table_status =0 where table_number="+table+"", cn);
             cmd.ExecuteNonQuery();
@@ -554,10 +558,12 @@ namespace SysCafé
                 {
                     total_price += (Convert.ToDouble(dr[0]) * Convert.ToDouble(dr[1]));
                 }
-             
+                dr.Close();
+                cmd = new SqlCommand("update tickets set ticket_valu ="+total_price+" where ticket_id="+tkt_id+"", cn);
+                cmd.ExecuteNonQuery();
             }
             total = total_price.ToString();
-            dr.Close();
+           
             cn.Close();
             return total;
         }
@@ -626,8 +632,17 @@ namespace SysCafé
             da.Fill(ds, "payment tickets");
 
         }
-        // gets the data for receipt content
-        public static void fill_recipt(ref DataSet ds, int order_id)
+
+        public static void fill_delivery(ref DataSet ds, string tkt_status,string typ)
+        {
+            ds = new DataSet();
+            cmd = new SqlCommand("select * from delivery_veiw where order_date='"+DateTime.Now.ToString("yyyy-MM-dd")+"'"+tkt_status+typ, cn);
+            da = new SqlDataAdapter(cmd);
+            da.Fill(ds, "payment tickets");
+
+        }
+    // gets the data for receipt content
+    public static void fill_recipt(ref DataSet ds, int order_id)
         {
             ds = new DataSet();
             cmd = new SqlCommand("select * from payment_veiw where ticket_id ="+order_id+"", cn);
@@ -699,6 +714,12 @@ namespace SysCafé
                 cmd.ExecuteNonQuery();
             }
 
+
+            cn.Close();
+            double valu= calc_payment(tkt_id);
+            cn.Open();
+            cmd = new SqlCommand("update tickets set ticket_valu="+valu+" where ticket_id="+tkt_id+"", cn);
+            cmd.ExecuteNonQuery();
             cn.Close();
         }
         #endregion
@@ -757,9 +778,9 @@ namespace SysCafé
         {
             int id;
             cn.Open();
-            cmd = new SqlCommand("insert into customer_info values(N'"+name+"','"+phone+"',N'"+adress+"',N'"+email+"','"+pin+"',1) ", cn);
+            cmd = new SqlCommand("insert into customer_info values(N'"+name+"',N'"+phone+"',N'"+adress+"',N'"+email+"',N'"+pin+"',1) ", cn);
             cmd.ExecuteNonQuery();
-            cmd = new SqlCommand("select customer_id from customer_info where customer_phone = '"+phone+"'", cn);
+            cmd = new SqlCommand("select customer_id from customer_info where customer_phone = N'"+phone+"'", cn);
             dr = cmd.ExecuteReader();
             dr.Read();
             id = Convert.ToInt32(dr[0]);
@@ -767,6 +788,41 @@ namespace SysCafé
 
             cn.Close();
             return id;
+        }
+        public static void get_customer_info(int id, ref string name, ref string adress, ref string pin, ref string email, ref string phone, ref int pic_id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("select * from customer_info where customer_id = " + id + "", cn);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                name = dr[1].ToString();
+                phone = dr[2].ToString();
+                adress = dr[3].ToString();
+                email = dr[4].ToString();
+                pin = dr[5].ToString();
+                pic_id = Convert.ToInt32(dr[6]);
+            }
+            dr.Close();
+            cn.Close();
+
+        }
+        public static void get_customers_list(ref DataTable dt)
+        {
+            cmd = new SqlCommand("select customer_id,customer_name, customer_phone from customer_info", cn);
+
+            dt = new DataTable();
+            da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+        }
+        public static void edit_customer(int id,   string name,   string adress,   string pin,   string email,   string phone,   int pic_id)
+        {
+            cn.Open();
+            cmd = new SqlCommand("update customer_info set customer_name =N'"+name+"', customer_phone=N'"+phone+"',customer_adress=N'"+adress+"',customer_email=N'"+email+"'" +
+                ",customer_pincode='"+pin+"',pic_id="+pic_id+" where customer_id="+id+"", cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
         }
         #endregion
     }

@@ -38,7 +38,6 @@ namespace SysCafé
             this.supplier_serach_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.add_but = new Guna.UI2.WinForms.Guna2Button();
             this.edit_but = new Guna.UI2.WinForms.Guna2Button();
-            this.refresh_but = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.suplier_grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,30 +192,11 @@ namespace SysCafé
             this.edit_but.Text = "Edit supplier";
             this.edit_but.Click += new System.EventHandler(this.edit_but_Click);
             // 
-            // refresh_but
-            // 
-            this.refresh_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refresh_but.CheckedState.Parent = this.refresh_but;
-            this.refresh_but.CustomImages.Parent = this.refresh_but;
-            this.refresh_but.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.refresh_but.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.refresh_but.ForeColor = System.Drawing.Color.White;
-            this.refresh_but.HoverState.Parent = this.refresh_but;
-            this.refresh_but.Image = ((System.Drawing.Image)(resources.GetObject("refresh_but.Image")));
-            this.refresh_but.Location = new System.Drawing.Point(565, 288);
-            this.refresh_but.Name = "refresh_but";
-            this.refresh_but.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.refresh_but.ShadowDecoration.Parent = this.refresh_but;
-            this.refresh_but.Size = new System.Drawing.Size(54, 47);
-            this.refresh_but.TabIndex = 5;
-            this.refresh_but.Click += new System.EventHandler(this.refresh_but_Click);
-            // 
             // supplier_cont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.refresh_but);
             this.Controls.Add(this.edit_but);
             this.Controls.Add(this.add_but);
             this.Controls.Add(this.supplier_serach_txt);
@@ -237,6 +217,5 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2TextBox supplier_serach_txt;
         private Guna.UI2.WinForms.Guna2Button add_but;
         private Guna.UI2.WinForms.Guna2Button edit_but;
-        private Guna.UI2.WinForms.Guna2CircleButton refresh_but;
     }
 }

@@ -41,8 +41,8 @@ namespace SysCafé
             freetabla.TextOffset = new Point(-33, 40);
             freetabla.ImageOffset = new Point(5, -20);
             freetabla.Margin = new Padding(80);
-            freetabla.Click += new EventHandler(tickets_cont1.fill_open_ticket_content);
             freetabla.Click += new EventHandler(tickets_but_Click);
+            freetabla.Click += new EventHandler(tickets_cont1.fill_open_ticket_content);
             freetabla.Click += new EventHandler(check_but_tkts);
 
             if (model.table_status(id) == 0)
@@ -58,6 +58,15 @@ namespace SysCafé
 
             flowLayoutPanel1.Controls.Add(freetabla);
 
+        }
+        public void fill_tables_panel()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            tables_id = model.get_table_id();
+            for (int i = 0; i < tables_id.Count; i++)
+            {
+                creat_table(tables_id[i]);
+            }
         }
 
       private void check_but_tkts(object sender, EventArgs e)
@@ -113,6 +122,7 @@ namespace SysCafé
             button_select(Home_button);
             tickets_cont1.new_ticket_but.Click += new EventHandler(new_tkt);
             tickets_cont1.new_ticket_but.Click += new EventHandler(check_but_menu);
+            Menu_Cont1.save_order_but.Click += new EventHandler(Home_button_Click);
 
 
             // add user controllers to the form
@@ -123,19 +133,17 @@ namespace SysCafé
             main_panel.Show();
 
             //create tables 
-            tables_id = model.get_table_id();
-            for (int i = 0; i <tables_id.Count; i++)
-            {
-                creat_table(tables_id[i]);
-            }          
-           
+            fill_tables_panel();
+
+
         }
 
         private void tickets_but_Click(object sender, EventArgs e)
         {
             hid_cont();
             tickets_cont1.Show();
-            button_select(tickets_but);           
+            button_select(tickets_but);
+            tickets_cont1.refresh();
         }
 
         public void Home_button_Click(object sender, EventArgs e)
@@ -143,11 +151,7 @@ namespace SysCafé
             hid_cont();
             button_select(Home_button);
             main_panel.Show();
-            flowLayoutPanel1.Controls.Clear();
-            for (int i = 0; i < tables_id.Count; i++)
-            {
-                creat_table(tables_id[i]);
-            }
+            fill_tables_panel();
         }
 
         private void menu_but_Click(object sender, EventArgs e)
@@ -178,6 +182,18 @@ namespace SysCafé
                 MessageBox.Show("choose table");
             }
             Menu_Cont1.refresh();
+        }
+
+        private void refresh_but_Click(object sender, EventArgs e)
+        {
+            Menu_Cont1.refresh();
+            tickets_cont1.refresh();
+            fill_tables_panel();
+        }
+
+        private void select_table_but_Click(object sender, EventArgs e)
+        {
+            Home_button.PerformClick();
         }
     }
 }

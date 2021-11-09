@@ -13,7 +13,7 @@ namespace SysCafé
     public partial class delivery_takeaway_form : Form
     {
         public int order_id;
-        customer_info c = new customer_info();
+        customer_info c = new customer_info(1);
 
         public delivery_takeaway_form()
         {

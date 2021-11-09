@@ -85,7 +85,7 @@ namespace SysCafé
            
         }
 
-        private void refresh_but_Click(object sender, EventArgs e)
+        public void refresh()
         {
             fill_grids();
         }

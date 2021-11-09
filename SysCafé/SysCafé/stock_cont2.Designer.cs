@@ -35,7 +35,6 @@ namespace SysCafé
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(stock_cont2));
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.inventory_count = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.ineventory_grid = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -46,7 +45,6 @@ namespace SysCafé
             this.kitchen_grid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.send_inven_but = new Guna.UI2.WinForms.Guna2Button();
             this.kitchen_label = new System.Windows.Forms.Label();
-            this.refresh_but = new Guna.UI2.WinForms.Guna2CircleButton();
             this.supplier_serach_txt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventory_count)).BeginInit();
@@ -338,24 +336,6 @@ namespace SysCafé
             this.kitchen_label.TabIndex = 2;
             this.kitchen_label.Text = "Kitchen";
             // 
-            // refresh_but
-            // 
-            this.refresh_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refresh_but.CheckedState.Parent = this.refresh_but;
-            this.refresh_but.CustomImages.Parent = this.refresh_but;
-            this.refresh_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            this.refresh_but.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.refresh_but.ForeColor = System.Drawing.Color.White;
-            this.refresh_but.HoverState.Parent = this.refresh_but;
-            this.refresh_but.Image = ((System.Drawing.Image)(resources.GetObject("refresh_but.Image")));
-            this.refresh_but.Location = new System.Drawing.Point(558, 33);
-            this.refresh_but.Name = "refresh_but";
-            this.refresh_but.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.refresh_but.ShadowDecoration.Parent = this.refresh_but;
-            this.refresh_but.Size = new System.Drawing.Size(54, 47);
-            this.refresh_but.TabIndex = 7;
-            this.refresh_but.Click += new System.EventHandler(this.refresh_but_Click);
-            // 
             // supplier_serach_txt
             // 
             this.supplier_serach_txt.BorderRadius = 10;
@@ -387,7 +367,6 @@ namespace SysCafé
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.refresh_but);
             this.Controls.Add(this.supplier_serach_txt);
             this.Controls.Add(this.guna2ShadowPanel2);
             this.Controls.Add(this.guna2ShadowPanel3);
@@ -416,7 +395,6 @@ namespace SysCafé
         private Guna.UI2.WinForms.Guna2DataGridView kitchen_grid;
         private Guna.UI2.WinForms.Guna2NumericUpDown inventory_count;
         private Guna.UI2.WinForms.Guna2NumericUpDown kitchen_count;
-        private Guna.UI2.WinForms.Guna2CircleButton refresh_but;
         private Guna.UI2.WinForms.Guna2TextBox supplier_serach_txt;
     }
 }

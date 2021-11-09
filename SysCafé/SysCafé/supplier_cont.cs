@@ -13,11 +13,9 @@ namespace SysCafé
     public partial class supplier_cont : UserControl
     {
         DataSet ds;
-        int receipt_id=1;
-        public supplier_cont()
+        public void refresh()
         {
-            InitializeComponent();
-            model.fill_grid(ref ds,supplier_serach_txt.Text);
+            model.fill_grid(ref ds, supplier_serach_txt.Text);
             suplier_grid.DataSource = ds.Tables[0].DefaultView;
             suplier_grid.Columns[0].HeaderText = "Supplier ID";
             suplier_grid.Columns[1].HeaderText = "Supplier Name";
@@ -25,6 +23,12 @@ namespace SysCafé
             suplier_grid.Columns[3].HeaderText = "Supplier Phone 2";
             suplier_grid.Columns[4].HeaderText = "Supplier Adress 1";
             suplier_grid.Columns[5].HeaderText = "Supplier Adress 2";
+        }
+     
+        public supplier_cont()
+        {
+            InitializeComponent();
+            refresh();
         }
 
         private void supplier_serach_txt_Click(object sender, EventArgs e)
@@ -36,14 +40,21 @@ namespace SysCafé
         {
             add_supplier_form add = new add_supplier_form();
             add.Show();
+            add.add_but.Click += new System.EventHandler(refresh_but_Click);
+
         }
 
         private void edit_but_Click(object sender, EventArgs e)
         {
-            if (model.supp_id != null)
+            if (model.supp_id !=-1)
             {
                 supllier_edit_form Edit_Form = new supllier_edit_form();
+                Edit_Form.done_but.Click += new System.EventHandler(refresh_but_Click);
                 Edit_Form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Choose suplier");
             }
 
             
