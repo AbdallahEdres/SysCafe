@@ -82,7 +82,7 @@ namespace SysCafé
             email = email_txt.Text;
             if (model.check_customer(phone) == 1&&stat==1)
             {
-                order_id = model.new_tkt_delivry_takeaway("delivery", 1);
+                order_id = model.new_tkt_delivry_takeaway("delivery");
                 if (another_radio.Checked == true && sub_adress.Text != "")
                 {
                     adress = sub_adress.Text;

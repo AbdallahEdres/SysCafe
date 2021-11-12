@@ -31,11 +31,13 @@ namespace SysCafé
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu_cont));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.delete_but = new Guna.UI2.WinForms.Guna2Button();
+            this.remove_but = new Guna.UI2.WinForms.Guna2Button();
             this.price_label = new System.Windows.Forms.Label();
             this.total_label = new System.Windows.Forms.Label();
             this.save_order_but = new Guna.UI2.WinForms.Guna2Button();
@@ -57,6 +59,8 @@ namespace SysCafé
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.delete_but);
+            this.panel1.Controls.Add(this.remove_but);
             this.panel1.Controls.Add(this.price_label);
             this.panel1.Controls.Add(this.total_label);
             this.panel1.Controls.Add(this.save_order_but);
@@ -67,12 +71,51 @@ namespace SysCafé
             this.panel1.Size = new System.Drawing.Size(649, 933);
             this.panel1.TabIndex = 0;
             // 
+            // delete_but
+            // 
+            this.delete_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.delete_but.BorderRadius = 15;
+            this.delete_but.CheckedState.Parent = this.delete_but;
+            this.delete_but.CustomImages.Parent = this.delete_but;
+            this.delete_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.delete_but.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_but.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.delete_but.HoverState.Parent = this.delete_but;
+            this.delete_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.delete_but.Location = new System.Drawing.Point(329, 790);
+            this.delete_but.Name = "delete_but";
+            this.delete_but.ShadowDecoration.Parent = this.delete_but;
+            this.delete_but.Size = new System.Drawing.Size(30, 28);
+            this.delete_but.TabIndex = 12;
+            this.delete_but.Text = "X";
+            this.delete_but.TextOffset = new System.Drawing.Point(-1, 1);
+            this.delete_but.Click += new System.EventHandler(this.delete_but_Click);
+            // 
+            // remove_but
+            // 
+            this.remove_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.remove_but.BorderRadius = 15;
+            this.remove_but.CheckedState.Parent = this.remove_but;
+            this.remove_but.CustomImages.Parent = this.remove_but;
+            this.remove_but.FillColor = System.Drawing.Color.Red;
+            this.remove_but.Font = new System.Drawing.Font("Inter Semi Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remove_but.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.remove_but.HoverState.Parent = this.remove_but;
+            this.remove_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.remove_but.Location = new System.Drawing.Point(293, 790);
+            this.remove_but.Name = "remove_but";
+            this.remove_but.ShadowDecoration.Parent = this.remove_but;
+            this.remove_but.Size = new System.Drawing.Size(30, 28);
+            this.remove_but.TabIndex = 11;
+            this.remove_but.Text = "-";
+            this.remove_but.Click += new System.EventHandler(this.remove_but_Click);
+            // 
             // price_label
             // 
             this.price_label.AutoSize = true;
             this.price_label.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.price_label.Location = new System.Drawing.Point(453, 873);
+            this.price_label.Location = new System.Drawing.Point(454, 898);
             this.price_label.Name = "price_label";
             this.price_label.Size = new System.Drawing.Size(0, 25);
             this.price_label.TabIndex = 10;
@@ -82,7 +125,7 @@ namespace SysCafé
             this.total_label.AutoSize = true;
             this.total_label.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.total_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            this.total_label.Location = new System.Drawing.Point(428, 829);
+            this.total_label.Location = new System.Drawing.Point(429, 854);
             this.total_label.Name = "total_label";
             this.total_label.Size = new System.Drawing.Size(116, 25);
             this.total_label.TabIndex = 9;
@@ -99,7 +142,7 @@ namespace SysCafé
             this.save_order_but.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.save_order_but.HoverState.Parent = this.save_order_but;
             this.save_order_but.ImageSize = new System.Drawing.Size(40, 40);
-            this.save_order_but.Location = new System.Drawing.Point(80, 819);
+            this.save_order_but.Location = new System.Drawing.Point(80, 848);
             this.save_order_but.Name = "save_order_but";
             this.save_order_but.ShadowDecoration.Parent = this.save_order_but;
             this.save_order_but.Size = new System.Drawing.Size(206, 75);
@@ -121,35 +164,35 @@ namespace SysCafé
             // 
             this.order_grid.AllowUserToAddRows = false;
             this.order_grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            this.order_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            this.order_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.order_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.order_grid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.order_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.order_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.order_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.order_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(128)))), ((int)(((byte)(25)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Inter Semi Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.order_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.order_grid.ColumnHeadersHeight = 25;
             this.order_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.order_grid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.order_grid.DefaultCellStyle = dataGridViewCellStyle6;
             this.order_grid.EnableHeadersVisualStyles = false;
             this.order_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.order_grid.Location = new System.Drawing.Point(17, 108);
@@ -182,6 +225,7 @@ namespace SysCafé
             this.order_grid.ThemeStyle.RowsStyle.Height = 20;
             this.order_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.order_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.order_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.order_grid_CellClick);
             // 
             // guna2ShadowPanel1
             // 
@@ -295,5 +339,7 @@ namespace SysCafé
         public Guna.UI2.WinForms.Guna2Button save_order_but;
         private System.Windows.Forms.Label price_label;
         private System.Windows.Forms.Label total_label;
+        public Guna.UI2.WinForms.Guna2Button delete_but;
+        public Guna.UI2.WinForms.Guna2Button remove_but;
     }
 }

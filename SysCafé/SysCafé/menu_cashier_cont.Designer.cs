@@ -46,6 +46,8 @@ namespace SysCafé
             this.order_num_label = new System.Windows.Forms.Label();
             this.menu_image = new System.Windows.Forms.ImageList(this.components);
             this.chang_but = new Guna.UI2.WinForms.Guna2Button();
+            this.delete_but = new Guna.UI2.WinForms.Guna2Button();
+            this.remove_but = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.order_grid)).BeginInit();
             this.menu_panel.SuspendLayout();
@@ -54,6 +56,8 @@ namespace SysCafé
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.delete_but);
+            this.panel1.Controls.Add(this.remove_but);
             this.panel1.Controls.Add(this.price_label);
             this.panel1.Controls.Add(this.total_label);
             this.panel1.Controls.Add(this.save_order_but);
@@ -156,7 +160,7 @@ namespace SysCafé
             this.order_grid.RowHeadersVisible = false;
             this.order_grid.RowTemplate.Height = 20;
             this.order_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.order_grid.Size = new System.Drawing.Size(619, 676);
+            this.order_grid.Size = new System.Drawing.Size(619, 619);
             this.order_grid.TabIndex = 6;
             this.order_grid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.order_grid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
@@ -180,6 +184,7 @@ namespace SysCafé
             this.order_grid.ThemeStyle.RowsStyle.Height = 20;
             this.order_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.order_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.order_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.order_grid_CellClick);
             // 
             // menu_panel
             // 
@@ -255,6 +260,45 @@ namespace SysCafé
             this.chang_but.Text = "Change Order";
             this.chang_but.Click += new System.EventHandler(this.chang_but_Click);
             // 
+            // delete_but
+            // 
+            this.delete_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.delete_but.BorderRadius = 15;
+            this.delete_but.CheckedState.Parent = this.delete_but;
+            this.delete_but.CustomImages.Parent = this.delete_but;
+            this.delete_but.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(158)))));
+            this.delete_but.Font = new System.Drawing.Font("Inter Semi Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_but.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.delete_but.HoverState.Parent = this.delete_but;
+            this.delete_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.delete_but.Location = new System.Drawing.Point(349, 750);
+            this.delete_but.Name = "delete_but";
+            this.delete_but.ShadowDecoration.Parent = this.delete_but;
+            this.delete_but.Size = new System.Drawing.Size(30, 28);
+            this.delete_but.TabIndex = 14;
+            this.delete_but.Text = "X";
+            this.delete_but.TextOffset = new System.Drawing.Point(-1, 1);
+            this.delete_but.Click += new System.EventHandler(this.delete_but_Click);
+            // 
+            // remove_but
+            // 
+            this.remove_but.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.remove_but.BorderRadius = 15;
+            this.remove_but.CheckedState.Parent = this.remove_but;
+            this.remove_but.CustomImages.Parent = this.remove_but;
+            this.remove_but.FillColor = System.Drawing.Color.Red;
+            this.remove_but.Font = new System.Drawing.Font("Inter Semi Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remove_but.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.remove_but.HoverState.Parent = this.remove_but;
+            this.remove_but.ImageSize = new System.Drawing.Size(40, 40);
+            this.remove_but.Location = new System.Drawing.Point(313, 750);
+            this.remove_but.Name = "remove_but";
+            this.remove_but.ShadowDecoration.Parent = this.remove_but;
+            this.remove_but.Size = new System.Drawing.Size(30, 28);
+            this.remove_but.TabIndex = 13;
+            this.remove_but.Text = "-";
+            this.remove_but.Click += new System.EventHandler(this.remove_but_Click);
+            // 
             // menu_cashier_cont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,5 +335,7 @@ namespace SysCafé
         private System.Windows.Forms.Label order_num_label;
         private System.Windows.Forms.ImageList menu_image;
         public Guna.UI2.WinForms.Guna2Button chang_but;
+        public Guna.UI2.WinForms.Guna2Button delete_but;
+        public Guna.UI2.WinForms.Guna2Button remove_but;
     }
 }

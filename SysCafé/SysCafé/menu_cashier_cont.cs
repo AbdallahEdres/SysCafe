@@ -17,6 +17,8 @@ namespace SysCafé
         List<Guna2ShadowPanel> menu_but_list = new List<Guna2ShadowPanel>();
         List<int> item_id = model.get_item_id();
         string total_p = "";
+        string item_name = "";
+        int order_id;
 
         // create menu items buttons
         private void create_item_menu(int item_id)
@@ -100,6 +102,7 @@ namespace SysCafé
             model.fill_recipt(ref ds, Convert.ToInt32(order_num_label.Text));
             order_grid.DataSource = ds.Tables["receipt"].DefaultView;
             receipt_grid_naming();
+            
             total_p = model.calc_payment(Convert.ToInt32(order_num_label.Text)).ToString();
             price_label.Text = total_p +" $";
         }
@@ -124,7 +127,10 @@ namespace SysCafé
             {
                 model.add_order_casheir(tkt_id, id);
                 fill_grid();
-            }else if (tkt_id == 0)
+
+                
+            }
+            else if (tkt_id == 0)
             {
                DialogResult d=( MessageBox.Show("Do ypu want to choose ticket?","No ticket selected",MessageBoxButtons.YesNo));
                 if (d == DialogResult.Yes)
@@ -137,9 +143,10 @@ namespace SysCafé
 
 
         // gets order_id
-        public void set_order_id(int order_id)
+        public void set_order_id(int _order_id)
         {
-            order_num_label.Text = order_id.ToString();
+            order_id = _order_id;
+            order_num_label.Text = _order_id.ToString();
         }
         public menu_cashier_cont()
         {
@@ -151,11 +158,45 @@ namespace SysCafé
         private void order_num_label_TextChanged(object sender, EventArgs e)
         {
             fill_grid();
+
         }
 
         private void chang_but_Click(object sender, EventArgs e)
         {
             order_num_label.Text = "0";
+        }
+
+        private void remove_but_Click(object sender, EventArgs e)
+        {
+            if (item_name != "")
+            {
+                model.remove(order_id, item_name);
+
+            }
+            else
+            {
+                MessageBox.Show("Choose item");
+            }
+            fill_grid();
+        }
+
+        private void delete_but_Click(object sender, EventArgs e)
+        {
+            if(item_name != "")
+            {
+                model.delete(order_id, item_name);
+            }
+            else
+            {
+                MessageBox.Show("Choose item");
+            }
+            fill_grid();
+        }
+
+        private void order_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            order_id = Convert.ToInt32(order_num_label.Text);
+            item_name = order_grid.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
     }
 }

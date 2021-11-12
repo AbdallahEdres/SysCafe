@@ -29,7 +29,7 @@ namespace SysCafé
         private void takeaway_but_Click(object sender, EventArgs e)
         {
             this.Close();
-           order_id= model.new_tkt_delivry_takeaway("takeaway", 1);
+           order_id= model.new_tkt_delivry_takeaway("takeaway");
             MessageBox.Show("" + order_id);
         }
 

@@ -39,6 +39,27 @@
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\..\Downloads\_Getintopc.com_Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -121,6 +142,7 @@
     <Compile Include="new_supp_controler.Designer.cs">
       <DependentUpon>new_supp_controler.cs</DependentUpon>
     </Compile>
+    <Compile Include="order_print_class.cs" />
     <Compile Include="payment_cont.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +157,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="delivery_recipt_veiwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="delivery_recipt_veiwer.Designer.cs">
+      <DependentUpon>delivery_recipt_veiwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="stock_cont2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,6 +181,18 @@
     </Compile>
     <Compile Include="supplier_cont.Designer.cs">
       <DependentUpon>supplier_cont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="table_receipt_veiwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="table_receipt_veiwer.Designer.cs">
+      <DependentUpon>table_receipt_veiwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="takeaway_receipt_viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="takeaway_receipt_viewer.Designer.cs">
+      <DependentUpon>takeaway_receipt_viewer.cs</DependentUpon>
     </Compile>
     <Compile Include="tickets_casier_cont.cs">
       <SubType>UserControl</SubType>
@@ -225,6 +266,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="delivery_recipt_veiwer.resx">
+      <DependentUpon>delivery_recipt_veiwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="delivery_receipt.rdlc" />
+    <EmbeddedResource Include="table_receipt.rdlc" />
+    <EmbeddedResource Include="table_receipt_veiwer.resx">
+      <DependentUpon>table_receipt_veiwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="takeaway_receipt.rdlc" />
     <EmbeddedResource Include="stock_cont2.resx">
       <DependentUpon>stock_cont2.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="supplier_cont.resx">
       <DependentUpon>supplier_cont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="takeaway_receipt_viewer.resx">
+      <DependentUpon>takeaway_receipt_viewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tickets_casier_cont.resx">
       <DependentUpon>tickets_casier_cont.cs</DependentUpon>
@@ -247,6 +300,7 @@
       <DependentUpon>workers_cont.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\order_print_class.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -266,5 +320,21 @@
   <ItemGroup>
     <None Include="Resources\chair.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

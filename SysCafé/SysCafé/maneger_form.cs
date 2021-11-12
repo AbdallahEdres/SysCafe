@@ -90,12 +90,13 @@ namespace SysCafé
         }
         public maneger_form()
         {
+            InitializeComponent();
             // add special functions spicific to this form to tickets_casheir controler
             ticket_cont2.tabels_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_cont2.tabels_grid_CellDoubleClick_1);
             ticket_cont2.takeaway_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_cont2.takeaway_grid_CellDoubleClick_1);
             ticket_cont2.delivery_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_cont2.delivery_grid_CellDoubleClick_1);
 
-            InitializeComponent();
+           
             hide_cont();
             button_select(Home_button);
             get_icome_num_order();
@@ -121,7 +122,7 @@ namespace SysCafé
             button_select(stock_but);
             hide_cont();
             stock_cont21.Show();
-            stock_cont21.fill_grids();
+            stock_cont21.fill_grids(" ");
         }
 
         private void orders_but_Click(object sender, EventArgs e)

@@ -20,7 +20,8 @@ namespace SysCafé
         public List<Guna2ShadowPanel> menu_but_list = new List<Guna2ShadowPanel>();
         List<int> item_id = model.get_item_id();
         string total_p;
-
+        int order_id;
+        string item_name="";
         // refresh tables status
         public void refresh()
         {
@@ -208,7 +209,8 @@ namespace SysCafé
             {
                 Guna2ShadowPanel clickedButton = sender as Guna2ShadowPanel;
                 int id = Convert.ToInt32(clickedButton.Name);
-                model.add_order(table_id, id);
+                order_id= model.get_tkt_id(table_id);
+                model.add_order(order_id, id);
                 model.fill_order_content(ref ds, table_id);
                 if (ds.Tables.Count > 0)
                 {
@@ -225,7 +227,7 @@ namespace SysCafé
                 DialogResult dialog = MessageBox.Show("Do you want to open new ticket??", "No Open Tickets", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    model.new_tkt_table(table_id, 1);
+                    model.new_tkt_table(table_id);
                     Guna2ShadowPanel clickedButton = sender as Guna2ShadowPanel;
                     int id = Convert.ToInt32(clickedButton.Name);
                     model.add_order(table_id, id);
@@ -270,8 +272,41 @@ namespace SysCafé
             }
         }
 
+
         #endregion
 
-      
+        private void remove_but_Click(object sender, EventArgs e)
+        {
+            if (item_name != "")
+            {
+                model.remove(order_id, item_name);
+                fill_order_grid();
+
+            }
+            else
+            {
+                MessageBox.Show("Choose item");
+            }
+        }
+
+        private void order_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            item_name = order_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+            order_id = model.get_tkt_id(table_id);
+
+        }
+
+        private void delete_but_Click(object sender, EventArgs e)
+        {
+            if (item_name != "")
+            {
+                model.delete(order_id, item_name);
+                fill_order_grid();
+            }
+            else
+            {
+                MessageBox.Show("Choose item");
+            }
+        }
     }
 }

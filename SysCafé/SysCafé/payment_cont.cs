@@ -17,6 +17,7 @@ namespace SysCafé
        public int ticket_id;
         double pay;
         int table_id;
+        string ticket_type;
 
 
         #region methods
@@ -31,6 +32,8 @@ namespace SysCafé
             grid.Columns[5].HeaderText = "Worker";
             grid.Columns[6].HeaderText = "Status";
             grid.Columns[7].Visible = false;
+            grid.Columns[8].HeaderText = "Total";
+
         }
 
         // method to choose select condetion
@@ -79,7 +82,8 @@ namespace SysCafé
             recipt_grid.Columns[2].HeaderText = "Size";
             recipt_grid.Columns[3].HeaderText = "Count";
             recipt_grid.Columns[4].HeaderText = "Price/1";
-
+/*            recipt_grid.Columns[5].HeaderText = "Total";
+*/
 
         }
 
@@ -125,10 +129,10 @@ namespace SysCafé
             if (e.RowIndex != -1)
             {
                 ticket_id = Convert.ToInt32(tickets_grid.Rows[e.RowIndex].Cells[0].Value);
+                ticket_type = tickets_grid.Rows[e.RowIndex].Cells[4].Value.ToString();
                 if (tickets_grid.Rows[e.RowIndex].Cells[1].Value.ToString() !="")
                 {
                     table_id = Convert.ToInt32(tickets_grid.Rows[e.RowIndex].Cells[1].Value);
-
                 }
 
                 model.fill_recipt(ref ds, ticket_id);
@@ -141,8 +145,32 @@ namespace SysCafé
 
         private void close_tkt_but_Click(object sender, EventArgs e)
         {
-            model.close_tkt(ticket_id, pay,table_id);
-            fill_tkts_grid();
+            if (model.check_ticket_status(ticket_id) == 1)
+            {
+                if (ticket_type == "delivery")
+                {
+                    delivery_recipt_veiwer _Veiwer = new delivery_recipt_veiwer(ticket_id);
+                    _Veiwer.ShowDialog();
+                }
+                else if(ticket_type == "table")
+                {
+                    table_receipt_veiwer t = new table_receipt_veiwer(ticket_id, table_id);
+                    t.ShowDialog();
+                }
+                else if (ticket_type == "takeaway")
+                {
+                    takeaway_receipt_viewer t = new takeaway_receipt_viewer(ticket_id);
+                    t.ShowDialog();
+                }
+               
+                model.close_tkt(ticket_id, pay, table_id);
+                fill_tkts_grid();
+            }
+            else
+            {
+                MessageBox.Show("Ticket is already closed!");
+            }
+           
         }
     }
     #endregion

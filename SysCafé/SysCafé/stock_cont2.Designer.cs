@@ -361,6 +361,7 @@ namespace SysCafé
             this.supplier_serach_txt.ShadowDecoration.Parent = this.supplier_serach_txt;
             this.supplier_serach_txt.Size = new System.Drawing.Size(426, 46);
             this.supplier_serach_txt.TabIndex = 6;
+            this.supplier_serach_txt.TextChanged += new System.EventHandler(this.supplier_serach_txt_TextChanged);
             // 
             // stock_cont2
             // 

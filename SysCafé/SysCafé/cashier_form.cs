@@ -142,7 +142,6 @@ namespace SysCafé
         public cashier_form()
         {
             InitializeComponent();
-            
             time_label.Text = DateTime.Now.ToString("hh : mm tt");
             timer1.Start();
             date_valu.Text= DateTime.Now.ToString("yyyy / MM /dd");
@@ -218,6 +217,11 @@ namespace SysCafé
         private void refresh_but_Click(object sender, EventArgs e)
         {
             customer_cont1.refresh();
+        }
+
+        private void logout_but_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void cashier_form_FormClosed(object sender, FormClosedEventArgs e)

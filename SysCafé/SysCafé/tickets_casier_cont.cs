@@ -206,7 +206,6 @@ namespace SysCafé
             if (e.RowIndex != -1)
             {
                 ticket_id = Convert.ToInt32(takeaway_grid.Rows[e.RowIndex].Cells[0].Value);
-                MessageBox.Show("" + ticket_id);
 
             }
         }
@@ -217,7 +216,6 @@ namespace SysCafé
             if (e.RowIndex != -1)
             {
                 ticket_id = Convert.ToInt32(delivery_grid.Rows[e.RowIndex].Cells[0].Value);
-                MessageBox.Show("" + ticket_id);
 
             }
         }

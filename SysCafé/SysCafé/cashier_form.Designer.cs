@@ -168,6 +168,7 @@ namespace SysCafé
             this.logout_but.TabIndex = 5;
             this.logout_but.Text = "Logout";
             this.logout_but.TextOffset = new System.Drawing.Point(-10, 20);
+            this.logout_but.Click += new System.EventHandler(this.logout_but_Click);
             // 
             // tickets_but
             // 

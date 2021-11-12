@@ -12,15 +12,16 @@ namespace SysCafé
 {
     public partial class stock_cont2 : UserControl
     {
+       
         DataSet ds;
         string name_stock="",name_kitchen="";
-        public void fill_grids()
+        public void fill_grids(string condetion)
         {
-            model.fill_kitchen_grid(ref ds);
+            model.fill_kitchen_grid(ref ds,condetion);
             kitchen_grid.DataSource = ds.Tables[0].DefaultView;
             kitchen_grid.Columns[0].HeaderText = "Name";
             kitchen_grid.Columns[1].HeaderText = "Count";
-            model.fill_inven_grid(ref ds);
+            model.fill_inven_grid(ref ds,condetion);
             ineventory_grid.DataSource = ds.Tables[0].DefaultView;
             ineventory_grid.Columns[0].HeaderText = "Name";
             ineventory_grid.Columns[1].HeaderText = "Count";
@@ -28,7 +29,7 @@ namespace SysCafé
         public stock_cont2()
         {
             InitializeComponent();
-            fill_grids();
+            fill_grids(" ");
         }
 
         private void ineventory_grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -52,7 +53,7 @@ namespace SysCafé
             {
                 model.add_ketchin(model.get_mat_id(name_stock), Convert.ToDouble(inventory_count.Value));
                 model.remov_inventory(model.get_mat_id(name_stock), Convert.ToDouble(inventory_count.Value));
-                fill_grids();
+                fill_grids(" ");
             }
             inventory_count.Value = 0;
            
@@ -68,7 +69,7 @@ namespace SysCafé
             {
                 model.add_inventor(model.get_mat_id(name_kitchen), Convert.ToDouble(kitchen_count.Value));
                 model.remov_kitchen(model.get_mat_id(name_kitchen), Convert.ToDouble(kitchen_count.Value));
-                fill_grids();
+                fill_grids(" ");
             }
             kitchen_count.Value = 0;
         }
@@ -85,9 +86,15 @@ namespace SysCafé
            
         }
 
+        private void supplier_serach_txt_TextChanged(object sender, EventArgs e)
+        {
+            fill_grids(" where material_list.material_name like  '" + supplier_serach_txt.Text + "%'");
+            
+        }
+        
         public void refresh()
         {
-            fill_grids();
+            fill_grids(" ");
         }
     }
 }
