@@ -13,7 +13,7 @@ namespace SysCafé
     {
         DataTable dt;
         string name = "", age = "", phone = "", type = "", adress = "";
-
+        int worker_id = -1, pic_id = -1;
         private void edit_but_Click(object sender, EventArgs e)
         {
             name_txt.Enabled = true;
@@ -48,7 +48,7 @@ namespace SysCafé
             pic_Form.ShowDialog();
         }
 
-        int worker_id = -1, pic_id = -1;
+        
 
 
         private void worker_list_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

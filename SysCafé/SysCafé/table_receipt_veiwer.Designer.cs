@@ -31,10 +31,14 @@ namespace SysCafé
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.order_print_class_BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.order_print_class_BindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // order_print_class_BindingSource
+            // 
+            this.order_print_class_BindingSource.DataSource = typeof(SysCafé.order_print_class);
             // 
             // reportViewer1
             // 
@@ -48,10 +52,6 @@ namespace SysCafé
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(960, 692);
             this.reportViewer1.TabIndex = 1;
-            // 
-            // order_print_class_BindingSource
-            // 
-            this.order_print_class_BindingSource.DataSource = typeof(SysCafé.order_print_class);
             // 
             // table_receipt_veiwer
             // 

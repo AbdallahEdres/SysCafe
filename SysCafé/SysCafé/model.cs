@@ -18,7 +18,7 @@ namespace SysCafé
         public static SqlDataAdapter da;
         public static int supp_id=-1;
         public static List<order_print_class> receiptd_list;
-        public static int worker_id;
+        public static int worker_id,profile_pic;
 
         /*        public static DataTable dt;
         */
@@ -419,6 +419,7 @@ namespace SysCafé
                 type = dr[4].ToString();
                 adress = dr[5].ToString();
                 pic_id = Convert.ToInt32(dr[6]);
+                profile_pic = pic_id;
             }
             dr.Close();
             cn.Close();

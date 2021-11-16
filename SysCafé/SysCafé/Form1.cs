@@ -49,7 +49,8 @@ namespace SysCafé
                 c.Show();
                 this.Hide();
             }
-           
+            username_txt.Text = "";
+            Pasword_txt.Text = "";
         }
 
         private void Pasword_txt_KeyDown(object sender, KeyEventArgs e)

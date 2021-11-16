@@ -218,6 +218,12 @@
     <Compile Include="workers_cont.Designer.cs">
       <DependentUpon>workers_cont.cs</DependentUpon>
     </Compile>
+    <Compile Include="worker_profile_cont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="worker_profile_cont.Designer.cs">
+      <DependentUpon>worker_profile_cont.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="add_supplier_form.resx">
       <DependentUpon>add_supplier_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="workers_cont.resx">
       <DependentUpon>workers_cont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="worker_profile_cont.resx">
+      <DependentUpon>worker_profile_cont.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\order_print_class.datasource" />

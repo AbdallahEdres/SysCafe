@@ -23,8 +23,9 @@ namespace SysCafé
         payment_cont pa = new payment_cont();
         menu_cashier_cont menu_cont1 = new menu_cashier_cont();
         delivery_takeaway_form delivery_Takeaway_Form = new delivery_takeaway_form();
+        worker_profile_cont worker_profile_cont1 = new worker_profile_cont();
 
-        
+
 
         #region Methods
         // naming data grid views columns 
@@ -65,7 +66,8 @@ namespace SysCafé
             menu_cont1.Hide();
             this.Controls.Add(tickets_cont1);
             tickets_cont1.Hide();
-            
+            this.Controls.Add(worker_profile_cont1);
+            worker_profile_cont1.Hide();
             tickets_cont1.tabels_grid.CellDoubleClick += new DataGridViewCellEventHandler(tickets_cont1.tabels_grid_CellDoubleClick);
             tickets_cont1.delivery_grid.CellDoubleClick += new DataGridViewCellEventHandler(tickets_cont1.delivery_grid_CellDoubleClick);
             tickets_cont1.takeaway_grid.CellDoubleClick += new DataGridViewCellEventHandler(tickets_cont1.takeaway_grid_CellDoubleClick);
@@ -73,6 +75,7 @@ namespace SysCafé
             tickets_cont1.delivery_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_to_menu);
             tickets_cont1.takeaway_grid.CellDoubleClick += new DataGridViewCellEventHandler(ticket_to_menu);
             menu_cont1.chang_but.Click += new EventHandler(tickets_but_Click);
+            profile_pic.Image = workers_pic.Images[model.profile_pic];
 
         }
 
@@ -90,6 +93,7 @@ namespace SysCafé
             tickets_cont1.Hide();
             main_panel.Hide();
             customer_cont1.Hide();
+            worker_profile_cont1.Hide();
         }
 
         // change button to selected status
@@ -217,11 +221,25 @@ namespace SysCafé
         private void refresh_but_Click(object sender, EventArgs e)
         {
             customer_cont1.refresh();
+            worker_profile_cont1.refresh();
         }
 
         private void logout_but_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void profile_pic_Click(object sender, EventArgs e)
+        {
+
+            button_reset(Home_button);
+            button_reset(menu_but);
+            button_reset(tickets_but);
+            button_reset(payment_but);
+            button_reset(customers_but);
+            hide_all();
+            worker_profile_cont1.refresh();
+            worker_profile_cont1.Show();
         }
 
         private void cashier_form_FormClosed(object sender, FormClosedEventArgs e)

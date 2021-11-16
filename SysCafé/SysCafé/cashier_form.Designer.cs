@@ -41,6 +41,7 @@ namespace SysCafé
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nav_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.profile_pic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.customers_but = new Guna.UI2.WinForms.Guna2Button();
             this.payment_but = new Guna.UI2.WinForms.Guna2Button();
             this.logout_but = new Guna.UI2.WinForms.Guna2Button();
@@ -72,9 +73,11 @@ namespace SysCafé
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.open_label = new System.Windows.Forms.Label();
             this.open_tkt_grid = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.customer_cont1 = new SysCafé.customers_cont();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.workers_pic = new System.Windows.Forms.ImageList(this.components);
+            this.customer_cont1 = new SysCafé.customers_cont();
             this.nav_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_pic)).BeginInit();
             this.top_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -94,6 +97,7 @@ namespace SysCafé
             this.nav_panel.AutoRoundedCorners = true;
             this.nav_panel.BackColor = System.Drawing.Color.White;
             this.nav_panel.BorderRadius = 49;
+            this.nav_panel.Controls.Add(this.profile_pic);
             this.nav_panel.Controls.Add(this.customers_but);
             this.nav_panel.Controls.Add(this.payment_but);
             this.nav_panel.Controls.Add(this.logout_but);
@@ -106,6 +110,18 @@ namespace SysCafé
             this.nav_panel.ShadowDecoration.Parent = this.nav_panel;
             this.nav_panel.Size = new System.Drawing.Size(100, 960);
             this.nav_panel.TabIndex = 7;
+            // 
+            // profile_pic
+            // 
+            this.profile_pic.Location = new System.Drawing.Point(4, 651);
+            this.profile_pic.Name = "profile_pic";
+            this.profile_pic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.profile_pic.ShadowDecoration.Parent = this.profile_pic;
+            this.profile_pic.Size = new System.Drawing.Size(91, 80);
+            this.profile_pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profile_pic.TabIndex = 8;
+            this.profile_pic.TabStop = false;
+            this.profile_pic.Click += new System.EventHandler(this.profile_pic_Click);
             // 
             // customers_but
             // 
@@ -737,6 +753,18 @@ namespace SysCafé
             this.open_tkt_grid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(170)))), ((int)(((byte)(41)))));
             this.open_tkt_grid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // workers_pic
+            // 
+            this.workers_pic.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("workers_pic.ImageStream")));
+            this.workers_pic.TransparentColor = System.Drawing.Color.Transparent;
+            this.workers_pic.Images.SetKeyName(0, "technician.png");
+            // 
             // customer_cont1
             // 
             this.customer_cont1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -744,12 +772,6 @@ namespace SysCafé
             this.customer_cont1.Name = "customer_cont1";
             this.customer_cont1.Size = new System.Drawing.Size(1785, 939);
             this.customer_cont1.TabIndex = 12;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // cashier_form
             // 
@@ -766,6 +788,7 @@ namespace SysCafé
             this.Text = "casheir_form";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.cashier_form_FormClosed);
             this.nav_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profile_pic)).EndInit();
             this.top_panel.ResumeLayout(false);
             this.top_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -821,5 +844,7 @@ namespace SysCafé
         private System.Windows.Forms.Label income_val;
         private Guna.UI2.WinForms.Guna2Button customers_but;
         private customers_cont customer_cont1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox profile_pic;
+        private System.Windows.Forms.ImageList workers_pic;
     }
 }
